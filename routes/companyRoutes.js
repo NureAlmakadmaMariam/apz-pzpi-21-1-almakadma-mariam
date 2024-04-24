@@ -2,14 +2,11 @@ const express = require('express');
 const companyController = require('../controllers/companyController');
 
 const router = express.Router();
-/*
-Реєстрація нової компанії
-router.post('/register', companyController.registerCompany);
-
-Авторизація компанії
-router.post('/login', companyController.loginCompany);
-*/
 
 router.get('/', companyController.getAllCompanies);
+router.put('/:id', companyController.updateCompany);
+router.put('/updateSub/:id', companyController.updateCompanySub);
+router.post('/register', companyController.registerCompany);
+router.post('/login', companyController.loginCompany);
 
 module.exports = router;
