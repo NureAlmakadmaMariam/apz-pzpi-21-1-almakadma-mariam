@@ -1,4 +1,4 @@
-// app.js
+/*// app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -15,3 +15,4 @@ const port =  3000;
 app.listen(port, () => {
     console.log(`Сервер запущено на порті ${port}`);
 });
+*/

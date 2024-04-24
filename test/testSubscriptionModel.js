@@ -35,8 +35,6 @@ Subscription.findByPk(1).then((subscription) => {
     console.error('Error finding subscription by id:', error);
 });
 
-
-/*
 // Тест для методу update
 Subscription.update({ name: 'Premium' }, { where: { subscription_id: 1 } }).then((result) => {
     console.log('Subscription updated:', result);
@@ -50,7 +48,7 @@ Subscription.destroy({ where: { subscription_id: 1 } }).then((result) => {
 }).catch((error) => {
     console.error('Error deleting subscription:', error);
 });
-*/
+
 
 // Підчищення моку після тестів
 subscriptionMock.restore();

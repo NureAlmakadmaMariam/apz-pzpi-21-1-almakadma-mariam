@@ -17,7 +17,7 @@ const Subscription = sequelize.define('Subscription', {
         allowNull: true,
     },
 }, {
-    tableName: 'subscriptions', // Назва таблиці у базі даних
+    tableName: 'subscriptions',
     timestamps: false, // Вимкнення автоматичного створення полів
 });
 
