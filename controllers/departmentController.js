@@ -14,6 +14,27 @@ const getAllDepartments = async (req, res) => {
     }
 };
 
+const createDepartment = async (req, res) => {
+    const { name, description, departmentCode, contactPersonName, contactPersonEmail, contactPersonPhone, companyId } = req.body;
+
+    try {
+        const newDepartment = await Department.create({
+            name,
+            description,
+            department_code: departmentCode,
+            contact_person_name: contactPersonName,
+            contact_person_email: contactPersonEmail,
+            contact_person_phone: contactPersonPhone,
+            company_id: companyId
+        });
+
+        res.status(201).json({ message: 'Відділ успішно створено', department: newDepartment });
+    } catch (error) {
+        console.error('Помилка при створенні відділу:', error);
+        res.status(500).json({ message: 'Помилка сервера' });
+    }
+};
+
 const getDepartmentsByCompanyId = async (req, res) => {
     const { companyId } = req.params;
     const { searchByDepartmentCode, searchByName, searchByContactPersonName, sortBy, sortOrder } = req.body;
@@ -24,7 +45,7 @@ const getDepartmentsByCompanyId = async (req, res) => {
         if (searchByDepartmentCode) {
             whereCondition.department_code = { [Op.like]: `%${searchByDepartmentCode}%` };
         }
-        if (searchByName) {
+       if (searchByName) {
             whereCondition.name = { [Op.like]: `%${searchByName}%` };
         }
         if (searchByContactPersonName) {
@@ -51,6 +72,7 @@ const getDepartmentsByCompanyId = async (req, res) => {
         res.status(500).json({ message: 'Помилка сервера' });
     }
 };
+
 
 const updateDepartment = async (req, res) => {
     const { departmentId } = req.params;
@@ -108,5 +130,6 @@ module.exports = {
     getAllDepartments,
     getDepartmentsByCompanyId,
     updateDepartment,
-    deleteDepartment
+    deleteDepartment,
+    createDepartment
 };
