@@ -4,14 +4,13 @@ exports.createTask = async (req, res) => {
     try {
         const { description, deadline, priority, owner_id } = req.body;
 
-        // Create the task with current date for created_at
         const newTask = await Task.create({
             description,
             deadline,
             priority,
-            status: 'open', // Default status is 'open'
+            status: 'open',
             owner_id,
-            created_at: new Date(), // Set created_at to current date and time
+            created_at: new Date(),
         });
 
         res.status(201).json({
