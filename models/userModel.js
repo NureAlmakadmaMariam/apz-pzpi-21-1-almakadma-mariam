@@ -28,14 +28,13 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING(255),
         allowNull: false,
         set(value) {
-            // Хешуємо пароль перед збереженням у базу даних
             const hashedPassword = bcrypt.hashSync(value, bcrypt.genSaltSync(10));
             this.setDataValue('password', hashedPassword);
         },
     },
     role: {
         type: DataTypes.ENUM('employee', 'manager'),
-        allowNull: true, /*false*/
+        defaultValue: 'employee',
     },
     department_id: {
         type: DataTypes.BIGINT,
