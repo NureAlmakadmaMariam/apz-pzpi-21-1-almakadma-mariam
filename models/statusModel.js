@@ -21,8 +21,8 @@ const Status = sequelize.define('Status', {
         allowNull: true, /*false*/
     },
 }, {
-    tableName: 'status', // Назва таблиці у базі даних
-    timestamps: false, // Вимкнення автоматичного створення полів
+    tableName: 'status',
+    timestamps: false,
 });
 
 module.exports = Status;

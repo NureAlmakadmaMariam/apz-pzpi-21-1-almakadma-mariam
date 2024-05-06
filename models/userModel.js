@@ -51,6 +51,7 @@ const User = sequelize.define('User', {
     updated_at: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
+
     },
     status_id: {
         type: DataTypes.BIGINT,
