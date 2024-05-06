@@ -7,7 +7,9 @@ const  departmentRoutes = require('./routes/departmentRoutes');
 const  userRoutes = require('./routes/userRoutes');
 const  statusRoutes = require('./routes/statusRoutes');
 const taskRoutes = require('./routes/taskRoutes');
+const taskExecutorRoutes = require('./routes/taskExecutorRoutes');
 const app = express();
+
 
 // Middleware
 app.use(bodyParser.json());
@@ -19,6 +21,8 @@ app.use('/department', departmentRoutes);
 app.use('/users', userRoutes);
 app.use('/status', statusRoutes);
 app.use('/task', taskRoutes);
+app.use('/taskExecutor', taskExecutorRoutes);
+
 
 const PORT = 3500;
 app.listen(PORT, () => {
