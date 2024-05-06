@@ -1,15 +1,19 @@
 const Task = require('../models/taskModel');
+const User = require('../models/userModel');
+const TaskExecutor = require('../models/taskExecutorModel');
+const { Op } = require('sequelize');
+const { getTaskInfoById } = require('../services/taskService');
 
 exports.createTask = async (req, res) => {
     try {
-        const { description, deadline, priority, owner_id } = req.body;
+        const { description, deadline, priority, user_id } = req.body;
 
         const newTask = await Task.create({
             description,
             deadline,
             priority,
             status: 'open',
-            owner_id,
+            user_id,
             created_at: new Date(),
         });
 
@@ -21,6 +25,7 @@ exports.createTask = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
 
 
 exports.getAllTasks = async (req, res) => {
@@ -39,6 +44,17 @@ exports.getAllTasks = async (req, res) => {
 
         const tasks = await Task.findAll({ where, order: [[sort, 'ASC']] });
         res.json(tasks);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+exports.getTaskInfo = async (req, res) => {
+    try {
+        const task_id = req.params.task_id;
+        const taskInfo = await getTaskInfoById(task_id);
+
+        res.json(taskInfo);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }

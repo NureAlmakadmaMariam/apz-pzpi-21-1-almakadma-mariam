@@ -23,6 +23,9 @@ app.use('/status', statusRoutes);
 app.use('/task', taskRoutes);
 app.use('/taskExecutor', taskExecutorRoutes);
 
+// Call initializeAssociations function after initializing Sequelize
+const initializeAssociations = require('./models/association');
+initializeAssociations();
 
 const PORT = 3500;
 app.listen(PORT, () => {
