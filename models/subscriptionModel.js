@@ -18,7 +18,7 @@ const Subscription = sequelize.define('Subscription', {
     },
 }, {
     tableName: 'subscriptions',
-    timestamps: false, // Вимкнення автоматичного створення полів
+    timestamps: false,
 });
 
 module.exports = Subscription;

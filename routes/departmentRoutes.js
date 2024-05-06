@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', departmentController.getAllDepartments);
 router.post('/', departmentController.createDepartment);
 
-router.get('/company/:companyId', departmentController.getDepartmentsByCompanyId);
+router.get('/company/:companyId', departmentController.getDepartmentsByCompanyId); /**/
 
 router.put('/:departmentId', departmentController.updateDepartment);
 router.delete('/:departmentId', departmentController.deleteDepartment);
