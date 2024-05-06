@@ -3,7 +3,6 @@ const Department = require('../models/departmentModel');
 const bcrypt = require('bcrypt');
 const transliteration = require('transliteration');
 
-// Controller functions for user operations
 exports.getUsersByCompany = async (req, res) => {
     try {
         const company_id = req.params.companyId;
@@ -60,20 +59,15 @@ exports.createUser = async (req, res) => {
     try {
         const { first_name, last_name, department_id, start_date } = req.body;
 
-        // Transliterate first name and last name if necessary
         const latinFirstName = transliteration.transliterate(first_name);
         const latinLastName = transliteration.transliterate(last_name);
 
-        // Generate email based on transliterated first name and last name
         const generatedEmail = `${latinFirstName.toLowerCase()}.${latinLastName.toLowerCase()}@example.com`;
 
-        // Generate password (for demonstration, you can adjust the complexity as needed)
         const generatedPassword = Math.random().toString(36).slice(-8); // Generates an 8-character random alphanumeric password
 
-        // Hash the password
         const hashedPassword = await bcrypt.hash(generatedPassword, 10);
 
-        // Create the user
         const newUser = await User.create({
             first_name,
             last_name,
@@ -87,8 +81,41 @@ exports.createUser = async (req, res) => {
             message: 'User created successfully',
             newUser,
             generatedPassword,
-            generatedEmail // Include the generated email in the response
+            generatedEmail
         });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+exports.updateUser = async (req, res) => {
+    try {
+        const user_id = req.params.user_id;
+        const { status_id, role, department_id, first_name, last_name } = req.body;
+
+        const user = await User.findByPk(user_id);
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const fieldsToUpdate = {
+            status_id,
+            role,
+            department_id,
+            first_name,
+            last_name
+        };
+
+        Object.entries(fieldsToUpdate).forEach(([key, value]) => {
+            if (value !== undefined) {
+                user[key] = value;
+            }
+        });
+
+        await user.save();
+
+        res.json({ message: 'User updated successfully', updatedUser: user });
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
