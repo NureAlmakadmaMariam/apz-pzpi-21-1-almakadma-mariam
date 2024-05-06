@@ -22,9 +22,22 @@ exports.createTask = async (req, res) => {
     }
 };
 
+
 exports.getAllTasks = async (req, res) => {
     try {
-        const tasks = await Task.findAll();
+        const { priority, status } = req.query;
+        const sort = req.query.sort || 'status'; // Default sorting by status
+
+        // Define filtering criteria
+        const where = {};
+        if (priority) {
+            where.priority = priority;
+        }
+        if (status) {
+            where.status = status;
+        }
+
+        const tasks = await Task.findAll({ where, order: [[sort, 'ASC']] });
         res.json(tasks);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
