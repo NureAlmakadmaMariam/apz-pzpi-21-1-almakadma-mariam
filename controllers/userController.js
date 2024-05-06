@@ -1,5 +1,6 @@
 const User = require('../models/userModel');
 const Department = require('../models/departmentModel');
+const Status = require('../models/statusModel');
 const bcrypt = require('bcrypt');
 const transliteration = require('transliteration');
 
@@ -113,6 +114,15 @@ exports.updateUser = async (req, res) => {
             }
         });
 
+        // Update status field if status_id is provided
+        if (status_id) {
+            const status = await Status.findByPk(status_id);
+            if (!status) {
+                return res.status(404).json({ error: 'Status not found' });
+            }
+            user.status_id = status_id;
+        }
+
         await user.save();
 
         res.json({ message: 'User updated successfully', updatedUser: user });
@@ -120,3 +130,4 @@ exports.updateUser = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+

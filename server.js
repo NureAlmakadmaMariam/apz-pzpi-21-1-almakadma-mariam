@@ -5,6 +5,7 @@ const companyRoutes = require('./routes/companyRoutes');
 const subscriptionRoutes = require('./routes/subscriptionRoutes');
 const  departmentRoutes = require('./routes/departmentRoutes');
 const  userRoutes = require('./routes/userRoutes');
+const  statusRoutes = require('./routes/statusRoutes');
 const app = express();
 
 // Middleware
@@ -15,6 +16,7 @@ app.use('/company', companyRoutes);
 app.use('/subscriptions', subscriptionRoutes);
 app.use('/department', departmentRoutes);
 app.use('/users', userRoutes);
+app.use('/status', statusRoutes);
 
 const PORT = 3500;
 app.listen(PORT, () => {
