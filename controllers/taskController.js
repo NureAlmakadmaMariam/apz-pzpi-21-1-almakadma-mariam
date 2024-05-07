@@ -76,3 +76,21 @@ exports.deleteTaskById = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.updateTask = async (req, res) => {
+    try {
+        const { task_id } = req.params;
+        const [updatedRowsCount, updatedTask] = await Task.update(req.body, {
+            where: { task_id },
+            returning: true,
+        });
+
+        if (updatedRowsCount > 0) {
+            res.json({ message: 'Task updated successfully', task: updatedTask[0] });
+        } else {
+            res.status(404).json({ error: 'Task not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
