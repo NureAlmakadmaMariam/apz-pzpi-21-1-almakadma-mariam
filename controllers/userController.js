@@ -1,18 +1,25 @@
 const User = require('../models/userModel');
 const Department = require('../models/departmentModel');
 const Status = require('../models/statusModel');
+const Company = require('../models/companyModel');
+
 const bcrypt = require('bcrypt');
 const transliteration = require('transliteration');
+
 
 exports.getUsersByCompany = async (req, res) => {
     try {
         const company_id = req.params.companyId;
 
         const departments = await Department.findAll({ where: { company_id: company_id } });
-
         const departmentIds = departments.map(department => department.department_id);
 
-        const users = await User.findAll({ where: { department_id: departmentIds } });
+        const users = await User.findAll({
+            where: { department_id: departmentIds },
+            attributes: { exclude: ['password'] },
+            include: { model: Status, attributes: ['name', 'description', 'type'], as: 'status' },
+        });
+
         res.json(users);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
@@ -22,7 +29,13 @@ exports.getUsersByCompany = async (req, res) => {
 exports.getUsersByDepartment = async (req, res) => {
     try {
         const department_id = req.params.department_id;
-        const users = await User.findAll({ where: { department_id } });
+
+        const users = await User.findAll({
+            where: { department_id },
+            attributes: { exclude: ['password'] },
+            include: { model: Status, attributes: ['name', 'description', 'type'], as: 'status' },
+        });
+
         res.json(users);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
@@ -134,7 +147,14 @@ exports.updateUser = async (req, res) => {
 exports.getUserById = async (req, res) => {
     try {
         const user_id = req.params.user_id;
-        const user = await User.findByPk(user_id);
+        const user = await User.findByPk(user_id, {
+            include: [
+                { model: Department, as: 'department', attributes: ['department_id', 'name'] },
+                { model: Status, as: 'status' },
+                { model: Department, as: 'department', include: { model: Company, as: 'company', attributes: ['company_id', 'name'] } }
+            ],
+            attributes: { exclude: ['password'] }
+        });
 
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
