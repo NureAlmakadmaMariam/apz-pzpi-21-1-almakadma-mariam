@@ -24,13 +24,43 @@ exports.createComment = async (req, res) => {
     }
 };
 
-/*
+exports.getCommentsByTaskId = async (req, res) => {
+    try {
+        const { taskId } = req.params;
+
+        const comments = await Comment.findAll({
+            where: { task_id: taskId },
+            include: [
+                {
+                    model: Task,
+                    as: 'task',
+                    attributes: ['task_id', 'description'],
+                },
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['first_name', 'last_name', 'email'],
+                },
+            ],
+        });
+
+        res.status(200).json({
+            message: 'Comments retrieved successfully',
+            comments,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
 exports.getAllComments = async (req, res) => {
     try {
         const comments = await Comment.findAll({
             include: [
-                { model: Task, attributes: ['task_id', 'description'], as: 'task' },
-                { model: User, attributes: ['user_id', 'name'], as: 'user' },
+                { model: Task, as: 'task', attributes: ['task_id', 'description']},
+                { model: User, as: 'user', attributes: ['email'] },
             ],
         });
 
@@ -41,28 +71,7 @@ exports.getAllComments = async (req, res) => {
     }
 };
 
-exports.getCommentById = async (req, res) => {
-    try {
-        const commentId = req.params.commentId;
 
-        const comment = await Comment.findByPk(commentId, {
-            include: [
-                { model: Task, attributes: ['task_id', 'name'], as: 'task' },
-                { model: User, attributes: ['user_id', 'name'], as: 'user' },
-            ],
-        });
-
-        if (!comment) {
-            return res.status(404).json({ error: 'Comment not found' });
-        }
-
-        res.json(comment);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-};
-*/
 exports.deleteCommentById = async (req, res) => {
     try {
         const commentId = req.params.commentId;
