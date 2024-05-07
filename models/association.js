@@ -4,6 +4,7 @@ const TaskExecutor = require('./taskExecutorModel');
 const Status = require('./statusModel');
 const Department = require('./departmentModel');
 const Company = require('./companyModel');
+const Comment = require('./commentModel');
 
 // Define the association after all models are initialized
 const initializeAssociations = () => {
@@ -14,7 +15,8 @@ const initializeAssociations = () => {
     User.belongsTo(Status, { foreignKey: 'status_id', as: 'status' });
     User.belongsTo(Department, { foreignKey: 'department_id', as: 'department' });
     Department.belongsTo(Company, { foreignKey: 'company_id', as: 'company' });
-
+    Comment.belongsTo(Task, { foreignKey: 'task_id', as: 'task' });
+    Comment.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 };
 
 module.exports = initializeAssociations;
