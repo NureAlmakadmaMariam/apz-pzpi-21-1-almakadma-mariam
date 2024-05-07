@@ -28,3 +28,22 @@ exports.getTaskExecutorsByTaskId = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.deleteTaskExecutor = async (req, res) => {
+    try {
+        const { task_id, executor_id } = req.params;
+        const deletedTaskExecutor = await TaskExecutor.destroy({
+            where: {
+                task_id,
+                executor_id
+            }
+        });
+        if (deletedTaskExecutor === 1) {
+            res.json({ message: 'Task executor deleted successfully' });
+        } else {
+            res.status(404).json({ error: 'Task executor not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
