@@ -165,3 +165,25 @@ exports.getUserById = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+exports.updateUserPassword = async (req, res) => {
+    try {
+        const { user_id } = req.params;
+        const { newPassword } = req.body;
+
+        const user = await User.findByPk(user_id);
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const hashedPassword = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(10));
+
+        await user.update({ password: hashedPassword });
+
+        res.json({ message: 'Password updated successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
