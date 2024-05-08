@@ -16,10 +16,11 @@ const initializeAssociations = () => {
     User.belongsToMany(Task, { through: TaskExecutor, foreignKey: 'executor_id', as: 'assignedTasks' });
     User.belongsTo(Status, { foreignKey: 'status_id', as: 'status' });
     User.belongsTo(Department, { foreignKey: 'department_id', as: 'department' });
+    Department.hasMany(User, { foreignKey: 'department_id', as: 'user' });
     Department.belongsTo(Company, { foreignKey: 'company_id', as: 'company' });
+    Company.hasMany(Department, { foreignKey: 'company_id', as: 'departments' });
     Comment.belongsTo(Task, { foreignKey: 'task_id', as: 'task' });
     Comment.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
-
     Company.hasMany(WorkHoursSettings, { foreignKey: 'company_id', as: 'workHoursSettings' });
     WorkHoursSettings.belongsTo(Company, { foreignKey: 'company_id', as: 'company' });
     User.hasMany(WorkHours, { foreignKey: 'user_id', as: 'workHours' });
