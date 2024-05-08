@@ -9,6 +9,7 @@ const  statusRoutes = require('./routes/statusRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const taskExecutorRoutes = require('./routes/taskExecutorRoutes');
 const commentRoutes = require('./routes/commentRoutes');
+const workHoursSettingsRouter = require('./routes/workHoursSettingsRouter');
 const app = express();
 
 
@@ -24,6 +25,7 @@ app.use('/status', statusRoutes);
 app.use('/task', taskRoutes);
 app.use('/taskExecutor', taskExecutorRoutes);
 app.use('/comment', commentRoutes);
+app.use('/wHS', workHoursSettingsRouter);
 
 // Call initializeAssociations function after initializing Sequelize
 const initializeAssociations = require('./models/association');

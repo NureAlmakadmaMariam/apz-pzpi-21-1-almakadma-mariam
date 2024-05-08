@@ -5,6 +5,8 @@ const Status = require('./statusModel');
 const Department = require('./departmentModel');
 const Company = require('./companyModel');
 const Comment = require('./commentModel');
+const WorkHoursSettings = require('./workHoursSettingsModel');
+const WorkHours = require('./workHoursModel');
 
 // Define the association after all models are initialized
 const initializeAssociations = () => {
@@ -17,6 +19,12 @@ const initializeAssociations = () => {
     Department.belongsTo(Company, { foreignKey: 'company_id', as: 'company' });
     Comment.belongsTo(Task, { foreignKey: 'task_id', as: 'task' });
     Comment.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+
+    Company.hasMany(WorkHoursSettings, { foreignKey: 'company_id', as: 'workHoursSettings' });
+    WorkHoursSettings.belongsTo(Company, { foreignKey: 'company_id', as: 'company' });
+    User.hasMany(WorkHours, { foreignKey: 'user_id', as: 'workHours' });
+    WorkHours.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+
 };
 
 module.exports = initializeAssociations;
