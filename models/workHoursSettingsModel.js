@@ -26,6 +26,10 @@ const WorkHoursSettings = sequelize.define('WorkHoursSettings', {
     work_days_per_month: {
         type: DataTypes.INTEGER,
         allowNull: true,
+    },
+    hours_per_day: { //without break
+        type: DataTypes.DOUBLE,
+        allowNull: true,
     }
 }, {
     tableName: 'work_hours_settings',

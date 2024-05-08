@@ -31,10 +31,10 @@ exports.getAll = async (req, res) => {
 
 exports.updateHoursSettings = async (req, res) => {
     const { setting_id } = req.params;
-    const { max_overtime_hours_per_day, overtime_notification_email, work_days_per_month } = req.body;
+    const { max_overtime_hours_per_day, overtime_notification_email, work_days_per_month, hours_per_day } = req.body;
     try {
         const updatedSettings = await WorkHoursSettings.update(
-            { max_overtime_hours_per_day, overtime_notification_email, work_days_per_month },
+            { max_overtime_hours_per_day, overtime_notification_email, work_days_per_month, hours_per_day },
             { where: { setting_id }, returning: true }
         );
         res.json(updatedSettings[1][0]);
@@ -45,7 +45,7 @@ exports.updateHoursSettings = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
-    const { company_id, max_overtime_hours_per_day, overtime_notification_email, work_days_per_month } = req.body;
+    const { company_id, max_overtime_hours_per_day, overtime_notification_email, work_days_per_month, hours_per_day } = req.body;
     try {
         const company = await Company.findByPk(company_id);
         if (!company) {
@@ -56,7 +56,8 @@ exports.create = async (req, res) => {
             company_id,
             max_overtime_hours_per_day,
             overtime_notification_email,
-            work_days_per_month
+            work_days_per_month,
+            hours_per_day
         });
 
         res.status(201).json(newSettings);
