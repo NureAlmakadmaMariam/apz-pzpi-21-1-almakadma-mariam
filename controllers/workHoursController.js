@@ -1,5 +1,7 @@
 // workHoursController.js
 const WorkHours = require('../models/workHoursModel');
+const Department = require('../models/departmentModel');
+const User = require('../models/userModel');
 const { endWorkPeriod } = require('../services/workHoursService');
 const { endBreak } = require('../services/breakService')
 
@@ -50,6 +52,48 @@ exports.endWork = async (req, res) => {
     try {
         await endWorkPeriod(work_hours_id);
         res.json({ message: 'Work period ended successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
+exports.getAllByDepartment = async (req, res) => {
+    const { department_id } = req.params;
+    try {
+        const workHours = await WorkHours.findAll({
+            include: [
+                {
+                    association: 'user',
+                    attributes: { exclude: ['password', 'status_id'] },
+                    where: { department_id },
+                    include: {
+                        association: 'department',
+                        attributes: ['department_id', 'name'],
+                        include: {
+                            association: 'company',
+                            attributes: ['name', 'email']
+                        }
+                    }
+                }
+            ],
+            order: [['date', 'ASC']]
+        });
+        res.json(workHours);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
+exports.getAllByUser = async (req, res) => {
+    const { user_id } = req.params;
+    try {
+        const workHours = await WorkHours.findAll({
+            where: { user_id },
+            order: [['date', 'ASC']]
+        });
+        res.json(workHours);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server Error' });

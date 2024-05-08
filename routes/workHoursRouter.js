@@ -9,4 +9,7 @@ router.post('/:work_hours_id/start-break', workHoursController.startBreak);
 router.post('/:work_hours_id/end-break', workHoursController.endBreak);
 router.post('/:work_hours_id/end', workHoursController.endWork);
 
+router.get('/department/:department_id', workHoursController.getAllByDepartment);
+router.get('/user/:user_id', workHoursController.getAllByUser);
+
 module.exports = router;
