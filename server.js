@@ -13,7 +13,7 @@ const workHoursSettingsRouter = require('./routers/workHoursSettingsRouter');
 const workHoursRouter = require('./routers/workHoursRouter');
 const achievementRouter = require('./routers/achievementRouter');
 const rewardRouter = require('./routers/rewardRouter');
-
+const usersRewardRouter = require('./routers/usersRewardRouter');
 const app = express();
 
 
@@ -33,6 +33,8 @@ app.use('/wHS', workHoursSettingsRouter);
 app.use('/workH', workHoursRouter);
 app.use('/achievements', achievementRouter);
 app.use('/reward', rewardRouter);
+app.use('/users-reward', usersRewardRouter);
+
 
 // Call initializeAssociations function after initializing Sequelize
 const initializeAssociations = require('./models/association');
