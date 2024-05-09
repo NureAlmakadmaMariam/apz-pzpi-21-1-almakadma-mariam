@@ -2,7 +2,6 @@
 const UsersReward = require('../models/usersRewardModel');
 const User = require('../models/userModel');
 const Reward = require('../models/rewardModel');
-const { getUsersByCompany } = require('./userService');
 
 exports.assignReward = async (userId, rewardId) => {
     try {
@@ -43,31 +42,3 @@ exports.markRewardAsRedeemed = async (usersRewardId) => {
     }
 };
 
-/*
-exports.getRewardsByCompany = async (companyId) => {
-    try {
-        // Get users belonging to the company
-        const users = await getUsersByCompany(companyId);
-
-        // Get rewards for those users
-        const rewards = await Reward.findAll({
-            include: [
-                {
-                    model: UsersReward,
-                    where: {
-                        user_id: users.map(user => user.user_id),
-                        redeemed: false // Optionally, you can filter only unredeemed rewards
-                    },
-                    required: true // Ensure only rewards with matching users are included
-                }
-            ]
-        });
-
-        return rewards;
-    } catch (error) {
-        console.error('Error fetching rewards by company:', error);
-        throw error;
-    }
-};
-
- */

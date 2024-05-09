@@ -30,12 +30,13 @@ const initializeAssociations = () => {
     WorkHours.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
     User.hasMany(Achievement, { foreignKey: 'user_id', as: 'achievements' });
     Achievement.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
-
-    User.belongsToMany(Reward, { through: UsersReward, foreignKey: 'user_id', as: 'rewards' });
-    Reward.belongsToMany(User, { through: UsersReward, foreignKey: 'reward_id', as: 'users' });
-
     Reward.belongsTo(Company, { foreignKey: 'company_id', as: 'company' });
     Company.hasMany(Reward, { foreignKey: 'company_id', as: 'rewards' });
+
+    UsersReward.belongsTo(Reward, { foreignKey: 'reward_id', as: 'reward' });
+    Reward.hasMany(UsersReward, { foreignKey: 'reward_id', as: 'usersRewards' });
+    UsersReward.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+
 
 };
 

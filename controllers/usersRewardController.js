@@ -1,5 +1,9 @@
 //usersRewardController
 const UsersRewardService = require('../services/usersRewardService');
+const UsersReward = require('../models/usersRewardModel');
+const User = require('../models/userModel');
+const Reward = require('../models/rewardModel');
+
 
 exports.assignReward = async (req, res) => {
     const { user_id, reward_id } = req.body;
@@ -33,16 +37,51 @@ exports.markRewardAsRedeemed = async (req, res) => {
     }
 };
 
-/*
-exports.getRewardsByCompany = async (req, res) => {
+
+exports.getUsersAndRewardsByCompany = async (req, res) => {
     const companyId = req.params.companyId;
+    const departmentId = req.params.departmentId;
 
     try {
-        const rewards = await UsersRewardService.getRewardsByCompany(companyId);
-        res.status(200).json({ rewards });
+        let usersAndRewards;
+
+        if (departmentId) {
+            usersAndRewards = await UsersReward.findAll({
+                include: [
+                    {
+                        model: User,
+                        as: 'user',
+                        attributes: ['role', 'points', 'email', 'department_id'],
+                    },
+                    {
+                        model: Reward,
+                        as: 'reward',
+                        where: { company_id: companyId },
+                    }
+                ],
+                where: { '$user.department_id$': departmentId }
+            });
+        } else {
+            usersAndRewards = await UsersReward.findAll({
+                include: [
+                    {
+                        model: User,
+                        as: 'user',
+                        attributes: ['role', 'points', 'email', 'department_id'],
+                    },
+                    {
+                        model: Reward,
+                        as: 'reward',
+                        where: { company_id: companyId },
+                    }
+                ]
+            });
+        }
+
+        res.status(200).json({ usersAndRewards });
     } catch (error) {
-        console.error('Error fetching rewards by company:', error);
+        console.error('Error fetching users and rewards by company and department:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
-*/
+
