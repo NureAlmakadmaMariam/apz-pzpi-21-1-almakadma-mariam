@@ -1,6 +1,8 @@
 // achievementController.js
 const Achievement = require('../models/achievementModel');
 const User = require('../models/userModel');
+const Department = require('../models/departmentModel');
+const userService = require('../services/UserService');
 
 exports.createAchievement = async (req, res) => {
     try {
@@ -47,5 +49,49 @@ exports.deleteAchievementById = async (req, res) => {
         return res.status(200).json({ message: 'Achievement deleted successfully' });
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+exports.getAchievementsByCompany = async (req, res) => {
+    const companyId = req.params.companyId;
+
+    try {
+        const users = await userService.getUsersByCompany(companyId);
+
+        const achievements = await Achievement.findAll({
+            attributes: [
+                'achievement_id',
+                'title',
+                'description',
+                'points_awarded',
+                'date_achieved'
+            ],
+            include: [
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['user_id', 'email', 'role'],
+                    include: [
+                        {
+                            model: Department,
+                            as: 'department',
+                            attributes: ['department_id', 'name']
+                        }
+                    ]
+                }
+            ],
+            where: {
+                user_id: users.map(user => user.user_id)
+            }
+        });
+
+        res.status(200).json({
+            achievements: achievements
+        });
+    } catch (error) {
+        console.error('Error fetching achievements:', error);
+        res.status(500).json({
+            message: 'Internal server error'
+        });
     }
 };
