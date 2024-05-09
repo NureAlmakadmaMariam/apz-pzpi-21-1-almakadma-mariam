@@ -1,5 +1,4 @@
 //rewardController.js
-const Reward = require('../models/rewardModel');
 const RewardService = require('../services/rewardService');
 
 exports.getRewardsByCompany = async (req, res) => {

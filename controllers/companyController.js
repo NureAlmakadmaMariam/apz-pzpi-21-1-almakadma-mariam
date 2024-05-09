@@ -4,7 +4,7 @@ const Subscription = require('../models/subscriptionModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-const getAllCompanies = async (req, res) => {
+exports.getAllCompanies = async (req, res) => {
     try {
         const companies = await Company.findAll();
         if (companies.length === 0) {
@@ -17,7 +17,7 @@ const getAllCompanies = async (req, res) => {
     }
 };
 
-const registerCompany = async (req, res) => {
+exports.registerCompany = async (req, res) => {
     const { name, email, password, address, subscription_type_id, status_id } = req.body;
 
     try {
@@ -39,7 +39,7 @@ const registerCompany = async (req, res) => {
     }
 };
 
-const loginCompany = async (req, res) => {
+exports.loginCompany = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -66,7 +66,7 @@ const loginCompany = async (req, res) => {
 };
 
 
-const updateCompanySub = async (req, res) => {
+exports.updateCompanySub = async (req, res) => {
     const { id } = req.params;
     const { subscription_type } = req.body;
 
@@ -95,7 +95,7 @@ const updateCompanySub = async (req, res) => {
     }
 };
 
-const updateCompany = async (req, res) => {
+exports.updateCompany = async (req, res) => {
     const { id } = req.params;
     const { name, address } = req.body;
 
@@ -107,14 +107,5 @@ const updateCompany = async (req, res) => {
         console.error('Помилка при оновленні даних компанії:', error);
         res.status(500).json({ message: 'Помилка сервера', error });
     }
-};
-
-
-module.exports = {
-    getAllCompanies,
-    updateCompany,
-    updateCompanySub,
-    registerCompany,
-    loginCompany,
 };
 

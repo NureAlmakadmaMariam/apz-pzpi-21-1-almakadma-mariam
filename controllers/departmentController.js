@@ -1,7 +1,7 @@
 const Department = require('../models/departmentModel');
 const { Op } = require('sequelize');
 
-const getAllDepartments = async (req, res) => {
+exports.getAllDepartments = async (req, res) => {
     try {
         const departments = await Department.findAll();
         if (departments.length === 0) {
@@ -14,7 +14,7 @@ const getAllDepartments = async (req, res) => {
     }
 };
 
-const createDepartment = async (req, res) => {
+exports.createDepartment = async (req, res) => {
     const { name, description, departmentCode, contactPersonName, contactPersonEmail, contactPersonPhone, companyId } = req.body;
 
     try {
@@ -35,7 +35,7 @@ const createDepartment = async (req, res) => {
     }
 };
 
-const getDepartmentsByCompanyId = async (req, res) => {
+exports.getDepartmentsByCompanyId = async (req, res) => {
     const { companyId } = req.params;
     const { searchByDepartmentCode, searchByName, searchByContactPersonName, sortBy, sortOrder } = req.body;
 
@@ -74,7 +74,7 @@ const getDepartmentsByCompanyId = async (req, res) => {
 };
 
 
-const updateDepartment = async (req, res) => {
+exports.updateDepartment = async (req, res) => {
     const { departmentId } = req.params;
     const { description, departmentCode, contactPersonName, contactPersonEmail, contactPersonPhone } = req.body;
 
@@ -109,7 +109,7 @@ const updateDepartment = async (req, res) => {
     }
 };
 
-const deleteDepartment = async (req, res) => {
+exports.deleteDepartment = async (req, res) => {
     const { departmentId } = req.params;
 
     try {
@@ -125,11 +125,3 @@ const deleteDepartment = async (req, res) => {
     }
 };
 
-
-module.exports = {
-    getAllDepartments,
-    getDepartmentsByCompanyId,
-    updateDepartment,
-    deleteDepartment,
-    createDepartment
-};
