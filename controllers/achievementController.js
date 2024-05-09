@@ -54,9 +54,17 @@ exports.deleteAchievementById = async (req, res) => {
 
 exports.getAchievementsByCompany = async (req, res) => {
     const companyId = req.params.companyId;
+    const departmentId = req.query.departmentId; // Assuming the department ID is passed as a query parameter
 
     try {
         const users = await userService.getUsersByCompany(companyId);
+
+        const userFilter = { user_id: users.map(user => user.user_id) };
+
+        if (departmentId) {
+            const usersByDepartment = users.filter(user => user.department_id === departmentId);
+            userFilter.user_id = usersByDepartment.map(user => user.user_id);
+        }
 
         const achievements = await Achievement.findAll({
             attributes: [
@@ -80,9 +88,7 @@ exports.getAchievementsByCompany = async (req, res) => {
                     ]
                 }
             ],
-            where: {
-                user_id: users.map(user => user.user_id)
-            }
+            where: userFilter
         });
 
         res.status(200).json({
