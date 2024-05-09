@@ -12,6 +12,7 @@ const Reward = require('./rewardModel');
 const UsersReward = require('./usersRewardModel');
 const Room = require('./roomModel');
 const Card = require('./cardModel');
+const AccessLog = require('./accessLogModel');
 
 // Define the association after all models are initialized
 const initializeAssociations = () => {
@@ -44,7 +45,10 @@ const initializeAssociations = () => {
 
     Card.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
     User.hasMany(Card, { foreignKey: 'user_id', as: 'cards' });
-
+    
+    AccessLog.belongsTo(Card, { foreignKey: 'card_id', as: 'card' });
+    AccessLog.belongsTo(Room, { foreignKey: 'room_id', as: 'room' });
+    
 };
 
 module.exports = initializeAssociations;

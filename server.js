@@ -16,6 +16,7 @@ const rewardRouter = require('./routers/rewardRouter');
 const usersRewardRouter = require('./routers/usersRewardRouter');
 const roomRouter = require('./routers/roomRouter');
 const cardRouter = require('./routers/cardRouter');
+const accessLogRouter = require('./routers/accessLogRouter');
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use('/reward', rewardRouter);
 app.use('/users-reward', usersRewardRouter);
 app.use('/rooms', roomRouter);
 app.use('/cards', cardRouter);
+app.use('/accessLog', accessLogRouter);
 
 // Call initializeAssociations function after initializing Sequelize
 const initializeAssociations = require('./models/association');

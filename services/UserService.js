@@ -1,3 +1,4 @@
+//UserService.js
 const Department = require('../models/departmentModel');
 const User = require('../models/userModel');
 const Company = require('../models/companyModel');
