@@ -27,3 +27,4 @@ exports.createReward = async (title, description, points_required, type, company
         throw error;
     }
 };
+
