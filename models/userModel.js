@@ -1,11 +1,9 @@
 // userModel.js
-
 const { DataTypes } = require('sequelize');
 const sequelize = require('../configuration/dbConfig');
 const bcrypt = require('bcrypt');
 const Department = require('./departmentModel');
 const Status = require('./statusModel');
-const Task = require('./taskModel');
 
 const User = sequelize.define('User', {
     user_id: {

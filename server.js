@@ -1,17 +1,18 @@
 const { express, router, pool } = require('./configuration/commonConfig');
 const sequelize = require('./configuration/dbConfig');
 const bodyParser = require('body-parser');
-const companyRoutes = require('./routes/companyRoutes');
-const subscriptionRoutes = require('./routes/subscriptionRoutes');
-const  departmentRoutes = require('./routes/departmentRoutes');
-const  userRoutes = require('./routes/userRoutes');
-const  statusRoutes = require('./routes/statusRoutes');
-const taskRoutes = require('./routes/taskRoutes');
-const taskExecutorRoutes = require('./routes/taskExecutorRoutes');
-const commentRoutes = require('./routes/commentRoutes');
-const workHoursSettingsRouter = require('./routes/workHoursSettingsRouter');
-const workHoursRouter = require('./routes/workHoursRouter');
-const achievementRouter = require('./routes/achievementRouter');
+const companyRoutes = require('./routers/companyRouter');
+const subscriptionRoutes = require('./routers/subscriptionRouter');
+const  departmentRoutes = require('./routers/departmentRouter');
+const  userRoutes = require('./routers/userRouter');
+const  statusRoutes = require('./routers/statusRouter');
+const taskRoutes = require('./routers/taskRouter');
+const taskExecutorRoutes = require('./routers/taskExecutorRouter');
+const commentRoutes = require('./routers/commentRouter');
+const workHoursSettingsRouter = require('./routers/workHoursSettingsRouter');
+const workHoursRouter = require('./routers/workHoursRouter');
+const achievementRouter = require('./routers/achievementRouter');
+const rewardRouter = require('./routers/rewardRouter');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use('/comment', commentRoutes);
 app.use('/wHS', workHoursSettingsRouter);
 app.use('/workH', workHoursRouter);
 app.use('/achievements', achievementRouter);
+app.use('/reward', rewardRouter);
 
 // Call initializeAssociations function after initializing Sequelize
 const initializeAssociations = require('./models/association');
