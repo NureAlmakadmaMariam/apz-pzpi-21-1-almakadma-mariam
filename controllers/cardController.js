@@ -1,5 +1,6 @@
 // cardController.js
 const Card = require('../models/cardModel');
+const { getUsersByCompany } = require('../services/UserService');
 
 exports.createCard = async (req, res) => {
     const { user_id } = req.body;
@@ -49,6 +50,26 @@ exports.deleteCard = async (req, res) => {
         res.status(200).json({ message: 'Card deleted successfully' });
     } catch (error) {
         console.error('Error deleting card:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+exports.getCardsAndUsersByCompany = async (req, res) => {
+    const { companyId } = req.params;
+
+    try {
+        // Get users from the specific company
+        const users = await getUsersByCompany(companyId);
+
+        // Retrieve cards for each user
+        const cards = await Promise.all(users.map(async (user) => {
+            const userCards = await Card.findAll({ where: { user_id: user.user_id } });
+            return { user, cards: userCards };
+        }));
+
+        res.status(200).json({ cards });
+    } catch (error) {
+        console.error('Error fetching cards and users by company:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
