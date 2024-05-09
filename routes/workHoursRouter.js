@@ -13,7 +13,7 @@ router.get('/user/:user_id', workHoursController.getAllByUser);
 router.get('/company/:companyId/users-with-work-hours', workHoursController.getWorkHoursByCompany);
 
 
-
-router.get('/check-overtime/:companyId', workHoursController.checkAndSendOvertimeNotifications);
+/*
+router.get('/check-overtime/:companyId', workHoursController.checkAndSendOvertimeNotifications);*/
 
 module.exports = router;

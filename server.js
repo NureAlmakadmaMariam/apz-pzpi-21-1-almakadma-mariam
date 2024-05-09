@@ -11,6 +11,8 @@ const taskExecutorRoutes = require('./routes/taskExecutorRoutes');
 const commentRoutes = require('./routes/commentRoutes');
 const workHoursSettingsRouter = require('./routes/workHoursSettingsRouter');
 const workHoursRouter = require('./routes/workHoursRouter');
+const achievementRouter = require('./routes/achievementRouter');
+
 const app = express();
 
 
@@ -28,6 +30,7 @@ app.use('/taskExecutor', taskExecutorRoutes);
 app.use('/comment', commentRoutes);
 app.use('/wHS', workHoursSettingsRouter);
 app.use('/workH', workHoursRouter);
+app.use('/achievements', achievementRouter);
 
 // Call initializeAssociations function after initializing Sequelize
 const initializeAssociations = require('./models/association');
