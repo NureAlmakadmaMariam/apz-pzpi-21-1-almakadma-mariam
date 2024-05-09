@@ -48,7 +48,7 @@ const initializeAssociations = () => {
     
     AccessLog.belongsTo(Card, { foreignKey: 'card_id', as: 'card' });
     AccessLog.belongsTo(Room, { foreignKey: 'room_id', as: 'room' });
-    
+
 };
 
 module.exports = initializeAssociations;
