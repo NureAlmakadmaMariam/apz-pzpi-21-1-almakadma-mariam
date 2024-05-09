@@ -10,6 +10,7 @@ const WorkHours = require('./workHoursModel');
 const Achievement = require('./achievementModel');
 const Reward = require('./rewardModel');
 const UsersReward = require('./usersRewardModel');
+const Room = require('./roomModel');
 
 // Define the association after all models are initialized
 const initializeAssociations = () => {
@@ -37,6 +38,8 @@ const initializeAssociations = () => {
     Reward.hasMany(UsersReward, { foreignKey: 'reward_id', as: 'usersRewards' });
     UsersReward.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 
+    Room.belongsTo(Company, { foreignKey: 'company_id', as: 'company' });
+    Company.hasMany(Room, { foreignKey: 'company_id', as: 'rooms' });
 
 };
 
