@@ -1,9 +1,11 @@
 // reportController.js
-const { generateTaskStatusReportPDF } = require('../services/pdfGenerator');
+const { generateDepartmentWorkHoursReportPDF } = require('../services/pdfGenerator');
 const { getUsersByCompany } = require('../services/UserService');
 const sequelize = require('../configuration/dbConfig');
 const Task = require('../models/taskModel');
 const User = require('../models/userModel');
+const workHoursController = require('../controllers/workHoursController');
+const pdfGenerator = require('../services/pdfGenerator');
 
 exports.getTaskStatusReport = async (req, res) => {
     try {
@@ -32,3 +34,22 @@ exports.getTaskStatusReport = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+/*
+exports.generateDepartmentWorkHoursReport = async (req, res) => {
+    const { department_id } = req.params;
+    try {
+        // Fetch work hours data for the department
+        const workHoursData = await workHoursController.getAllByDepartment({ params: { department_id } });
+
+        // Generate PDF report using the workHoursData
+        const pdfBuffer = await pdfGenerator.generateDepartmentWorkHoursReport(workHoursData);
+
+        // Set response headers for PDF
+        res.contentType('application/pdf');
+        res.send(pdfBuffer);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+*/

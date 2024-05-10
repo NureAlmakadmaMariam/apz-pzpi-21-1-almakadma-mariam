@@ -4,5 +4,7 @@ const router = express.Router();
 const reportController = require('../controllers/reportController');
 
 router.get('/task-status/:company_id', reportController.getTaskStatusReport);
-
+/*
+router.get('/work-hours/:department_id', reportController.generateDepartmentWorkHoursReport);
+*/
 module.exports = router;

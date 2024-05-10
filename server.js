@@ -18,12 +18,14 @@ const roomRouter = require('./routers/roomRouter');
 const cardRouter = require('./routers/cardRouter');
 const accessLogRouter = require('./routers/accessLogRouter');
 const reportRouter = require('./routers/reportRouter');
+
+const backupRouter = require('./routers/backupRouter');
 const app = express();
 
 
 // Middleware
 app.use(bodyParser.json());
-
+app.use('/backup', backupRouter);
 // Routes
 app.use('/company', companyRoutes);
 app.use('/subscriptions', subscriptionRoutes);
