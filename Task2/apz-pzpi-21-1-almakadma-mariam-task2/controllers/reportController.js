@@ -4,7 +4,7 @@ const { getUsersByCompany } = require('../services/UserService');
 const sequelize = require('../configuration/dbConfig');
 const Task = require('../models/taskModel');
 const User = require('../models/userModel');
-const workHoursController = require('../controllers/workHoursController');
+const workHoursController = require('./workHoursController');
 const pdfGenerator = require('../services/pdfGenerator');
 
 exports.getTaskStatusReport = async (req, res) => {
