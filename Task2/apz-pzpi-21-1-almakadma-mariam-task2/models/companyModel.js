@@ -50,7 +50,7 @@ const Company = sequelize.define('Company', {
     },
 }, {
     tableName: 'company',
-    timestamps: false, // Вимкнення автоматичного створення полів created_at та updated_at
+    timestamps: false,
 });
 
 module.exports = Company;
