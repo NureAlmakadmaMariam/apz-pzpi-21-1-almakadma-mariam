@@ -3,6 +3,7 @@ const Company = require('../models/companyModel');
 const Subscription = require('../models/subscriptionModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const blacklist = new Set();
 
 exports.getAllCompanies = async (req, res) => {
     try {
@@ -109,3 +110,36 @@ exports.updateCompany = async (req, res) => {
     }
 };
 
+// Function to logout
+exports.logoutCompany = (req, res) => {
+    const token = req.headers.authorization;
+
+    if (!token) {
+        return res.status(401).json({ message: 'Token not provided' });
+    }
+
+    blacklist.add(token); // Add token to blacklist
+
+    res.json({ message: 'Logout successful' });
+};
+
+// Middleware to verify token
+exports.verifyToken = (req, res, next) => {
+    const token = req.headers.authorization;
+
+    if (!token) {
+        return res.status(401).json({ message: 'Token not provided' });
+    }
+
+    if (blacklist.has(token)) {
+        return res.status(401).json({ message: 'Token revoked. Please log in again.' });
+    }
+
+    jwt.verify(token, 'your_secret_key', (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ message: 'Invalid token' });
+        }
+        req.companyId = decoded.companyId; // Add company ID to request object
+        next();
+    });
+};

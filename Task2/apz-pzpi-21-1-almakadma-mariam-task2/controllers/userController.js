@@ -2,6 +2,7 @@ const User = require('../models/userModel');
 const Department = require('../models/departmentModel');
 const Status = require('../models/statusModel');
 const Company = require('../models/companyModel');
+const jwt = require('jsonwebtoken');
 
 const bcrypt = require('bcrypt');
 const transliteration = require('transliteration');
@@ -186,4 +187,39 @@ exports.updateUserPassword = async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
+};
+
+function generateToken(user) {
+    return jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+}
+
+exports.login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        // Find user by email
+        const user = await User.findOne({ where: { email } });
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Check password
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (!passwordMatch) {
+            return res.status(401).json({ error: 'Incorrect password' });
+        }
+
+        // Generate JWT token
+        const token = generateToken(user);
+
+        // Send token to client
+        res.json({ token });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+exports.logout = async (req, res) => {
+    // Just a placeholder, as JWT tokens are stateless, there's no explicit logout
+    res.json({ message: 'Logout successful' });
 };

@@ -8,5 +8,6 @@ router.put('/:id', companyController.updateCompany);
 router.put('/updateSub/:id', companyController.updateCompanySub);
 router.post('/register', companyController.registerCompany);
 router.post('/login', companyController.loginCompany);
+router.post('/logout', companyController.logoutCompany);
 
 module.exports = router;
