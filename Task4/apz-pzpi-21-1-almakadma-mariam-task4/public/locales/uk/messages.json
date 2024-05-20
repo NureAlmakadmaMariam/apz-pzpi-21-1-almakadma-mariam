@@ -1,0 +1,8 @@
+
+{
+  "login.email": "Електронна пошта",
+  "login.password": "Пароль",
+  "login.button": "Увійти",
+  "login.error": "Помилка входу: {message}",
+  "login.header": "Вхід для компанії"
+}

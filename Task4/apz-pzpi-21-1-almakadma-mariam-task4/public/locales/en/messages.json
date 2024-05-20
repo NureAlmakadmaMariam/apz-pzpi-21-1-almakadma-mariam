@@ -1,0 +1,8 @@
+
+{
+  "login.email": "Email",
+  "login.password": "Password",
+  "login.button": "Login",
+  "login.error": "Failed to login: {message}",
+  "login.header": "Login for company"
+}

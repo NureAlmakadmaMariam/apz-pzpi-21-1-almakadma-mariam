@@ -22,6 +22,12 @@ const reportRouter = require('./routers/reportRouter');
 const backupRouter = require('./routers/backupRouter');
 const app = express();
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
 
 // Middleware
 app.use(bodyParser.json());
@@ -50,6 +56,8 @@ const initializeAssociations = require('./models/association');
 initializeAssociations();
 
 const PORT = 3500;
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
