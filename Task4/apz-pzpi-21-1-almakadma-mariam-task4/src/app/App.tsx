@@ -1,8 +1,8 @@
-// src/app/App.tsx
 import React, { useEffect, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import { AuthProvider } from '../context/AuthContext';
 import { AppRouter } from './router/AppRouter';
+import styles from '../styles/App.module.css';
 
 function App() {
     const [locale, setLocale] = useState('en'); // English as default
@@ -28,11 +28,13 @@ function App() {
     return (
         <AuthProvider>
             <IntlProvider locale={locale} messages={messages}>
-                <div>
-                    <button onClick={() => setLocale('en')}>English</button>
-                    <button onClick={() => setLocale('uk')}>Українська</button>
+                <div className={styles.appContainer}>
+                    <div className={styles.languageSwitcher}>
+                        <button onClick={() => setLocale('en')}>English</button>
+                        <button onClick={() => setLocale('uk')}>Українська</button>
+                    </div>
+                    <AppRouter />
                 </div>
-                <AppRouter />
             </IntlProvider>
         </AuthProvider>
     );

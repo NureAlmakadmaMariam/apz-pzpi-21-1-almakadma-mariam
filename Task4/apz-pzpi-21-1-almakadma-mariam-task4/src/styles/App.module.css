@@ -1,0 +1,16 @@
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.languageSwitcher {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.languageSwitcher button {
+    margin-left: 10px;
+}

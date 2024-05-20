@@ -15,6 +15,7 @@
   "status.desc": "Status Description",
   "company.createdAt": "Created At",
   "company.details": "Company Details",
-  "address.notProvided": "Not provided"
+  "address.notProvided": "Not provided",
+  "company.sett": "Company Settings"
 
 }

@@ -15,5 +15,6 @@
   "status.desc": "Опис статусу",
   "company.createdAt": "Створено",
   "company.details": "Відомості про компанію",
-  "address.notProvided": "Не вказано"
+  "address.notProvided": "Не вказано",
+  "company.sett": "Налаштування компанії"
 }

@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+}
+
+.mainСontent {
+    margin-left: 250px; /* This should match the width of your sidebar */
+    padding: 20px;
+    flex: 1;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.details p {
+    margin: 10px 0;
+}
+
