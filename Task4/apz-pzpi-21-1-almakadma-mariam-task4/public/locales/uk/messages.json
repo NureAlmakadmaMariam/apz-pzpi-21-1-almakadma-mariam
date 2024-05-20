@@ -9,5 +9,11 @@
   "login.registrationPrompt": "Немає акаунта?",
   "register.submitB": "Зареєструватися",
   "registration.title": "Реєстрація",
-  "registration.name": "Назва"
+  "registration.name": "Назва",
+  "company.address": "Адреса",
+  "company.status": "Статус",
+  "status.desc": "Опис статусу",
+  "company.createdAt": "Створено",
+  "company.details": "Відомості про компанію",
+  "address.notProvided": "Не вказано"
 }

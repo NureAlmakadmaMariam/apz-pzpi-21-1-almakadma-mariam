@@ -9,5 +9,12 @@
   "login.registrationPrompt": "Don't have an account?",
   "register.submitB": "Register",
   "registration.title": "Registration",
-  "registration.name": "Name"
+  "registration.name": "Name",
+  "company.address": "Address",
+  "company.status": "Status",
+  "status.desc": "Status Description",
+  "company.createdAt": "Created At",
+  "company.details": "Company Details",
+  "address.notProvided": "Not provided"
+
 }
