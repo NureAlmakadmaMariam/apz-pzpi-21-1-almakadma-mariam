@@ -1,8 +1,13 @@
 
 {
-  "login.email": "Електронна пошта",
-  "login.password": "Пароль",
+  "lR.email": "Електронна пошта",
+  "lR.password": "Пароль",
   "login.button": "Увійти",
   "login.error": "Помилка входу: {message}",
-  "login.header": "Вхід для компанії"
+  "login.header": "Вхід для компанії",
+  "login.registrationLink": "Реєстрація компанії",
+  "login.registrationPrompt": "Немає акаунта?",
+  "register.submitB": "Зареєструватися",
+  "registration.title": "Реєстрація",
+  "registration.name": "Назва"
 }

@@ -1,8 +1,13 @@
 
 {
-  "login.email": "Email",
-  "login.password": "Password",
+  "lR.email": "Email",
+  "lR.password": "Password",
   "login.button": "Login",
   "login.error": "Failed to login: {message}",
-  "login.header": "Login for company"
+  "login.header": "Login for company",
+  "login.registrationLink": "Company registration",
+  "login.registrationPrompt": "Don't have an account?",
+  "register.submitB": "Register",
+  "registration.title": "Registration",
+  "registration.name": "Name"
 }

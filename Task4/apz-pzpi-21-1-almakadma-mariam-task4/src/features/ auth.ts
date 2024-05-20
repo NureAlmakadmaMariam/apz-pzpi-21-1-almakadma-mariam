@@ -1,17 +1,23 @@
 // src/features/auth.ts
+import axios from 'axios';
+
 export async function loginCompany(email: string, password: string) {
-    const response = await fetch('http://localhost:3500/company/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-    });
+    try {
+        const response = await axios.post('http://localhost:3500/company/login', {
+            email,
+            password
+        });
 
-    if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message);
+        return response.data;
+    } catch (error) {
+        throw new Error('Failed to login: ' + Error.arguments);
     }
-
-    return response.json();
 }
+export const registerCompany = async (formData: any) => {
+    try {
+        const response = await axios.post('http://localhost:3500/company/register', formData);
+        return response.data;
+    } catch (error) {
+        throw new Error('Failed to register company: ' + Error.arguments);
+    }
+};

@@ -9,6 +9,7 @@
 }
 
 .loginHeader {
+    padding: 20px;
     margin-top: auto;
     text-align: center;
 }
@@ -22,6 +23,7 @@
 }
 
 .loginForm label {
+    font-size: 20px;
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
@@ -53,4 +55,11 @@
 .errorMessage {
     color: red;
     margin-bottom: 12px;
+}
+
+.registrationLink{
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    font-size: 25px;
 }
