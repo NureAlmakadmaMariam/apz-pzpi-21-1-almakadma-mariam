@@ -1,6 +1,8 @@
 // companyController.js
 const Company = require('../models/companyModel');
 const Subscription = require('../models/subscriptionModel');
+const Status = require('../models/statusModel');
+
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const blacklist = new Set();
@@ -123,23 +125,25 @@ exports.logoutCompany = (req, res) => {
     res.json({ message: 'Logout successful' });
 };
 
-// Middleware to verify token
-exports.verifyToken = (req, res, next) => {
-    const token = req.headers.authorization;
+exports.getCompanyById = async (req, res) => {
+    const { id } = req.params;
 
-    if (!token) {
-        return res.status(401).json({ message: 'Token not provided' });
-    }
+    try {
+        const company = await Company.findByPk(id, {
+            attributes: { exclude: ['password'] },
+            include: [
+                { model: Subscription, attributes: ['name', 'description'], as: 'subscription' },
+                { model: Status, attributes: ['name', 'description'], as: 'status' }
+            ]
+        });
 
-    if (blacklist.has(token)) {
-        return res.status(401).json({ message: 'Token revoked. Please log in again.' });
-    }
-
-    jwt.verify(token, 'your_secret_key', (err, decoded) => {
-        if (err) {
-            return res.status(401).json({ message: 'Invalid token' });
+        if (!company) {
+            return res.status(404).json({ message: 'Компанію не знайдено' });
         }
-        req.companyId = decoded.companyId; // Add company ID to request object
-        next();
-    });
+
+        res.status(200).json(company);
+    } catch (error) {
+        console.error('Помилка при отриманні даних компанії:', error);
+        res.status(500).json({ message: 'Помилка сервера' });
+    }
 };

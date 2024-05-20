@@ -1,32 +1,25 @@
 // src/components/LoginForm.tsx
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { useAuth } from '../hooks/useAuth'; // Імпортуємо хук useAuth
 import styles from '../styles/LoginPage.module.css';
-
 
 const LoginForm: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
-    const authContext = useContext(AuthContext);
+    const { login } = useAuth(); // Використовуємо хук useAuth
     const navigate = useNavigate();
-
-    if (!authContext) {
-        throw new Error('LoginForm must be used within an AuthProvider');
-    }
-
-    const { login } = authContext;
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         setError(null);
         try {
             await login(email, password);
-            navigate('/dashboard');
+            navigate('/company-settings'); // Перенаправляємо користувача на сторінку налаштувань компанії
         } catch (err) {
-            setError(error);
+            setError(Error.arguments); // Встановлюємо помилку в стані, якщо вона виникла під час входу
         }
     };
 
@@ -51,12 +44,10 @@ const LoginForm: React.FC = () => {
             </div>
             <button type="submit"><FormattedMessage id="login.button" /></button>
         </form>
-
-
     );
-
-
 }
 
 export default LoginForm;
+
+
 
