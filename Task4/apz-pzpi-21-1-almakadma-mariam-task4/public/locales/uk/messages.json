@@ -17,5 +17,23 @@
   "company.details": "Відомості про компанію",
   "address.notProvided": "Не вказано",
   "company.sett": "Налаштування компанії",
-  "button.saveChanges": "Зберегти зміни"
+  "button.saveChanges": "Зберегти зміни",
+  "company.user": "Працівники та керівники",
+  "department.all": "Всі відділи",
+  "users.load": "Завантаження користувачів...",
+  "department.load": "Завантаження відділів...",
+  "company.Id.notFound": "Ідентифікатор компанії не знайдено в сховищі",
+
+  "user.email": "Пошта:",
+  "department.name": "Назва відділу:",
+  "department.code": "Код відділу:",
+  "user.startDate": "Початок роботи:",
+  "user.status": "Статус:",
+  "user.name": "Ім'я та прізвище:",
+  "user.role": "Посада:",
+  "manager.position": "керівник",
+  "employee.position": "працівник",
+
+  "status.no": "Без статусу",
+  "status.descNo": "Немає опису"
 }

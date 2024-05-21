@@ -29,7 +29,7 @@ const Sidebar: React.FC = () => {
                             to="/company-users"
                             className={({ isActive }) => (isActive ? 'active-link' : '')}
                         >
-                            Company User
+                            <FormattedMessage id="company.user" />
                         </NavLink>
                     </li>
                 </ul>

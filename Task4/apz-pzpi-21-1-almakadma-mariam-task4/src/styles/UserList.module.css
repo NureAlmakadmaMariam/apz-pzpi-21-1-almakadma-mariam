@@ -1,0 +1,28 @@
+/* src/styles/UserList.module.css */
+
+.userList {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.userList h2 {
+    margin-top: 0;
+}
+
+.userList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.userList li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.userCard {
+    padding: 10px;
+    border: 1px solid #ddd; /* Додали рамку для кожного користувача */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}

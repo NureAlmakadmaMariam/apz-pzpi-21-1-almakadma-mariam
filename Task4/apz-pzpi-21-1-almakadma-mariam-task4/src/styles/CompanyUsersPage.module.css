@@ -1,0 +1,11 @@
+/* src/styles/CompanyUsersPage.module.css */
+
+.container {
+    display: flex;
+}
+
+.mainContent {
+    margin-left: 250px; /* This should match the width of your sidebar */
+    padding: 20px;
+    flex: 1;
+}

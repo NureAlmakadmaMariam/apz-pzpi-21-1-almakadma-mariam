@@ -17,6 +17,23 @@
   "company.details": "Company Details",
   "address.notProvided": "Not provided",
   "company.sett": "Company Settings",
-  "button.saveChanges": "Save Changes"
+  "button.saveChanges": "Save Changes",
+  "company.user": "Employees and managers",
+  "department.all": "All Departments",
+  "users.load": "Loading users...",
+  "department.load": "Loading departments...",
+  "company.Id.notFound": "Company ID not found in localStorage",
 
+  "user.email": "Email:",
+  "department.name": "Department name:",
+  "department.code": "Department code:",
+  "user.startDate": "Start Date:",
+  "user.status": "Status:",
+  "user.name": "First name and surname:",
+  "user.role": "Role:",
+  "manager.position": "manager",
+  "employee.position": "employee",
+
+  "status.no": "No status",
+  "status.descNo": "No description"
 }
