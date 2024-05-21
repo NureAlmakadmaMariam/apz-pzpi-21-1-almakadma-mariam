@@ -14,3 +14,13 @@ export const getUsersByCompany = async (companyId: string, lastName: string = ''
         throw new Error('Failed to fetch users');
     }
 };
+
+export const deleteUser = async (userId: string) => {
+    try {
+        await axios.delete(`http://localhost:3500/users/${userId}`);
+        return { success: true };
+    } catch (error) {
+        console.error('Failed to delete user:', error);
+        throw new Error('Failed to delete user');
+    }
+};

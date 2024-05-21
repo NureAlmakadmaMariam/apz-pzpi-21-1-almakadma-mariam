@@ -9,26 +9,26 @@ export const useUsersByCompany = (companyId: string, lastName: string) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        if (!companyId) {
+    const fetchUsers = async () => {
+        setLoading(true);
+        try {
+            const usersData = await getUsersByCompany(companyId, lastName);
+            setUsers(usersData);
+        } catch (error) {
+            setError('Failed to fetch users');
+        } finally {
             setLoading(false);
-            setError('Company ID is missing');
-            return;
         }
+    };
 
-        const fetchUsers = async () => {
-            try {
-                const usersData = await getUsersByCompany(companyId, lastName);
-                setUsers(usersData);
-            } catch (error) {
-                setError('Failed to fetch users');
-            } finally {
-                setLoading(false);
-            }
-        };
-
+    useEffect(() => {
         fetchUsers();
     }, [companyId, lastName]);
 
-    return { users, loading, error };
+    // Функція для оновлення списку користувачів
+    const refetch = () => {
+        fetchUsers();
+    };
+
+    return { users, loading, error, refetch }; // Повертаємо об'єкт з властивістю refetch
 };

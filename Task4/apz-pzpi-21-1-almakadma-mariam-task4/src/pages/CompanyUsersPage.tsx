@@ -14,7 +14,7 @@ const CompanyUsersPage: React.FC = () => {
     const [selectedDepartmentId, setSelectedDepartmentId] = useState<string | null>(null);
     const [lastName, setLastName] = useState<string>('');
 
-    const { users, loading: usersLoading, error: usersError } = useUsersByCompany(companyId || '', lastName);
+    const { users, loading: usersLoading, error: usersError, refetch: refetchUsers } = useUsersByCompany(companyId || '', lastName);
     const { departments, loading: departmentsLoading, error: departmentsError } = useDepartments(companyId || '');
 
     const handleDepartmentChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -23,6 +23,11 @@ const CompanyUsersPage: React.FC = () => {
 
     const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLastName(event.target.value);
+    };
+
+    const handleDeleteUser = () => {
+        // Оновити список користувачів після видалення
+        refetchUsers();
     };
 
     const filteredUsers = selectedDepartmentId
@@ -64,7 +69,7 @@ const CompanyUsersPage: React.FC = () => {
                 ) : usersError ? (
                     <p>{usersError}</p>
                 ) : (
-                    <UserList users={filteredUsers} />
+                    <UserList users={filteredUsers} onDelete={handleDeleteUser} />
                 )}
             </div>
         </div>
@@ -72,3 +77,4 @@ const CompanyUsersPage: React.FC = () => {
 };
 
 export default CompanyUsersPage;
+

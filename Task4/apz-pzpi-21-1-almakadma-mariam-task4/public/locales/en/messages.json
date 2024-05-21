@@ -37,5 +37,6 @@
   "status.no": "No status",
   "status.descNo": "No description",
   "user.lastN": "Search by last name",
-  "users.noAvailable": "No users available"
+  "users.noAvailable": "No users available",
+  "user.delete": "Delete User"
 }
