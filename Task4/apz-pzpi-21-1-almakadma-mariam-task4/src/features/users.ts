@@ -1,5 +1,6 @@
 // src/features/users.ts
 import axios from 'axios';
+import { User } from '../interfaces/User';
 
 export const getUsersByCompany = async (companyId: string, lastName: string = '') => {
     try {
@@ -22,5 +23,15 @@ export const deleteUser = async (userId: string) => {
     } catch (error) {
         console.error('Failed to delete user:', error);
         throw new Error('Failed to delete user');
+    }
+};
+
+export const updateUser = async (userId: string, userData: Partial<User>): Promise<User> => {
+    try {
+        const response = await axios.put(`http://localhost:3500/users/${userId}`, userData);
+        return response.data.updatedUser;
+    } catch (error) {
+        console.error('Failed to update user:', error);
+        throw new Error('Failed to update user');
     }
 };

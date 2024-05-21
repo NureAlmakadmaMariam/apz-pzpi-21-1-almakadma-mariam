@@ -38,5 +38,6 @@
   "status.descNo": "No description",
   "user.lastN": "Search by last name",
   "users.noAvailable": "No users available",
-  "user.delete": "Delete User"
+  "user.delete": "Delete User",
+  "button.save": "Save"
 }

@@ -1,0 +1,17 @@
+.editableField {
+    display: inline-block;
+    position: relative;
+    font-size: 17px;
+}
+
+.editableField input {
+    font-size: 1em;
+    padding: 0.2em;
+    margin-right: 0.5em;
+}
+
+.saveIcon {
+    cursor: pointer;
+    color: #4CAF50;
+}
+

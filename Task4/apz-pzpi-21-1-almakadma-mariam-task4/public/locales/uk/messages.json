@@ -38,5 +38,6 @@
   "status.descNo": "Немає опису",
   "user.lastN": "Пошук за прізвищем",
   "users.noAvailable": "Користувачі не доступні",
-  "user.delete": "Видалити Користувача"
+  "user.delete": "Видалити Користувача",
+  "button.save": "Зберегти"
 }

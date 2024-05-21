@@ -13,7 +13,7 @@ interface DeleteUserButtonProps {
 const DeleteUserButton: React.FC<DeleteUserButtonProps> = ({ user, onDelete }) => {
     const handleDelete = async () => {
         try {
-            await deleteUser(user.user_id); // Викликаємо функцію для видалення користувача
+            await deleteUser(user.user_id.toString());  // Викликаємо функцію для видалення користувача
             onDelete(); // Викликаємо колбек-функцію onDelete для оновлення списку користувачів
         } catch (error) {
             console.error('Failed to delete user:', error);

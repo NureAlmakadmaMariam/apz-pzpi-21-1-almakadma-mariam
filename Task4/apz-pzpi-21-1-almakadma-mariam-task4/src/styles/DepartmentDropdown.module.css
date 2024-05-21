@@ -3,5 +3,10 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 17px;
+}
+
+.departmentDropdownUpdate {
+    border-radius: 2px;
+    font-size: 14px;
 }

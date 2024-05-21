@@ -41,3 +41,21 @@ font-size: 15px;
 .deleteButton:hover {
     background-color: #575757;
 }
+
+.editableField {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px; /* Додаємо відступ між елементами */
+}
+
+.editableField input {
+    font-size: 1em;
+    padding: 0.2em;
+    margin-right: 0.5em;
+}
+
+.saveIcon {
+    cursor: pointer;
+    color: #4CAF50;
+}
+

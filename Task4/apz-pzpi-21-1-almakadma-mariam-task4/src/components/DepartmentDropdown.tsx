@@ -2,25 +2,30 @@
 
 import React from 'react';
 import { Department } from '../interfaces/Department';
+import { FormattedMessage } from 'react-intl';
 import styles from '../styles/DepartmentDropdown.module.css';
-import {FormattedMessage} from "react-intl";
 
 interface DepartmentDropdownProps {
     departments: Department[];
-    selectedDepartmentId: string | null;
+    selectedDepartmentId: number | null;
     onDepartmentChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    className?: string;
 }
 
 const DepartmentDropdown: React.FC<DepartmentDropdownProps> = ({
                                                                    departments,
                                                                    selectedDepartmentId,
                                                                    onDepartmentChange,
+                                                                   className, // Отримуємо параметр для класу стилів
                                                                }) => {
+    // Додаємо клас стилів до основного класу стилів
+    const dropdownClass = className ? `${styles.dropdown} ${className}` : styles.dropdown;
+
     return (
         <select
-            value={selectedDepartmentId || ''}
+            value={selectedDepartmentId !== null ? selectedDepartmentId.toString() : ''}
             onChange={onDepartmentChange}
-            className={styles.dropdown}
+            className={dropdownClass} // Використовуємо об'єднаний клас стилів
         >
             <option value=""><FormattedMessage id="department.all" /></option>
             {departments.map(department => (
