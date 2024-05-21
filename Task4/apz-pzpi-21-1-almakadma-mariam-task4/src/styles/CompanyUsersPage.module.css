@@ -5,7 +5,22 @@
 }
 
 .mainContent {
-    margin-left: 250px; /* This should match the width of your sidebar */
+    margin-left: 250px;
     padding: 20px;
+    flex: 1;
+}
+
+.filterContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
     flex: 1;
 }

@@ -9,7 +9,7 @@ interface UserListProps {
 
 const UserList: React.FC<UserListProps> = ({ users }) => {
     if (!users || users.length === 0) {
-        return <div>No users available</div>;
+        return <div><FormattedMessage id="users.noAvailable" /></div>;
     }
 
     return (

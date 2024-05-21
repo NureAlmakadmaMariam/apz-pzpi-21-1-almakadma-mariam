@@ -3,11 +3,12 @@ const Department = require('../models/departmentModel');
 const Status = require('../models/statusModel');
 const Company = require('../models/companyModel');
 const jwt = require('jsonwebtoken');
+const { Op } = require('sequelize');
 
 const bcrypt = require('bcrypt');
 const transliteration = require('transliteration');
 
-
+/*
 exports.getUsersByCompany = async (req, res) => {
     try {
         const company_id = req.params.companyId;
@@ -28,6 +29,41 @@ exports.getUsersByCompany = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+*/
+
+
+exports.getUsersByCompany = async (req, res) => {
+    try {
+        const company_id = req.params.companyId;
+        const last_name = req.query.last_name;
+
+        const departments = await Department.findAll({ where: { company_id: company_id } });
+        const departmentIds = departments.map(department => department.department_id);
+
+        const userWhere = {
+            department_id: departmentIds
+        };
+
+        if (last_name) {
+            userWhere.last_name = {
+                [Op.like]: `%${last_name}%` // використання оператора 'like' для часткового збігу
+            };
+        }
+
+        const users = await User.findAll({
+            where: userWhere,
+            attributes: { exclude: ['password'] },
+            include: [
+                { model: Status, attributes: ['name', 'description', 'type'], as: 'status' },
+                { model: Department, as: 'department', attributes: ['department_id', 'name', 'department_code'] }
+            ],
+        });
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
 
 exports.getUsersByDepartment = async (req, res) => {
     try {

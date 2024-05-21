@@ -35,5 +35,7 @@
   "employee.position": "employee",
 
   "status.no": "No status",
-  "status.descNo": "No description"
+  "status.descNo": "No description",
+  "user.lastN": "Search by last name",
+  "users.noAvailable": "No users available"
 }

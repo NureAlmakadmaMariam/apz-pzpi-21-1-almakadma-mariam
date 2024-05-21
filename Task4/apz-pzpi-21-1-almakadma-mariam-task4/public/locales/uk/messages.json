@@ -35,5 +35,7 @@
   "employee.position": "працівник",
 
   "status.no": "Без статусу",
-  "status.descNo": "Немає опису"
+  "status.descNo": "Немає опису",
+  "user.lastN": "Пошук за прізвищем",
+  "users.noAvailable": "Користувачі не доступні"
 }

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { User } from '../interfaces/User';
 import { getUsersByCompany } from '../features/users';
 
-export const useUsersByCompany = (companyId: string) => {
+export const useUsersByCompany = (companyId: string, lastName: string) => {
     const [users, setUsers] = useState<User[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -18,7 +18,7 @@ export const useUsersByCompany = (companyId: string) => {
 
         const fetchUsers = async () => {
             try {
-                const usersData = await getUsersByCompany(companyId);
+                const usersData = await getUsersByCompany(companyId, lastName);
                 setUsers(usersData);
             } catch (error) {
                 setError('Failed to fetch users');
@@ -28,7 +28,7 @@ export const useUsersByCompany = (companyId: string) => {
         };
 
         fetchUsers();
-    }, [companyId]);
+    }, [companyId, lastName]);
 
     return { users, loading, error };
 };
