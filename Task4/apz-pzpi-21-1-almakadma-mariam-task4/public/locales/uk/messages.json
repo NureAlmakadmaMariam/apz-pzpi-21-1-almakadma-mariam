@@ -16,5 +16,6 @@
   "company.createdAt": "Створено",
   "company.details": "Відомості про компанію",
   "address.notProvided": "Не вказано",
-  "company.sett": "Налаштування компанії"
+  "company.sett": "Налаштування компанії",
+  "button.saveChanges": "Зберегти зміни"
 }

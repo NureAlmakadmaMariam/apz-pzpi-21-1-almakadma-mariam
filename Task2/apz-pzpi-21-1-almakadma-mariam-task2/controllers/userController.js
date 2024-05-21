@@ -18,9 +18,11 @@ exports.getUsersByCompany = async (req, res) => {
         const users = await User.findAll({
             where: { department_id: departmentIds },
             attributes: { exclude: ['password'] },
-            include: { model: Status, attributes: ['name', 'description', 'type'], as: 'status' },
+            include: [
+                { model: Status, attributes: ['name', 'description', 'type'], as: 'status' },
+                { model: Department, as: 'department', attributes: ['department_id', 'name', 'department_code'] }
+            ],
         });
-
         res.json(users);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });

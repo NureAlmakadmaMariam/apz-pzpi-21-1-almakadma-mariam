@@ -16,6 +16,7 @@
   "company.createdAt": "Created At",
   "company.details": "Company Details",
   "address.notProvided": "Not provided",
-  "company.sett": "Company Settings"
+  "company.sett": "Company Settings",
+  "button.saveChanges": "Save Changes"
 
 }
