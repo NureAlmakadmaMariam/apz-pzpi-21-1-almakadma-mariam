@@ -1,6 +1,7 @@
 // src/features/departments.ts
 
 import axios from 'axios';
+import {Department} from '../interfaces/Department'
 
 export const getDepartmentsByCompanyId = async (companyId: string, searchByName: string, searchByContactPersonName: string) => {
     try {
@@ -37,5 +38,15 @@ export const updateDepartment = async (
     } catch (error) {
         console.error('Failed to update department:', error);
         throw new Error('Failed to update department');
+    }
+};
+
+export const createDepartment = async (formData: Department) => {
+    try {
+        const response = await axios.post('http://localhost:3500/department/', formData);
+        return response.data;
+    } catch (error) {
+        console.error('Failed to create department:', error);
+        throw new Error('Failed to create department');
     }
 };

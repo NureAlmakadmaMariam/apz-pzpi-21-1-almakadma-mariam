@@ -1,5 +1,4 @@
 // src/components/DepartmentItem.tsx
-// src/components/DepartmentItem.tsx
 import React, { useState } from 'react';
 import { Department } from '../interfaces/Department';
 import styles from '../styles/DepartmentList.module.css';

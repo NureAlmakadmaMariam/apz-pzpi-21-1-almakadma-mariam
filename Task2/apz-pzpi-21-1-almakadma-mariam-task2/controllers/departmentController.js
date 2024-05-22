@@ -15,7 +15,9 @@ exports.getAllDepartments = async (req, res) => {
 };
 
 exports.createDepartment = async (req, res) => {
-    const { name, description, departmentCode, contactPersonName, contactPersonEmail, contactPersonPhone, companyId } = req.body;
+    const { name, description, departmentCode, contactPersonName, contactPersonEmail, contactPersonPhone, company_id } = req.body;
+
+    console.log("Data received on the server:", req.body); // Додайте цей рядок
 
     try {
         const newDepartment = await Department.create({
@@ -25,7 +27,7 @@ exports.createDepartment = async (req, res) => {
             contact_person_name: contactPersonName,
             contact_person_email: contactPersonEmail,
             contact_person_phone: contactPersonPhone,
-            company_id: companyId
+            company_id
         });
 
         res.status(201).json({ message: 'Відділ успішно створено', department: newDepartment });
@@ -34,6 +36,7 @@ exports.createDepartment = async (req, res) => {
         res.status(500).json({ message: 'Помилка сервера' });
     }
 };
+
 
 exports.getDepartmentsByCompanyId = async (req, res) => {
     const { companyId } = req.params;
