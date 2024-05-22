@@ -19,7 +19,8 @@ const CompanyUsersPage: React.FC = () => {
     const [createdUserInfo, setCreatedUserInfo] = useState<{ email: string, password: string } | null>(null);
 
     const { users, loading: usersLoading, error: usersError, refetch: refetchUsers } = useUsersByCompany(companyId || '', lastName);
-    const { departments, loading: departmentsLoading, error: departmentsError } = useDepartments(companyId || '');
+    const { departments, loading: departmentsLoading, error: departmentsError } = useDepartments(companyId || '', '', '');
+
 
     const handleDeleteUser = () => {
         refetchUsers();

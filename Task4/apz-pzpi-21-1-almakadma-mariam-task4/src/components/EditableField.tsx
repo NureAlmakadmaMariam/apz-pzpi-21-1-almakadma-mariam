@@ -13,9 +13,11 @@ const EditableField: React.FC<EditableFieldProps> = ({ value, onSave, className 
     const [newValue, setNewValue] = useState(value);
 
     const handleSave = () => {
+        console.log("New value:", newValue);
         onSave(newValue);
         setIsEditing(false);
     };
+
 
     return (
         <span className={`${styles.editableField} ${className}`}>

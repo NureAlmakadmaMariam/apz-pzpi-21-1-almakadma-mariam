@@ -6,6 +6,8 @@ import DashboardPage from '../../pages/DashboardPage';
 import RegistrationPage from '../../pages/RegistrationPage';
 import CompanySettingsPage from "../../pages/CompanySettingsPage";
 import CompanyUsersPage from "../../pages/CompanyUsersPage";
+import DepartmentsPage from "../../pages/DepartmentsPage";
+
 export const AppRouter: React.FC = () => {
     return (
         <Router>
@@ -15,6 +17,7 @@ export const AppRouter: React.FC = () => {
                 <Route path="/registration" element={<RegistrationPage />} />
                 <Route path="/company-settings" element={<CompanySettingsPage />} />
                 <Route path="/company-users" element={<CompanyUsersPage />} />
+                <Route path="/company-department" element={<DepartmentsPage />} />
             </Routes>
         </Router>
     );

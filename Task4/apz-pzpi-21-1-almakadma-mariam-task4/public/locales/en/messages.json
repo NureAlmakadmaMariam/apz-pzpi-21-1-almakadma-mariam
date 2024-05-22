@@ -46,5 +46,13 @@
   "user.create": "Create employee",
   "user.FirstName": "First Name",
   "user.LastName": "Last Name",
-  "department.select": "Select Department"
+  "department.select": "Select Department",
+  "company.department": "Departments",
+
+  "department.phone": "Phone:",
+  "department.email": "Email:",
+  "department.contactP": "Contact Person:",
+  "department.desc": "Description:",
+  "department.noInfo": "No information",
+  "button.edit": "Edit"
 }

@@ -46,5 +46,13 @@
   "user.create": "Створити працівника",
   "user.FirstName": "Ім'я",
   "user.LastName": "Прізвище",
-  "department.select": "Вибрати відділ"
+  "department.select": "Вибрати відділ",
+  "company.department": "Відділи",
+
+  "department.phone": "Телефон:",
+  "department.email": "Пошта:",
+  "department.contactP": "Контактна особа:",
+  "department.desc": "Опис:",
+  "department.noInfo": "Немає інформації",
+  "button.edit": "Змінити"
 }

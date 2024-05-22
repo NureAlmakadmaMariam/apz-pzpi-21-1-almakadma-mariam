@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { getDepartmentsByCompanyId } from '../features/departments';
 import { Department } from '../interfaces/Department';
 
-export const useDepartments = (companyId: string) => {
+export const useDepartments = (companyId: string, searchByName: string, searchByContactPersonName: string) => {
     const [departments, setDepartments] = useState<Department[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -18,7 +18,7 @@ export const useDepartments = (companyId: string) => {
 
         const fetchDepartments = async () => {
             try {
-                const departmentsData = await getDepartmentsByCompanyId(companyId);
+                const departmentsData = await getDepartmentsByCompanyId(companyId, searchByName, searchByContactPersonName); // Передавання параметрів пошуку
                 setDepartments(departmentsData);
             } catch (error) {
                 setError('Failed to fetch departments');
@@ -28,7 +28,7 @@ export const useDepartments = (companyId: string) => {
         };
 
         fetchDepartments();
-    }, [companyId]);
+    }, [companyId, searchByName, searchByContactPersonName]); // Додайте параметри пошуку до залежностей useEffect
 
     return { departments, loading, error };
 };
