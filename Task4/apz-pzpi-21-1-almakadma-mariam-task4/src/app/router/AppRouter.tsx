@@ -7,6 +7,7 @@ import RegistrationPage from '../../pages/RegistrationPage';
 import CompanySettingsPage from "../../pages/CompanySettingsPage";
 import CompanyUsersPage from "../../pages/CompanyUsersPage";
 import DepartmentsPage from "../../pages/DepartmentsPage";
+import TaskStatusReportPage from "../../pages/TaskStatusReportPage";
 
 export const AppRouter: React.FC = () => {
     return (
@@ -18,6 +19,7 @@ export const AppRouter: React.FC = () => {
                 <Route path="/company-settings" element={<CompanySettingsPage />} />
                 <Route path="/company-users" element={<CompanyUsersPage />} />
                 <Route path="/company-department" element={<DepartmentsPage />} />
+                <Route path="/task-status-report" element={<TaskStatusReportPage />} />
             </Routes>
         </Router>
     );

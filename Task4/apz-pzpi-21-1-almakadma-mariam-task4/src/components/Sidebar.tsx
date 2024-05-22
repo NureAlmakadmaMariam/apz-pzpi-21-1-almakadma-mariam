@@ -42,6 +42,15 @@ const Sidebar: React.FC = () => {
                         </NavLink>
                     </li>
 
+                    <li>
+                        <NavLink
+                            to="/task-status-report"
+                            className={({ isActive }) => (isActive ? 'active-link' : '')}
+                        >
+                            <FormattedMessage id="task.report" />
+                        </NavLink>
+                    </li>
+
                 </ul>
             </nav>
         </div>

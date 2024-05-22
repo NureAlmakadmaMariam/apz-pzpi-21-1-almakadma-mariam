@@ -54,5 +54,12 @@
   "department.contactP": "Contact Person:",
   "department.desc": "Description:",
   "department.noInfo": "No information",
-  "button.edit": "Edit"
+  "button.edit": "Edit",
+
+  "task.report": "Report",
+  "taskReport.name": "Task Status Report",
+  "taskStatus.open": "Open",
+  "taskStatus.in_progress": "In progress",
+  "taskStatus.closed": "Closed",
+  "taskStatus.frozen": "Frozen"
 }

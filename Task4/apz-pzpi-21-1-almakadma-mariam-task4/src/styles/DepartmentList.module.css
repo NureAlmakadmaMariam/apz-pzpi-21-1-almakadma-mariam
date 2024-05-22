@@ -1,0 +1,14 @@
+/* src/components/DepartmentList.module.css */
+
+.department-list {
+    margin-top: 20px;
+
+}
+
+.departmentItemWrapper {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+}

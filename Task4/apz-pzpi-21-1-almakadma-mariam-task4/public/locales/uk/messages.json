@@ -54,5 +54,12 @@
   "department.contactP": "Контактна особа:",
   "department.desc": "Опис:",
   "department.noInfo": "Немає інформації",
-  "button.edit": "Змінити"
+  "button.edit": "Змінити",
+
+  "task.report": "Звіт",
+  "taskReport.name": "Звіт про стан завдання",
+  "taskStatus.open": "Відкрито",
+  "taskStatus.in_progress": "В процесі",
+  "taskStatus.closed": "Закрито",
+  "taskStatus.frozen": "Заморожено"
 }
