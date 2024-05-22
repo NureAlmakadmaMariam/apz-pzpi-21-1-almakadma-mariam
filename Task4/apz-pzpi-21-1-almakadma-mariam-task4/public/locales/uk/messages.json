@@ -39,5 +39,12 @@
   "user.lastN": "Пошук за прізвищем",
   "users.noAvailable": "Користувачі не доступні",
   "user.delete": "Видалити Користувача",
-  "button.save": "Зберегти"
+  "button.save": "Зберегти",
+  "user.created": "Було створено працівника",
+  "user.copyDetails": "Скопіювати дані працівника",
+  "user.password": "Пароль",
+  "user.create": "Створити працівника",
+  "user.FirstName": "Ім'я",
+  "user.LastName": "Прізвище",
+  "department.select": "Вибрати відділ"
 }

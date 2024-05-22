@@ -39,5 +39,12 @@
   "user.lastN": "Search by last name",
   "users.noAvailable": "No users available",
   "user.delete": "Delete User",
-  "button.save": "Save"
+  "button.save": "Save",
+  "user.created": "Employee was created",
+  "user.copyDetails": "Copy employee data",
+  "user.password": "Password",
+  "user.create": "Create employee",
+  "user.FirstName": "First Name",
+  "user.LastName": "Last Name",
+  "department.select": "Select Department"
 }

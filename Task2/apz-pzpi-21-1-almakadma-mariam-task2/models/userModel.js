@@ -55,7 +55,7 @@ const User = sequelize.define('User', {
     },
     status_id: {
         type: DataTypes.BIGINT,
-        allowNull: true, //false//
+        defaultValue: 2,
         references: {
             model: Status,
             key: 'status_id',

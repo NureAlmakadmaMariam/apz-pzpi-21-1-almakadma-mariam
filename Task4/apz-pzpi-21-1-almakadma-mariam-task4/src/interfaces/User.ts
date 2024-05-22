@@ -2,7 +2,8 @@ export interface User {
     user_id: number;
     first_name: string;
     last_name: string;
-    email: string;
+    email?: string;
+    password?: string;
     role: 'employee' | 'manager';
     department_id: number;
     start_date: string;

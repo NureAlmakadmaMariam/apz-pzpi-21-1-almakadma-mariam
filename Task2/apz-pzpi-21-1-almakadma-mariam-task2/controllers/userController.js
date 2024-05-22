@@ -8,29 +8,6 @@ const { Op } = require('sequelize');
 const bcrypt = require('bcrypt');
 const transliteration = require('transliteration');
 
-/*
-exports.getUsersByCompany = async (req, res) => {
-    try {
-        const company_id = req.params.companyId;
-
-        const departments = await Department.findAll({ where: { company_id: company_id } });
-        const departmentIds = departments.map(department => department.department_id);
-
-        const users = await User.findAll({
-            where: { department_id: departmentIds },
-            attributes: { exclude: ['password'] },
-            include: [
-                { model: Status, attributes: ['name', 'description', 'type'], as: 'status' },
-                { model: Department, as: 'department', attributes: ['department_id', 'name', 'department_code'] }
-            ],
-        });
-        res.json(users);
-    } catch (error) {
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-};
-*/
-
 
 exports.getUsersByCompany = async (req, res) => {
     try {
@@ -132,9 +109,11 @@ exports.createUser = async (req, res) => {
 
         res.status(201).json({
             message: 'User created successfully',
-            newUser,
-            generatedPassword,
-            generatedEmail
+            newUser: {
+                ...newUser.toJSON(),
+                email: generatedEmail,
+                password: generatedPassword
+            }
         });
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });

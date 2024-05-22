@@ -35,3 +35,14 @@ export const updateUser = async (userId: string, userData: Partial<User>): Promi
         throw new Error('Failed to update user');
     }
 };
+
+export const createUser = async (userData: Partial<User>): Promise<{ email: string, password: string }> => {
+    try {
+        const response = await axios.post('http://localhost:3500/users/', userData);
+        const { email, password } = response.data.newUser;
+        return { email, password };
+    } catch (error) {
+        console.error('Failed to create user:', error);
+        throw new Error('Failed to create user');
+    }
+};
