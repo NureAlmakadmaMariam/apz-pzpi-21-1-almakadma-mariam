@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 import styles from "../styles/Departments.module.css";
 import { Department } from '../interfaces/Department';
 import CreateDepartmentForm from '../components/CreateDepartmentForm';
+import {FormattedMessage} from "react-intl";
 
 const DepartmentsPage: React.FC = () => {
     const companyId = parseInt(localStorage.getItem('companyId') || '0', 10); // Перетворення на число
