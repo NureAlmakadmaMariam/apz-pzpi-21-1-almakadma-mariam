@@ -206,9 +206,6 @@ exports.updateUserPassword = async (req, res) => {
     }
 };
 
-function generateToken(user) {
-    return jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-}
 
 exports.login = async (req, res) => {
     try {
@@ -226,11 +223,8 @@ exports.login = async (req, res) => {
             return res.status(401).json({ error: 'Incorrect password' });
         }
 
-        // Generate JWT token
-        const token = generateToken(user);
 
-        // Send token to client
-        res.json({ token });
+        res.json({ user_id });
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }

@@ -1,21 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import '../styles/Sidebar.css';
 import {FormattedMessage} from "react-intl";
+import LogoutButton from './LogoutCompButton';
 
 const Sidebar: React.FC = () => {
+
     return (
         <div className="sidebar">
             <nav>
                 <ul>
-                    <li>
-                        <NavLink
-                            to="/dashboard"
-                            className={({ isActive }) => (isActive ? 'active-link' : '')}
-                        >
-                            Dashboard
-                        </NavLink>
-                    </li>
                     <li>
                         <NavLink
                             to="/company-settings"
@@ -59,7 +53,9 @@ const Sidebar: React.FC = () => {
                             <FormattedMessage id="company.reward" />
                         </NavLink>
                     </li>
-
+                    <li>
+                            <LogoutButton />
+                    </li>
                 </ul>
             </nav>
         </div>

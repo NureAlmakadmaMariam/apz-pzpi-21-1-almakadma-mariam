@@ -29,7 +29,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const login = async (email: string, password: string) => {
         try {
             const data: AuthResponse = await loginCompany(email, password);
-            localStorage.setItem('companyId', String(data.companyId)); // Зберігаємо companyId у localStorage
+            localStorage.setItem('companyId', String(data.companyId));
             setAuthState({ companyId: data.companyId, token: data.token });
         } catch (error) {
             console.error('Login error:', error);

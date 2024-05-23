@@ -1,12 +1,12 @@
-
 // src/pages/TaskStatusReportPage.tsx
 
-import React from 'react';
+import React, { useContext } from 'react';
 import TaskStatusChart from '../components/TaskStatusChart';
 import Sidebar from '../components/Sidebar';
 import styles from "../styles/TaskStatusReportPage.module.css";
 import { useTaskStatusReport } from '../hooks/useTaskStatusReport';
 import {FormattedMessage} from "react-intl";
+import { AuthContext } from '../context/AuthContext';
 
 const TaskStatusReportPage: React.FC = () => {
     const companyId = parseInt(localStorage.getItem('companyId') || '0', 10);
@@ -27,4 +27,3 @@ const TaskStatusReportPage: React.FC = () => {
 };
 
 export default TaskStatusReportPage;
-
