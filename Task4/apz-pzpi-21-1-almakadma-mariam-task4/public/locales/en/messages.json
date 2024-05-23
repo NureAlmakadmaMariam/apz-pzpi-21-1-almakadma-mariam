@@ -82,6 +82,10 @@
   "user.points": "Points:",
 
   "userReward.no": "No users's rewards found.",
-  "reward.redeemed": "Redeemed"
+  "reward.redeemed": "Redeemed",
+  "loginUser.header": "Login for employees and managers",
+
+  "login.AsUser": "Login as employee or manager",
+  "login.AsComp": "Login as company"
 
 }

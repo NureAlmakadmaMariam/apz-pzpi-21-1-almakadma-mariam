@@ -13,6 +13,11 @@ const LoginPage: React.FC = () => (
             <span><FormattedMessage id="login.registrationPrompt" /> </span>
             <Link to="/registration"><FormattedMessage id="login.registrationLink" /></Link>
         </div>
+
+        <div className={styles.registrationLink}>
+            <Link to="/login-user"><FormattedMessage id="login.AsUser" /></Link>
+        </div>
+
     </div>
 );
 

@@ -46,3 +46,4 @@ export const createUser = async (userData: Partial<User>): Promise<{ email: stri
         throw new Error('Failed to create user');
     }
 };
+

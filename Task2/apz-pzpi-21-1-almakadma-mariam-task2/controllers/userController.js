@@ -96,13 +96,12 @@ exports.createUser = async (req, res) => {
 
         const generatedPassword = Math.random().toString(36).slice(-8); // Generates an 8-character random alphanumeric password
 
-        const hashedPassword = await bcrypt.hash(generatedPassword, 10);
 
         const newUser = await User.create({
             first_name,
             last_name,
             email: generatedEmail,
-            password: hashedPassword,
+            password: generatedPassword,
             department_id,
             start_date
         });
@@ -195,9 +194,8 @@ exports.updateUserPassword = async (req, res) => {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        const hashedPassword = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(10));
 
-        await user.update({ password: hashedPassword });
+        await user.update({ password: newPassword });
 
         res.json({ message: 'Password updated successfully' });
     } catch (error) {
@@ -211,26 +209,23 @@ exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // Find user by email
         const user = await User.findOne({ where: { email } });
         if (!user) {
-            return res.status(404).json({ error: 'User not found' });
+            return res.status(404).json({ error: 'Користувача не знайдено' });
         }
 
-        // Check password
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) {
-            return res.status(401).json({ error: 'Incorrect password' });
+            return res.status(401).json({ error: 'Неправильний пароль' });
         }
 
-
-        res.json({ user_id });
+        res.json({ user_id: user.user_id, role: user.role });
     } catch (error) {
-        res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Помилка входу:', error);
+        res.status(500).json({ error: 'Внутрішня помилка сервера' });
     }
 };
 
 exports.logout = async (req, res) => {
-    // Just a placeholder, as JWT tokens are stateless, there's no explicit logout
     res.json({ message: 'Logout successful' });
 };

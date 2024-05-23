@@ -112,7 +112,6 @@ exports.updateCompany = async (req, res) => {
     }
 };
 
-// Function to logout
 exports.logoutCompany = (req, res) => {
     const token = req.headers.authorization;
 

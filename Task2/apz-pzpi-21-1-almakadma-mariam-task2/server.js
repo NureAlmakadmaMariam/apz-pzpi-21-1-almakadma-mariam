@@ -18,9 +18,11 @@ const roomRouter = require('./routers/roomRouter');
 const cardRouter = require('./routers/cardRouter');
 const accessLogRouter = require('./routers/accessLogRouter');
 const reportRouter = require('./routers/reportRouter');
-
+const cors = require('cors');
 const backupRouter = require('./routers/backupRouter');
 const app = express();
+
+app.use(cors());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,6 +30,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
+
 
 // Middleware
 app.use(bodyParser.json());
