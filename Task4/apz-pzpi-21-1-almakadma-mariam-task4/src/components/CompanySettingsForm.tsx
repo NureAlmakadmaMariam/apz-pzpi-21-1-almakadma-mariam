@@ -81,7 +81,6 @@ const CompanySettingsForm: React.FC<Props> = ({ company }) => {
                     <p><strong><FormattedMessage id="lR.email" />:</strong> {company.email}</p>
                     <p><strong><FormattedMessage id="company.createdAt" />:</strong> {new Date(company.created_at).toLocaleString()}</p>
                     <p><strong><FormattedMessage id="company.status" />:</strong> {company.status?.name}</p>
-                    <p><strong><FormattedMessage id="status.desc" />:</strong> {company.status?.description}</p>
                 </div>
                 {editableFields.name || editableFields.address ? (
                     <button className={styles.sidebarButton} onClick={handleSaveChanges}><FormattedMessage id="button.saveChanges" /></button>

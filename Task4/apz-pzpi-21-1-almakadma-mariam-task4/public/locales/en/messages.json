@@ -61,5 +61,22 @@
   "taskStatus.open": "Open",
   "taskStatus.in_progress": "In progress",
   "taskStatus.closed": "Closed",
-  "taskStatus.frozen": "Frozen"
+  "taskStatus.frozen": "Frozen",
+  "company.reward": "Reward",
+  "rewards.page": "Rewards",
+
+  "loading.title": "Loading...",
+  "error.title": "Error:",
+
+  "reward.pointsReq": "Points required:",
+  "reward.type": "Type:",
+
+  "reward.physical": "Physical",
+  "reward.virtual": "Virtual",
+
+  "reward.create": "Create reward",
+
+  "rewardСА.title": "Title:",
+  "rewardСА.desc": "Description:"
+
 }

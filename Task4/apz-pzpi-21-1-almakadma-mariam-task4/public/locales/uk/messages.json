@@ -61,5 +61,21 @@
   "taskStatus.open": "Відкрито",
   "taskStatus.in_progress": "В процесі",
   "taskStatus.closed": "Закрито",
-  "taskStatus.frozen": "Заморожено"
+  "taskStatus.frozen": "Заморожено",
+  "company.reward": "Нагороди",
+  "rewards.page": "Нагороди",
+
+  "loading.title": "Завантаження...",
+  "error.title": "Помилка:",
+
+  "reward.pointsReq": "Потрібні бали:",
+  "reward.type" :"Тип:",
+
+  "reward.physical": "Фізична",
+  "reward.virtual": "Віртуальна",
+
+  "reward.create": "Створити нагороду",
+  "rewardСА.title": "Заголовок:",
+  "rewardСА.desc": "Опис:"
+
 }

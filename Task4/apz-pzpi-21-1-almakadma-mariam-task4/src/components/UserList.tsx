@@ -52,11 +52,6 @@ const UserList: React.FC<UserListProps> = ({ users, departments, onUpdateUser, o
                     </p>
                     <p><strong><FormattedMessage id="department.code" /></strong> {user.department?.department_code || 'No department code'}</p>
                     <p><strong><FormattedMessage id="user.startDate" /></strong> {new Date(user.start_date).toLocaleDateString()}</p>
-                    <p>
-                        <strong><FormattedMessage id="user.status" /></strong> {user.status?.name}
-                    </p>
-                    <p><strong><FormattedMessage id="status.desc" />:</strong> {user.status?.description || 'No description'}</p>
-
                     <DeleteUserButton user={user} onDelete={onDelete} />
                 </div>
             ))}

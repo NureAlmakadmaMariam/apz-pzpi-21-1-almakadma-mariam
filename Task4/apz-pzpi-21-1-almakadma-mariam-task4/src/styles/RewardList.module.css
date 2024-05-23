@@ -1,0 +1,24 @@
+.rewardList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.rewardItem {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rewardItem h3 {
+    margin-top: 0;
+}
+
+.rewardItem p {
+    margin: 5px 0;
+}
+

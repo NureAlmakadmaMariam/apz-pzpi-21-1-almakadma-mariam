@@ -29,10 +29,10 @@ export const useDepartments = (companyId: string, searchByName: string, searchBy
     }, [companyId, searchByName, searchByContactPersonName]);
 
     useEffect(() => {
-        refetchDepartments(); // Викликайте функцію refetchDepartments при кожному оновленні параметрів пошуку
+        refetchDepartments();
     }, [refetchDepartments]);
 
-    return { departments, loading, error, refetchDepartments }; // Додайте refetchDepartments в зворотне значення
+    return { departments, loading, error, refetchDepartments };
 };
 
 
