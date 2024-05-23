@@ -34,7 +34,7 @@ const CreateRewardForm: React.FC<CreateRewardFormProps> = ({ companyId, onReward
             <h2 className={styles.formTitle}><FormattedMessage id="reward.create" /></h2>
             <form onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
-                    <label htmlFor="title" className={styles.formLabel}><FormattedMessage id="rewardСА.title" /></label>
+                    <label htmlFor="title" className={styles.formLabel}><FormattedMessage id="rewardСА.title" />:</label>
                     <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} required className={styles.formInput} />
                 </div>
                 <div className={styles.formGroup}>

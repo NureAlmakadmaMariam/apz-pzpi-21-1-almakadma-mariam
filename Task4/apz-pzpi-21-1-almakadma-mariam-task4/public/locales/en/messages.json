@@ -24,13 +24,13 @@
   "department.load": "Loading departments...",
   "company.Id.notFound": "Company ID not found in localStorage",
 
-  "user.email": "Email:",
+  "user.email": "Email",
   "department.name": "Department name:",
   "department.code": "Department code:",
   "user.startDate": "Start Date:",
   "user.status": "Status:",
   "user.name": "First name and surname:",
-  "user.role": "Role:",
+  "user.role": "Role",
   "manager.position": "manager",
   "employee.position": "employee",
 
@@ -76,8 +76,12 @@
 
   "reward.create": "Create reward",
 
-  "rewardСА.title": "Title:",
+  "rewardСА.title": "Title",
   "rewardСА.desc": "Description:",
-  "logout": "Log Out"
+  "logout": "Log Out",
+  "user.points": "Points:",
+
+  "userReward.no": "No users's rewards found.",
+  "reward.redeemed": "Redeemed"
 
 }

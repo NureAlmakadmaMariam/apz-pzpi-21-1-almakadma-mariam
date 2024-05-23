@@ -33,15 +33,16 @@ const UserList: React.FC<UserListProps> = ({ users, departments, onUpdateUser, o
                             onSave={(newValue) => onUpdateUser(user.user_id, { last_name: newValue })}
                         />
                     </p>
-                    <p><strong><FormattedMessage id="user.email" /></strong> {user.email}</p>
+                    <p><strong><FormattedMessage id="user.email" />: </strong> {user.email}</p>
                     <p>
-                        <strong><FormattedMessage id="user.role" /></strong>
+                        <strong><FormattedMessage id="user.role" />: </strong>
                         <RoleSelect value={user.role} onSave={(newValue) => {
                             if (newValue === 'employee' || newValue === 'manager') {
                                 onUpdateUser(user.user_id, { role: newValue });
                             }
                         }} />
                     </p>
+                    <p><strong><FormattedMessage id="user.points" /></strong> {user.points || <FormattedMessage id="department.noInfo" />}</p>
                     <p><strong><FormattedMessage id="department.name" /></strong>
                         <DepartmentDropdown
                             departments={departments}
@@ -50,7 +51,7 @@ const UserList: React.FC<UserListProps> = ({ users, departments, onUpdateUser, o
                             className={stylesD.departmentDropdownUpdate}
                         />
                     </p>
-                    <p><strong><FormattedMessage id="department.code" /></strong> {user.department?.department_code || 'No department code'}</p>
+                    <p><strong><FormattedMessage id="department.code" /></strong> {user.department?.department_code || <FormattedMessage id="department.noInfo" />}</p>
                     <p><strong><FormattedMessage id="user.startDate" /></strong> {new Date(user.start_date).toLocaleDateString()}</p>
                     <DeleteUserButton user={user} onDelete={onDelete} />
                 </div>

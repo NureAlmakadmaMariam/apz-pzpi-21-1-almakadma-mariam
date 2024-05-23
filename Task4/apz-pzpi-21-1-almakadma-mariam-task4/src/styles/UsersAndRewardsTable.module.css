@@ -1,0 +1,27 @@
+/* src/styles/UsersAndRewardsTable.module.css */
+
+.tableContainer {
+    padding: 20px;
+}
+
+.filterContainer {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

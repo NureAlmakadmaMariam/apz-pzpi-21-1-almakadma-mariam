@@ -24,13 +24,13 @@
   "department.load": "Завантаження відділів...",
   "company.Id.notFound": "Ідентифікатор компанії не знайдено в сховищі",
 
-  "user.email": "Пошта:",
+  "user.email": "Пошта",
   "department.name": "Назва відділу:",
   "department.code": "Код відділу:",
   "user.startDate": "Початок роботи:",
   "user.status": "Статус:",
   "user.name": "Ім'я та прізвище:",
-  "user.role": "Посада:",
+  "user.role": "Посада",
   "manager.position": "керівник",
   "employee.position": "працівник",
 
@@ -75,7 +75,13 @@
   "reward.virtual": "Віртуальна",
 
   "reward.create": "Створити нагороду",
-  "rewardСА.title": "Заголовок:",
+  "rewardСА.title": "Заголовок",
   "rewardСА.desc": "Опис:",
-  "logout": "Вийти"
+  "logout": "Вийти",
+
+  "user.points": "Бали:",
+
+  "userReward.no": "Нагороди користувачів не знайдено.",
+
+  "reward.redeemed": "Викуплено"
 }
