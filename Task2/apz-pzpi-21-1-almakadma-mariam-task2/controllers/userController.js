@@ -219,7 +219,7 @@ exports.login = async (req, res) => {
             return res.status(401).json({ error: 'Неправильний пароль' });
         }
 
-        res.json({ user_id: user.user_id, role: user.role });
+        res.json({ user_id: user.user_id, role: user.role, department_id: user.department_id });
     } catch (error) {
         console.error('Помилка входу:', error);
         res.status(500).json({ error: 'Внутрішня помилка сервера' });

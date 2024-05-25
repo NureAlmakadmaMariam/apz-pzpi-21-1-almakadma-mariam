@@ -77,6 +77,7 @@
   "reward.create": "Create reward",
 
   "rewardСА.title": "Title",
+  "achievement.title": "Title:",
   "rewardСА.desc": "Description:",
   "logout": "Log Out",
   "user.points": "Points:",
@@ -103,5 +104,8 @@
   "myAchievement.title": "My Achievements",
   "achievement.data": "Date Achieved",
 
-  "achievement.pointsAwarded": "Points Awarded"
+  "achievement.pointsAwarded": "Points Awarded",
+  "manager.section": "Employees and managers of the departments",
+  "achievement.addFor": "Add Achievement for",
+  "achievement.add": "Add Achievement"
 }

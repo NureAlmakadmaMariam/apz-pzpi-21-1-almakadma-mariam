@@ -64,3 +64,12 @@ export const getUserById = async (user_id: number): Promise<User> => {
 export const updateUserPassword = async (user_id: number, newPassword: string): Promise<void> => {
     await axios.put(`http://localhost:3500/users/${user_id}/password`, { newPassword });
 };
+
+export const getUsersByDepartment = async (department_id: number) => {
+    try {
+        const response = await axios.get(`http://localhost:3500/users/department/${department_id}`);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};

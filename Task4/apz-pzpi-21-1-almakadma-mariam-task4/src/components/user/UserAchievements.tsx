@@ -2,7 +2,7 @@
 import React from 'react';
 import { useAchievements } from '../../hooks/useAchievements';
 import styles from '../../styles/UserAchievements.module.css';
-import {FormattedMessage} from "react-intl"; // Імпортуйте свій CSS модуль
+import {FormattedMessage} from "react-intl";
 
 interface UserAchievementsProps {
     user_id: number;

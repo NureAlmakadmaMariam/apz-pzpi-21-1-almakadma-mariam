@@ -2,9 +2,14 @@ import React from 'react';
 import { NavLink} from 'react-router-dom';
 import '../../styles/Sidebar.css';
 import {FormattedMessage} from "react-intl";
+import {useAuth} from "../../hooks/useAuth";
+import LogoutButton from "../LogoutCompButton";
 
 
 const SidebarUser: React.FC = () => {
+    const { authState } = useAuth();
+
+    const isManager = authState.role === "manager";
 
     return (
         <div className="sidebar">
@@ -17,6 +22,23 @@ const SidebarUser: React.FC = () => {
                         >
                             <FormattedMessage id="user.profile" />
                         </NavLink>
+                    </li>
+
+
+                    {isManager && (
+                        <li>
+                            <NavLink
+                                to="/manager-department"
+                                className={({ isActive }) => (isActive ? 'active-link' : '')}
+                            >
+                                <FormattedMessage id="manager.section" />
+                            </NavLink>
+                        </li>
+                    )}
+
+
+                    <li>
+                        <LogoutButton />
                     </li>
 
                 </ul>

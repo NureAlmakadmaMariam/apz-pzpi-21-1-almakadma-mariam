@@ -14,6 +14,7 @@ interface AuthState {
     companyId: number | null;
     user_id: number | null;
     role: 'employee' | 'manager' | null;
+    department_id: number | null;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -23,6 +24,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         companyId: null,
         user_id: null,
         role: null,
+        department_id: null,
     });
 
     useEffect(() => {
@@ -40,6 +42,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 ...prevState,
                 user_id: userData.user_id,
                 role: userData.role,
+                department_id: userData.department_id,
             }));
         }
     }, []);
@@ -52,6 +55,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 companyId: data.companyId || null,
                 user_id: null,
                 role: null,
+                department_id: null,
             });
         } catch (error) {
             console.error('Login error:', error);
@@ -67,7 +71,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 companyId: null,
                 user_id: data.user_id || null,
                 role: data.role || null,
+                department_id: data.department_id || null,
             });
+            console.log("Department ID:", data.department_id);
+            console.log("User ID:", data.user_id);
         } catch (error) {
             console.error('Login error:', error);
             throw error;
@@ -82,6 +89,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             companyId: null,
             user_id: null,
             role: null,
+            department_id: null,
         });
         localStorage.removeItem('companyId');
         localStorage.removeItem('user');

@@ -76,6 +76,7 @@
 
   "reward.create": "Створити нагороду",
   "rewardСА.title": "Заголовок",
+  "achievement.title": "Заголовок:",
   "rewardСА.desc": "Опис:",
   "logout": "Вийти",
 
@@ -105,5 +106,9 @@
   "myAchievement.title": "Мої досягнення",
   "achievement.data": "Дата отримання",
 
-  "achievement.pointsAwarded": "Нараховані бали"
+  "achievement.pointsAwarded": "Нараховані бали",
+
+  "manager.section": "Працівники та керівники відділу",
+  "achievement.addFor": "Створити досягнення для",
+  "achievement.add": "Додати досягнення"
 }

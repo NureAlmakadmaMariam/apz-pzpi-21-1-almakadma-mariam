@@ -12,6 +12,7 @@ import RewardsPage from "../../pages/RewardsPage";
 
 import UserLoginPage from "../../pages/user/UserLoginPage";
 import UserProfilePage from "../../pages/user/UserProfilePage";
+import UsersByDepartmentPage from "../../pages/user/UsersByDepartmentPage";
 export const AppRouter: React.FC = () => {
     return (
         <Router>
@@ -26,6 +27,7 @@ export const AppRouter: React.FC = () => {
                 <Route path="/login-user" element={<UserLoginPage />} />
 
                 <Route path="/user-profile" element={<UserProfilePage />} />
+                <Route path="/manager-department" element={<UsersByDepartmentPage />} />
             </Routes>
         </Router>
     );
