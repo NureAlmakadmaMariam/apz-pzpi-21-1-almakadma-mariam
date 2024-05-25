@@ -76,6 +76,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
 
 
+
     const logout = () => {
         setAuthState({
             companyId: null,

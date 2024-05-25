@@ -47,3 +47,20 @@ export const createUser = async (userData: Partial<User>): Promise<{ email: stri
     }
 };
 
+export const getUserById = async (user_id: number): Promise<User> => {
+    try {
+        const response = await axios.get(`http://localhost:3500/users/${user_id}`);
+        return response.data;
+    } catch (error) {
+        if (axios.isAxiosError(error) && error.response) {
+            console.error('Axios error response:', error.response.data);
+            throw new Error(error.response.data.message || 'Failed to fetch user data.');
+        }
+        console.error('Axios error:', error);
+        throw new Error('Network error. Please try again later.');
+    }
+};
+
+export const updateUserPassword = async (user_id: number, newPassword: string): Promise<void> => {
+    await axios.put(`http://localhost:3500/users/${user_id}/password`, { newPassword });
+};

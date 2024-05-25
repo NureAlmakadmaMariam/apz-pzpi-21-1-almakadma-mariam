@@ -87,5 +87,23 @@
   "loginUser.header": "Вхід для працівників та менеджерів",
 
   "login.AsUser": "Увійдіть як співробітник або менеджер",
-  "login.AsComp": "Увійдіть як компанія"
+  "login.AsComp": "Увійдіть як компанія",
+  "user.profile": "Мій профіль",
+
+  "user.notFound": "Користувач не знайдений",
+
+  "error.loginAgain": "Помилка: ID користувача недоступний. Увійдіть ще раз.",
+  "updatePassword.title": "Оновити пароль",
+  "updatePassword.success": "Пароль успішно оновлено",
+
+  "updatePassword.newPassword": "Новий пароль",
+  "updatePassword.loading": "Оновлення...",
+  "updatePassword.submit": "",
+
+  "achievement.noFound": "Досягнення не знайдено",
+
+  "myAchievement.title": "Мої досягнення",
+  "achievement.data": "Дата отримання",
+
+  "achievement.pointsAwarded": "Нараховані бали"
 }

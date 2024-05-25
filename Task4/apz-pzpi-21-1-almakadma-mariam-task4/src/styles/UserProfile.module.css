@@ -1,0 +1,38 @@
+/* src/components/UserProfile.module.css */
+.userProfile {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: 300px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+.userProfile h2 {
+    color: #333;
+    text-align: center;
+}
+
+.userProfile p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.mainContent {
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.leftColumn {
+    flex: 1;
+
+}
+
+.rightColumn {
+    flex: 1;
+    max-width: 400px;
+}

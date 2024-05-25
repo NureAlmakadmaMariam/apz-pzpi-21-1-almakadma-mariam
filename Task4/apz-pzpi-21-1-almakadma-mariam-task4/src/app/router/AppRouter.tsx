@@ -10,8 +10,8 @@ import DepartmentsPage from "../../pages/DepartmentsPage";
 import TaskStatusReportPage from "../../pages/TaskStatusReportPage";
 import RewardsPage from "../../pages/RewardsPage";
 
-import UserLoginPage from "../../pages/UserLoginPage";
-import UserProfilePage from "../../pages/UserProfilePage";
+import UserLoginPage from "../../pages/user/UserLoginPage";
+import UserProfilePage from "../../pages/user/UserProfilePage";
 export const AppRouter: React.FC = () => {
     return (
         <Router>

@@ -86,6 +86,22 @@
   "loginUser.header": "Login for employees and managers",
 
   "login.AsUser": "Login as employee or manager",
-  "login.AsComp": "Login as company"
+  "login.AsComp": "Login as company",
 
+  "user.profile": "My profile",
+  "user.notFound": "User not found",
+
+  "error.loginAgain": "Error: User ID is not available. Please login again.",
+  "updatePassword.title": "Update Password",
+  "updatePassword.success": "Password updated successfully",
+
+  "updatePassword.newPassword": "New Password",
+
+  "updatePassword.loading": "Updating...",
+  "achievement.noFound": "No achievements found",
+
+  "myAchievement.title": "My Achievements",
+  "achievement.data": "Date Achieved",
+
+  "achievement.pointsAwarded": "Points Awarded"
 }

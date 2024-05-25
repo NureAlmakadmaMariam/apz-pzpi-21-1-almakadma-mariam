@@ -1,0 +1,36 @@
+/* src/styles/UserAchievements.module.css */
+.achievementsList {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-left: 300px;
+    margin-top: 10px;
+}
+
+.achievementsList h2 {
+    margin-bottom: 10px;
+}
+
+.achievementsList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.achievementsList li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.achievementsList li h3 {
+    margin: 0 0 5px 0;
+}
+
+.loading {
+    color: blue;
+}
+
+.error {
+    color: red;
+}

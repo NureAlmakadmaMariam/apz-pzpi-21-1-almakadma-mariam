@@ -102,45 +102,36 @@ exports.getAchievementsByCompany = async (req, res) => {
     }
 };
 
-/*
-// achievementController.js
-const achievementService = require('../services/achievementService');
-
-exports.createAchievement = async (req, res) => {
-    const { title, description, points_awarded, user_id, date_achieved } = req.body;
-
+exports.getAchievementsByUser = async (req, res) => {
     try {
-        const achievement = await achievementService.createAchievement(title, description, points_awarded, user_id, date_achieved);
-        res.status(201).json({ message: 'Achievement created successfully', achievement });
+        const user_id = req.params.user_id;
+
+        const achievements = await Achievement.findAll({
+            where: { user_id },
+            attributes: ['achievement_id', 'title', 'description', 'points_awarded', 'date_achieved'],
+            include: [
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['user_id', 'email', 'role'],
+                    include: [
+                        {
+                            model: Department,
+                            as: 'department',
+                            attributes: ['department_id', 'name']
+                        }
+                    ]
+                }
+            ]
+        });
+
+        if (!achievements) {
+            return res.status(404).json({ error: 'Achievements not found' });
+        }
+
+        res.json(achievements);
     } catch (error) {
-        console.error('Error creating achievement:', error);
+        console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-
-exports.deleteAchievementById = async (req, res) => {
-    const achievementId = req.params.achievementId;
-
-    try {
-        await achievementService.deleteAchievementById(achievementId);
-        res.status(200).json({ message: 'Achievement deleted successfully' });
-    } catch (error) {
-        console.error('Error deleting achievement:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-};
-
-exports.getAchievementsByCompany = async (req, res) => {
-    const companyId = req.params.companyId;
-    const departmentId = req.query.departmentId;
-
-    try {
-        const achievements = await achievementService.getAchievementsByCompany(companyId, departmentId);
-        res.status(200).json({ achievements });
-    } catch (error) {
-        console.error('Error fetching achievements:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-};
-
- */

@@ -1,8 +1,8 @@
 // UserLoginPage.tsx
 
 import React from 'react';
-import LoginFormUser from '../components/LoginFormUser';
-import styles from "../styles/LoginPage.module.css";
+import LoginFormUser from '../../components/LoginFormUser';
+import styles from "../../styles/LoginPage.module.css";
 import {FormattedMessage} from "react-intl";
 import {Link} from "react-router-dom";
 
