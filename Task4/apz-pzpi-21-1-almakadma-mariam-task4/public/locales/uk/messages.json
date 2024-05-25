@@ -110,5 +110,11 @@
 
   "manager.section": "Працівники та керівники відділу",
   "achievement.addFor": "Створити досягнення для",
-  "achievement.add": "Додати досягнення"
+  "achievement.add": "Додати досягнення",
+
+  "achievementOrReward.add": "Бонус",
+
+  "reward.assignedSuccess":"Нагороду успішно призначено!",
+  "reward.notEnoughPoints":"Недостатньо балів, щоб призначити цю нагороду.",
+  "reward.assignError": "Помилка призначення винагороди."
 }

@@ -6,5 +6,6 @@ const rewardController = require('../controllers/rewardController');
 // POST route to create a reward for a specific company
 router.post('/:companyId/', rewardController.createReward);
 router.get('/:companyId', rewardController.getRewardsByCompany);
+router.get('/department/:departmentId', rewardController.getRewardsByDepartment);
 
 module.exports = router;

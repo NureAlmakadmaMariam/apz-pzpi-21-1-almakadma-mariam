@@ -24,3 +24,14 @@ exports.createReward = async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
+
+exports.getRewardsByDepartment = async (req, res) => {
+    const departmentId = req.params.departmentId;
+    try {
+        const rewards = await RewardService.getRewardsByDepartment(departmentId);
+        res.status(200).json({ rewards });
+    } catch (error) {
+        console.error('Error fetching rewards by department:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};

@@ -16,7 +16,7 @@ const UsersReward = sequelize.define('UsersReward', {
     },
     user_id: {
         type: DataTypes.BIGINT,
-        allowNull: true, //false//
+        allowNull: false,
         references: {
             model: User,
             key: 'user_id',
@@ -24,7 +24,7 @@ const UsersReward = sequelize.define('UsersReward', {
     },
     reward_id: {
         type: DataTypes.BIGINT,
-        allowNull: true, //false//
+        allowNull: false,
         references: {
             model: Reward,
             key: 'reward_id',

@@ -1,5 +1,6 @@
 const Reward = require('../models/rewardModel');
-
+const Department = require('../models/departmentModel')
+const Company = require("../models/companyModel");
 exports.getRewardsByCompany = async (companyId) => {
     try {
         const rewards = await Reward.findAll({
@@ -28,3 +29,25 @@ exports.createReward = async (title, description, points_required, type, company
     }
 };
 
+exports.getRewardsByDepartment = async (departmentId) => {
+    try {
+        const department = await Department.findOne({
+            where: { department_id: departmentId },
+            include: {model: Company, as:'company'}
+        });
+
+        if (!department) {
+            throw new Error('Department not found');
+        }
+
+        const companyId = department.company_id;
+        const rewards = await Reward.findAll({
+            where: { company_id: companyId }
+        });
+
+        return rewards;
+    } catch (error) {
+        console.error('Error fetching rewards by department:', error);
+        throw error;
+    }
+};

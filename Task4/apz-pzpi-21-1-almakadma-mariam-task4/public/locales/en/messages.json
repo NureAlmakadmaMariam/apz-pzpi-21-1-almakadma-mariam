@@ -107,5 +107,11 @@
   "achievement.pointsAwarded": "Points Awarded",
   "manager.section": "Employees and managers of the departments",
   "achievement.addFor": "Add Achievement for",
-  "achievement.add": "Add Achievement"
+  "achievement.add": "Add Achievement",
+
+  "achievementOrReward.add": "Bonus",
+
+  "reward.assignedSuccess":"Reward assigned successfully!",
+  "reward.notEnoughPoints":"Not enough points to assign this reward.",
+  "reward.assignError": "Error assigning reward."
 }
