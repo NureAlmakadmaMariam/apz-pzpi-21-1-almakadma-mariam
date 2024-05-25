@@ -43,13 +43,13 @@ const RewardAssignmentForm: React.FC<RewardAssignmentFormProps> = ({ onClose, us
 
     return (
         <div>
-            <h2><FormattedMessage id="reward.selectReward" defaultMessage="Select a Reward" /></h2>
-            {loading && <p><FormattedMessage id="loading" defaultMessage="Loading rewards..." /></p>}
-            {error && <p><FormattedMessage id="error" defaultMessage="Error" />: {error}</p>}
+            <h2><FormattedMessage id="reward.selectReward"/></h2>
+            {loading && <p><FormattedMessage id="loading" /></p>}
+            {error && <p><FormattedMessage id="error"/>: {error}</p>}
             {message && <p>{message}</p>}
             {rewards.map((reward: Reward) => (
                 <div key={reward.reward_id}>
-                    <p>{reward.title} - {reward.points_required} <FormattedMessage id="points" defaultMessage="points" /></p>
+                    <p>{reward.title} - {reward.points_required} <FormattedMessage id="points"/></p>
                     <button onClick={() => handleAssignReward(reward.reward_id)}>
                         <FormattedMessage id="reward.assignButton" defaultMessage="Assign Reward" />
                     </button>

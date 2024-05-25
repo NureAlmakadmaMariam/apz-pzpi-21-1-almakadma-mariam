@@ -113,5 +113,10 @@
 
   "reward.assignedSuccess":"Reward assigned successfully!",
   "reward.notEnoughPoints":"Not enough points to assign this reward.",
-  "reward.assignError": "Error assigning reward."
+  "reward.assignError": "Error assigning reward.",
+  "reward.selectReward": "Select a Reward",
+  "loading": "Loading rewards...",
+  "error": "Error",
+  "points": "points",
+  "reward.assignButton": "Assign Reward"
 }

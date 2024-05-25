@@ -1,9 +1,9 @@
 // src/app/router/AppRouter.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginPage from '../../pages/LoginPage';
+import LoginPage from '../../pages/company/LoginPage';
 import DashboardPage from '../../pages/DashboardPage';
-import RegistrationPage from '../../pages/RegistrationPage';
+import RegistrationPage from '../../pages/company/RegistrationPage';
 import CompanySettingsPage from "../../pages/CompanySettingsPage";
 import CompanyUsersPage from "../../pages/CompanyUsersPage";
 import DepartmentsPage from "../../pages/DepartmentsPage";

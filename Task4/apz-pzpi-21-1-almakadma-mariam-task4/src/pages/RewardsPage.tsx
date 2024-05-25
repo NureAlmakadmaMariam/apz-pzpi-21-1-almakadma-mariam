@@ -3,7 +3,7 @@ import { useRewards } from '../hooks/useRewards';
 import RewardList from '../components/RewardList';
 import CreateRewardForm from '../components/CreateRewardForm';
 import styles from '../styles/RewardsPage.module.css';
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/company/Sidebar";
 import { FormattedMessage } from "react-intl";
 import { Reward } from '../interfaces/Reward';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

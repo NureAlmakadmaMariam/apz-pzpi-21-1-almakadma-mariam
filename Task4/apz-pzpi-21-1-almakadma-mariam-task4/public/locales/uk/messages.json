@@ -116,5 +116,10 @@
 
   "reward.assignedSuccess":"Нагороду успішно призначено!",
   "reward.notEnoughPoints":"Недостатньо балів, щоб призначити цю нагороду.",
-  "reward.assignError": "Помилка призначення винагороди."
+  "reward.assignError": "Помилка призначення винагороди.",
+  "reward.selectReward": "Обрати нагороди",
+  "loading": "Завантаження нагород...",
+  "error": "Помилка",
+  "points": "балів",
+  "reward.assignButton": "Призначити нагороду"
 }
