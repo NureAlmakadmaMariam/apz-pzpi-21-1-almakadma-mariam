@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { User } from '../interfaces/User';
 
-export const getUsersByCompany = async (companyId: string, lastName: string = '') => {
+export const getUsersByCompany = async (companyId: number, lastName: string = '') => {
     try {
         const response = await axios.get(`http://localhost:3500/users/company/${companyId}`, {
             params: {
@@ -16,7 +16,7 @@ export const getUsersByCompany = async (companyId: string, lastName: string = ''
     }
 };
 
-export const deleteUser = async (userId: string) => {
+export const deleteUser = async (userId: number) => {
     try {
         await axios.delete(`http://localhost:3500/users/${userId}`);
         return { success: true };
@@ -26,7 +26,7 @@ export const deleteUser = async (userId: string) => {
     }
 };
 
-export const updateUser = async (userId: string, userData: Partial<User>): Promise<User> => {
+export const updateUser = async (userId: number, userData: Partial<User>): Promise<User> => {
     try {
         const response = await axios.put(`http://localhost:3500/users/${userId}`, userData);
         return response.data.updatedUser;

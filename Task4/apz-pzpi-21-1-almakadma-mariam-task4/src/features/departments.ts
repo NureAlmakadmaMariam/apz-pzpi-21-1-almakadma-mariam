@@ -3,13 +3,9 @@
 import axios from 'axios';
 import {Department} from '../interfaces/Department'
 
-export const getDepartmentsByCompanyId = async (companyId: string, searchByName: string, searchByContactPersonName: string) => {
+export const getDepartmentsByCompanyId = async (companyId: number) => {
     try {
         const response = await axios.get(`http://localhost:3500/department/company/${companyId}`, {
-            params: {
-                searchByName,
-                searchByContactPersonName
-            }
         });
         return response.data;
     } catch (error) {
@@ -19,7 +15,7 @@ export const getDepartmentsByCompanyId = async (companyId: string, searchByName:
 };
 
 export const updateDepartment = async (
-    departmentId: string,
+    departmentId: number,
     description: string,
     departmentCode: string,
     contactPersonName: string,

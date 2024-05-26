@@ -5,7 +5,7 @@ import { Achievement } from '../interfaces/Achievement';
 interface AchievementData {
     title: string;
     description: string;
-    points_awarded: number | null; // Оновлений тип
+    points_awarded: number | null;
     user_id: number;
 }
 

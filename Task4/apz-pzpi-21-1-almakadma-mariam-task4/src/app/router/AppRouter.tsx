@@ -2,13 +2,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from '../../pages/company/LoginPage';
-import DashboardPage from '../../pages/DashboardPage';
 import RegistrationPage from '../../pages/company/RegistrationPage';
 import CompanySettingsPage from "../../pages/company/CompanySettingsPage";
-import CompanyUsersPage from "../../pages/CompanyUsersPage";
-import DepartmentsPage from "../../pages/DepartmentsPage";
+import CompanyUsersPage from "../../pages/company/CompanyUsersPage";
+import DepartmentsPage from "../../pages/company/DepartmentsPage";
 import TaskStatusReportPage from "../../pages/company/TaskStatusReportPage";
-import RewardsPage from "../../pages/RewardsPage";
+import RewardsPage from "../../pages/company/RewardsPage";
 
 import UserLoginPage from "../../pages/user/UserLoginPage";
 import UserProfilePage from "../../pages/user/UserProfilePage";

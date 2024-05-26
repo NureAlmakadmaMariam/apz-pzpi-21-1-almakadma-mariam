@@ -1,15 +1,15 @@
 // src/hooks/useDepartments.ts
 
-import { useState, useEffect, useCallback } from 'react'; // Додайте useCallback
+import { useState, useEffect, useCallback } from 'react';
 import { getDepartmentsByCompanyId } from '../features/departments';
 import { Department } from '../interfaces/Department';
 
-export const useDepartments = (companyId: string, searchByName: string, searchByContactPersonName: string) => {
+export const useDepartments = (companyId: number) => {
     const [departments, setDepartments] = useState<Department[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const refetchDepartments = useCallback(async () => { // Використайте useCallback для мемоізації функції
+    const refetchDepartments = useCallback(async () => {
         if (!companyId) {
             setLoading(false);
             setError('Company ID is missing');
@@ -18,7 +18,7 @@ export const useDepartments = (companyId: string, searchByName: string, searchBy
 
         try {
             setLoading(true);
-            const departmentsData = await getDepartmentsByCompanyId(companyId, searchByName, searchByContactPersonName); // Передавання параметрів пошуку
+            const departmentsData = await getDepartmentsByCompanyId(companyId);
             setDepartments(departmentsData);
             setError(null);
         } catch (error) {
@@ -26,7 +26,7 @@ export const useDepartments = (companyId: string, searchByName: string, searchBy
         } finally {
             setLoading(false);
         }
-    }, [companyId, searchByName, searchByContactPersonName]);
+    }, [companyId]);
 
     useEffect(() => {
         refetchDepartments();

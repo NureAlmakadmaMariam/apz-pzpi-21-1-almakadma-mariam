@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Reward } from '../interfaces/Reward';
 import { getRewardsByCompany } from '../features/rewards';
 
-export const useRewards = (companyId: string) => {
+export const useRewards = (companyId: number) => {
     const [rewards, setRewards] = useState<Reward[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);

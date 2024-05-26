@@ -21,7 +21,7 @@ const DepartmentItem: React.FC<DepartmentItemProps> = ({ department, onUpdate, o
         console.log("Updating department...");
         try {
             await updateDepartment(
-                department.department_id.toString(),
+                department.department_id,
                 formData.description,
                 formData.department_code,
                 formData.contact_person_name,
