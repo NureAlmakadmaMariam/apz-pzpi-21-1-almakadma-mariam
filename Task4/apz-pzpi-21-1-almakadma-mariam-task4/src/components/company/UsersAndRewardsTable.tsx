@@ -1,6 +1,6 @@
 import React from 'react';
-import { useUsersAndRewards } from '../hooks/useUsersAndRewards';
-import styles from '../styles/UsersAndRewardsTable.module.css';
+import { useUsersAndRewards } from '../../hooks/useUsersAndRewards';
+import styles from '../../styles/UsersAndRewardsTable.module.css';
 import {FormattedMessage} from "react-intl";
 
 interface UsersAndRewardsTableProps {
