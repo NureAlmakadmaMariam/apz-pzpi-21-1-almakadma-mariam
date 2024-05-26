@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DepartmentList from '../../components/company/DepartmentList';
-import SearchForm from '../../components/SearchForm'; // Імпортуємо компонент SearchForm
+
 import { useDepartments } from '../../hooks/useDepartments';
 import Sidebar from '../../components/company/Sidebar';
 import styles from "../../styles/Departments.module.css";

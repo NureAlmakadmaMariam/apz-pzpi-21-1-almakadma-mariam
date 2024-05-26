@@ -31,6 +31,15 @@ const SidebarUser: React.FC = () => {
                             <FormattedMessage id="user.rewardP" />
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                            to="/user-task"
+                            className={({ isActive }) => (isActive ? 'active-link' : '')}
+                        >
+                            <FormattedMessage id="user.taskP" />
+                        </NavLink>
+                    </li>
+
 
                     {isManager && (
                         <li>

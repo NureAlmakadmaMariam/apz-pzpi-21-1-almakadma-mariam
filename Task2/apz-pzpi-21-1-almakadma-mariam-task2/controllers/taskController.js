@@ -2,20 +2,12 @@ const Task = require('../models/taskModel');
 const User = require('../models/userModel');
 const TaskExecutor = require('../models/taskExecutorModel');
 const { Op } = require('sequelize');
-const { getTaskInfoById } = require('../services/taskService');
+const { getTaskInfoById, getAllTasksByUserId, deleteTaskById, getAllTasks, createTask, updateTask, getAllTasksByDepartmentId} = require('../services/taskService');
 
 exports.createTask = async (req, res) => {
     try {
-        const { description, deadline, priority, user_id } = req.body;
-
-        const newTask = await Task.create({
-            description,
-            deadline,
-            priority,
-            status: 'open',
-            user_id,
-            created_at: new Date(),
-        });
+        const taskData = req.body;
+        const newTask = await createTask(taskData);
 
         res.status(201).json({
             message: 'Task created successfully',
@@ -29,23 +21,13 @@ exports.createTask = async (req, res) => {
 exports.getAllTasks = async (req, res) => {
     try {
         const { priority, status } = req.query;
-        const sort = req.query.sort || 'status'; // Default sorting by status
-
-        // Define filtering criteria
-        const where = {};
-        if (priority) {
-            where.priority = priority;
-        }
-        if (status) {
-            where.status = status;
-        }
-
-        const tasks = await Task.findAll({ where, order: [[sort, 'ASC']] });
+        const sort = req.query.sort || 'status';
+        const tasks = await getAllTasks({ priority, status }, sort);
         res.json(tasks);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
-};
+}
 
 exports.getTaskInfo = async (req, res) => {
     try {
@@ -61,16 +43,13 @@ exports.getTaskInfo = async (req, res) => {
 exports.deleteTaskById = async (req, res) => {
     try {
         const taskId = req.params.task_id;
+        const task = await deleteTaskById(taskId);
 
-        const task = await Task.findByPk(taskId);
-
-        if (!task) {
-            return res.status(404).json({ error: 'Task not found' });
+        if (task) {
+            res.status(200).json({ message: 'Task deleted successfully' });
+        } else {
+            res.status(404).json({ error: 'Task not found' });
         }
-
-        await task.destroy();
-
-        res.status(200).json({ message: 'Task deleted successfully' });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -80,16 +59,33 @@ exports.deleteTaskById = async (req, res) => {
 exports.updateTask = async (req, res) => {
     try {
         const { task_id } = req.params;
-        const [updatedRowsCount, updatedTask] = await Task.update(req.body, {
-            where: { task_id },
-            returning: true,
-        });
+        const updatedTask = await updateTask(task_id, req.body);
 
-        if (updatedRowsCount > 0) {
-            res.json({ message: 'Task updated successfully', task: updatedTask[0] });
+        if (updatedTask) {
+            res.json({ message: 'Task updated successfully', task: updatedTask });
         } else {
             res.status(404).json({ error: 'Task not found' });
         }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+exports.getAllTasksByUserId = async (req, res) => {
+    try {
+        const user_id = req.params.user_id;
+        const tasks = await getAllTasksByUserId(user_id);
+        res.json(tasks);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+exports.getAllTasksByDepartmentId = async (req, res) => {
+    try {
+        const department_id = req.params.department_id;
+        const tasks = await getAllTasksByDepartmentId(department_id);
+        res.json(tasks);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }

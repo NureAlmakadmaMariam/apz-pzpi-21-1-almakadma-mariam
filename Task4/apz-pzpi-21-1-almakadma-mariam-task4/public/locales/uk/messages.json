@@ -128,5 +128,20 @@
   "reward.pointsWasR": "Було потрібно балів:",
   "yes": "Так",
   "no": "Ні",
-  "redeem.button": "Забрати нагороду"
+  "redeem.button": "Забрати нагороду",
+  "user.taskP": "Назначені завдання",
+  "refresh.button": "Оновити",
+  "task.deadline": "Строк здачі:",
+  "task.priority": "Пріоритет:",
+  "task.status": "Статус:",
+  "task.desc": "Опис:",
+  "task.createdAt":"Створено",
+  "task.updated": "Оновлено",
+  "priority.low": "Низький",
+  "priority.medium": "Середній",
+  "priority.high": "Високий",
+  "status.open": "Відкрито",
+  "status.in_progress": "У процесі",
+  "status.closed": "Закрито",
+  "status.frozen": "Заморожено"
 }

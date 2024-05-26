@@ -3,7 +3,7 @@ const Task = require('../models/taskModel');
 const User = require('../models/userModel');
 const TaskExecutor = require('../models/taskExecutorModel');
 
-async function getTaskInfoById(task_id) {
+exports.getTaskInfoById = async (task_id)  => {
     try {
         const taskInfo = await Task.findByPk(task_id, {
             include: [
@@ -33,5 +33,60 @@ async function getTaskInfoById(task_id) {
 }
 
 
+exports.getAllTasksByUserId = async (user_id) => {
+    return await Task.findAll({ where: { user_id }, order: [['created_at', 'DESC']] });
+};
 
-module.exports = { getTaskInfoById };
+exports.deleteTaskById = async (task_id) => {
+    const task = await Task.findByPk(task_id);
+    if (task) {
+        await task.destroy();
+        return task;
+    } else {
+        return null;
+    }
+};
+
+exports.getAllTasks = async (filter, sort = 'status') => {
+    const where = {};
+    if (filter.priority) {
+        where.priority = filter.priority;
+    }
+    if (filter.status) {
+        where.status = filter.status;
+    }
+
+    return await Task.findAll({ where, order: [[sort, 'ASC']] });
+};
+
+exports.createTask = async (taskData) => {
+    return await Task.create({
+        ...taskData,
+        status: 'open',
+        created_at: new Date(),
+    });
+};
+
+exports.updateTask = async (task_id, updateData) => {
+    const [updatedRowsCount, updatedTask] = await Task.update(updateData, {
+        where: { task_id },
+        returning: true,
+    });
+
+    if (updatedRowsCount > 0) {
+        return updatedTask[0];
+    } else {
+        return null;
+    }
+};
+
+exports.getAllTasksByDepartmentId = async (department_id) => {
+    return await Task.findAll({
+        include: [{
+            model: User,
+            where: { department_id },
+            attributes: [],
+        }],
+        order: [['created_at', 'DESC']],
+    });
+};

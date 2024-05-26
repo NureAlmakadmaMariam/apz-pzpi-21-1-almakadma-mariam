@@ -5,15 +5,15 @@ import { FormattedMessage } from 'react-intl';
 import DeleteUserButton from './DeleteUserButton';
 import EditableField from './EditableField';
 import RoleSelect from './RoleSelect';
-import DepartmentDropdown from './DepartmentDropdown'; // Імпортуємо компонент DepartmentDropdown
-import { Department } from '../../interfaces/Department'; // Додайте цей імпорт
+import DepartmentDropdown from './DepartmentDropdown';
+import { Department } from '../../interfaces/Department';
 import stylesD from '../../styles/DepartmentDropdown.module.css'
 interface UserListProps {
     users: User[];
     departments: Department[]; // Додаємо властивість departments
     onDelete: () => void;
     onUpdateUser: (userId: number, userData: Partial<User>) => void;
-    onUpdateDepartment: (userId: number, departmentId: number) => void; // Додаємо функцію оновлення відділу користувача
+    onUpdateDepartment: (userId: number, departmentId: number) => void;
 }
 
 const UserList: React.FC<UserListProps> = ({ users, departments, onUpdateUser, onDelete, onUpdateDepartment }) => {

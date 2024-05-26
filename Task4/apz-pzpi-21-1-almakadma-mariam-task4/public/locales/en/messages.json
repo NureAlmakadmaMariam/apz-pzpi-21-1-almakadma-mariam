@@ -126,7 +126,21 @@
   "yes": "Yes",
   "no": "No",
 
-  "redeem.button": "Collect the reward"
-
+  "redeem.button": "Collect the reward",
+  "user.taskP": "Assigned tasks",
+  "refresh.button": "Refresh",
+  "task.deadline": "Deadline:",
+  "task.priority": "Priority:",
+  "task.status": "Status:",
+  "task.desc": "Description:",
+  "task.createdAt": "Created at",
+  "task.updated": "Updated at",
+  "priority.low": "Low",
+  "priority.medium": "Medium",
+  "priority.high": "High",
+  "status.open": "Open",
+  "status.in_progress": "In Progress",
+  "status.closed": "Closed",
+  "status.frozen": "Frozen"
 }
 
