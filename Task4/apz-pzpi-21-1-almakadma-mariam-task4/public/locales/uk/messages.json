@@ -130,7 +130,7 @@
   "no": "Ні",
   "redeem.button": "Забрати нагороду",
   "user.taskP": "Назначені завдання",
-  "refresh.button": "Оновити",
+  "refresh.button": "Оновити сторінку",
   "task.deadline": "Строк здачі:",
   "task.priority": "Пріоритет:",
   "task.status": "Статус:",
@@ -143,5 +143,8 @@
   "status.open": "Відкрито",
   "status.in_progress": "У процесі",
   "status.closed": "Закрито",
-  "status.frozen": "Заморожено"
+  "status.frozen": "Заморожено",
+  "update.button": "Оновити",
+  "cancel.button": "Закрити",
+  "edit.button": "Змінити"
 }

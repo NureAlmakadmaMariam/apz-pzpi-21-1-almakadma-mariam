@@ -128,7 +128,7 @@
 
   "redeem.button": "Collect the reward",
   "user.taskP": "Assigned tasks",
-  "refresh.button": "Refresh",
+  "refresh.button": "Refresh page",
   "task.deadline": "Deadline:",
   "task.priority": "Priority:",
   "task.status": "Status:",
@@ -141,6 +141,9 @@
   "status.open": "Open",
   "status.in_progress": "In Progress",
   "status.closed": "Closed",
-  "status.frozen": "Frozen"
+  "status.frozen": "Frozen",
+  "update.button": "Update",
+  "cancel.button": "Cancel",
+  "edit.button": "Edit"
 }
 
