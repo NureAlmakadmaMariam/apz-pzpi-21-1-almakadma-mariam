@@ -1,9 +1,9 @@
 // src/components/DeleteUserButton.tsx
 import React from 'react';
-import { User } from '../interfaces/User';
+import { User } from '../../interfaces/User';
 import { FormattedMessage } from 'react-intl';
-import styles from '../styles/UserList.module.css';
-import { deleteUser } from '../features/users'; // Імпортуємо функцію deleteUser
+import styles from '../../styles/UserList.module.css';
+import { deleteUser } from '../../features/users'; // Імпортуємо функцію deleteUser
 
 interface DeleteUserButtonProps {
     user: User;

@@ -1,9 +1,9 @@
 // src/components/DepartmentDropdown.tsx
 
 import React from 'react';
-import { Department } from '../interfaces/Department';
+import { Department } from '../../interfaces/Department';
 import { FormattedMessage } from 'react-intl';
-import styles from '../styles/DepartmentDropdown.module.css';
+import styles from '../../styles/DepartmentDropdown.module.css';
 
 interface DepartmentDropdownProps {
     departments: Department[];

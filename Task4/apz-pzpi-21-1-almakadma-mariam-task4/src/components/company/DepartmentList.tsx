@@ -1,8 +1,8 @@
 // src/components/DepartmentList.tsx
 import React from 'react';
-import { Department } from '../interfaces/Department';
+import { Department } from '../../interfaces/Department';
 import DepartmentItem from './DepartmentItem';
-import styles from '../styles/DepartmentList.module.css';
+import styles from '../../styles/DepartmentList.module.css';
 import {FormattedMessage} from "react-intl";
 
 interface DepartmentListProps {

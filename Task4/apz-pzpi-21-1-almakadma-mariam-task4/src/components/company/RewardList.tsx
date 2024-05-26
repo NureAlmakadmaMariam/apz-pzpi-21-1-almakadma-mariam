@@ -1,6 +1,6 @@
 import React from 'react';
-import { Reward } from '../interfaces/Reward';
-import styles from '../styles/RewardList.module.css';
+import { Reward } from '../../interfaces/Reward';
+import styles from '../../styles/RewardList.module.css';
 import {FormattedMessage} from "react-intl";
 
 interface RewardListProps {

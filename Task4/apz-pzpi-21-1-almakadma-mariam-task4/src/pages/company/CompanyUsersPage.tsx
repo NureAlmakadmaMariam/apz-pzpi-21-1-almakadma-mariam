@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useUsersByCompany } from '../../hooks/useUsersByCompany';
 import { useDepartments } from '../../hooks/useDepartments';
-import UserList from '../../components/UserList';
+import UserList from '../../components/company/UserList';
 import Sidebar from '../../components/company/Sidebar';
-import DepartmentDropdown from '../../components/DepartmentDropdown';
+import DepartmentDropdown from '../../components/company/DepartmentDropdown';
 import styles from '../../styles/CompanyUsersPage.module.css';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { updateUser, createUser } from '../../features/users';
 import { User } from '../../interfaces/User';
 import { FaUserPlus } from 'react-icons/fa';
-import CreateUserForm from '../../components/CreateUserForm';
+import CreateUserForm from '../../components/company/CreateUserForm';
 
 const CompanyUsersPage: React.FC = () => {
     const companyId = parseInt(localStorage.getItem('companyId') || '0', 10);

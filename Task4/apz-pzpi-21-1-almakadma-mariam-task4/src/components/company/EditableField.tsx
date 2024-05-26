@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles/EditableField.module.css';
+import styles from '../../styles/EditableField.module.css';
 import { FaSave } from 'react-icons/fa'; // Іконка для збереження
 
 interface EditableFieldProps {

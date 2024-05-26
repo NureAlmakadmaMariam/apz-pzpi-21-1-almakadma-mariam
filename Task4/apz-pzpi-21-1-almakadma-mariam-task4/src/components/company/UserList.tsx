@@ -1,13 +1,13 @@
 import React from 'react';
-import { User } from '../interfaces/User';
-import styles from '../styles/UserList.module.css';
+import { User } from '../../interfaces/User';
+import styles from '../../styles/UserList.module.css';
 import { FormattedMessage } from 'react-intl';
 import DeleteUserButton from './DeleteUserButton';
 import EditableField from './EditableField';
 import RoleSelect from './RoleSelect';
 import DepartmentDropdown from './DepartmentDropdown'; // Імпортуємо компонент DepartmentDropdown
-import { Department } from '../interfaces/Department'; // Додайте цей імпорт
-import stylesD from '../styles/DepartmentDropdown.module.css'
+import { Department } from '../../interfaces/Department'; // Додайте цей імпорт
+import stylesD from '../../styles/DepartmentDropdown.module.css'
 interface UserListProps {
     users: User[];
     departments: Department[]; // Додаємо властивість departments

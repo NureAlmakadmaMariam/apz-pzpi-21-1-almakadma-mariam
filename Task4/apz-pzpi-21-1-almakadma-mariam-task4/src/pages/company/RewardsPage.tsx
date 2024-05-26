@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRewards } from '../../hooks/useRewards';
-import RewardList from '../../components/RewardList';
+import RewardList from '../../components/company/RewardList';
 import CreateRewardForm from '../../components/company/CreateRewardForm';
 import styles from '../../styles/RewardsPage.module.css';
 import Sidebar from "../../components/company/Sidebar";

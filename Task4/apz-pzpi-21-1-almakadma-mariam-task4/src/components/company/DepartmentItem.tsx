@@ -1,8 +1,8 @@
 // src/components/DepartmentItem.tsx
 import React, { useState } from 'react';
-import { Department } from '../interfaces/Department';
-import styles from '../styles/DepartmentList.module.css';
-import { updateDepartment } from '../features/departments';
+import { Department } from '../../interfaces/Department';
+import styles from '../../styles/DepartmentList.module.css';
+import { updateDepartment } from '../../features/departments';
 import EditableField from './EditableField'; // Імпортуємо компонент EditableField
 import { FaSave, FaTimes } from 'react-icons/fa';
 import {FormattedMessage, useIntl} from "react-intl"; // Імпортуємо іконки

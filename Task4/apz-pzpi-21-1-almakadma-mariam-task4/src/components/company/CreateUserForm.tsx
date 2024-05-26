@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Department } from '../interfaces/Department';
-import styles from '../styles/CreateUserForm.module.css';
-import { User } from '../interfaces/User';
+import { Department } from '../../interfaces/Department';
+import styles from '../../styles/CreateUserForm.module.css';
+import { User } from '../../interfaces/User';
 import {FormattedMessage, useIntl} from "react-intl";
 
 interface CreateUserFormProps {
