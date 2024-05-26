@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from '../../pages/company/LoginPage';
 import DashboardPage from '../../pages/DashboardPage';
 import RegistrationPage from '../../pages/company/RegistrationPage';
-import CompanySettingsPage from "../../pages/CompanySettingsPage";
+import CompanySettingsPage from "../../pages/company/CompanySettingsPage";
 import CompanyUsersPage from "../../pages/CompanyUsersPage";
 import DepartmentsPage from "../../pages/DepartmentsPage";
-import TaskStatusReportPage from "../../pages/TaskStatusReportPage";
+import TaskStatusReportPage from "../../pages/company/TaskStatusReportPage";
 import RewardsPage from "../../pages/RewardsPage";
 
 import UserLoginPage from "../../pages/user/UserLoginPage";

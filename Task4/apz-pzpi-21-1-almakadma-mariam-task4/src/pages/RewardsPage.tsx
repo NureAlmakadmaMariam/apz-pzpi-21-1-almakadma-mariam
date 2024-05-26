@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useRewards } from '../hooks/useRewards';
 import RewardList from '../components/RewardList';
-import CreateRewardForm from '../components/CreateRewardForm';
+import CreateRewardForm from '../components/company/CreateRewardForm';
 import styles from '../styles/RewardsPage.module.css';
 import Sidebar from "../components/company/Sidebar";
 import { FormattedMessage } from "react-intl";
 import { Reward } from '../interfaces/Reward';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import UsersAndRewardsTable from '../components/UsersAndRewardsTable';
+import UsersAndRewardsTable from '../components/company/UsersAndRewardsTable';
 
 const RewardsPage: React.FC = () => {
     const companyIdString = localStorage.getItem('companyId') || '';

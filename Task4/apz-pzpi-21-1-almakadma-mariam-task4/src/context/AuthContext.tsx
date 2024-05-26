@@ -27,6 +27,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         department_id: null,
     });
 
+
     useEffect(() => {
         const storedCompanyId = localStorage.getItem('companyId');
         const storedUserData = localStorage.getItem('user');

@@ -33,7 +33,7 @@
   "user.role": "Role",
   "manager.position": "manager",
   "employee.position": "employee",
-
+  "company.notFound": "Company ID not found in authState",
   "status.no": "No status",
   "status.descNo": "No description",
   "user.lastN": "Search by last name",
@@ -118,5 +118,9 @@
   "loading": "Loading rewards...",
   "error": "Error",
   "points": "points",
-  "reward.assignButton": "Assign Reward"
+  "reward.assignButton": "Assign Reward",
+  "company.update":"Company updated successfully",
+  "company.FailedUpdate":"Failed to update company"
+
 }
+

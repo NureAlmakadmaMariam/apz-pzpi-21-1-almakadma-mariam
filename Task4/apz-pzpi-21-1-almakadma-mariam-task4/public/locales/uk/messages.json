@@ -48,7 +48,7 @@
   "user.LastName": "Прізвище",
   "department.select": "Вибрати відділ",
   "company.department": "Відділи",
-
+  "company.notFound": "Ідентифікатор компанії не знайдено",
   "department.phone": "Телефон:",
   "department.email": "Пошта:",
   "department.contactP": "Контактна особа:",
@@ -121,5 +121,7 @@
   "loading": "Завантаження нагород...",
   "error": "Помилка",
   "points": "балів",
-  "reward.assignButton": "Призначити нагороду"
+  "reward.assignButton": "Призначити нагороду",
+  "company.update":"Компанія оновлена успішно",
+  "company.FailedUpdate":"Оновлення не пройшло"
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink} from 'react-router-dom';
-import '../styles/Sidebar.css';
+import '../../styles/Sidebar.css';
 import {FormattedMessage} from "react-intl";
-import LogoutButton from './LogoutCompButton';
+import LogoutButton from '../LogoutCompButton';
 
 const Sidebar: React.FC = () => {
 

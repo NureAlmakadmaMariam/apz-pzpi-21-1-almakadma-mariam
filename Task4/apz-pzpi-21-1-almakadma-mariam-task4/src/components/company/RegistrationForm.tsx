@@ -1,38 +1,44 @@
-// LoginFormUser.tsx
-
+// src/components/RegistrationForm.tsx
 import React, { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth'; // Імпортуємо хук useAuth
-import styles from '../styles/LoginPage.module.css';
+import { registerCompany } from '../../features/auth';
+import styles from '../../styles/LoginPage.module.css';
+import {FormattedMessage} from "react-intl";
 
-const LoginFormUser: React.FC = () => {
+const RegistrationForm: React.FC = () => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState<string | null>(null);
-    const { loginUser } = useAuth(); // Використовуємо хук useAuth
     const navigate = useNavigate();
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        setError(null);
         try {
-            await loginUser(email, password);
-            navigate('/user-profile');
-        } catch (err) {
-            setError(Error.arguments);
+            await registerCompany({ name, email, password });
+            navigate('/login');
+        } catch (error) {
+            console.error('Failed to register:', error);
         }
     };
 
     return (
         <form onSubmit={handleSubmit} className={styles.loginForm}>
-            {error && <div className={styles.errorMessage}><FormattedMessage id="login.error" values={{ message: error }} /></div>}
+            <div>
+                <label><FormattedMessage id="registration.name" /></label>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                />
+            </div>
             <div>
                 <label><FormattedMessage id="lR.email" /></label>
                 <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                 />
             </div>
             <div>
@@ -41,11 +47,12 @@ const LoginFormUser: React.FC = () => {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    required
                 />
             </div>
-            <button type="submit"><FormattedMessage id="login.button" /></button>
+            <button type="submit"><FormattedMessage id="register.submitB" /></button>
         </form>
     );
 }
 
-export default LoginFormUser;
+export default RegistrationForm;

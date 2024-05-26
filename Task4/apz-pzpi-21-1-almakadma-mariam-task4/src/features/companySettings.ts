@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-export const updateCompany = async (companyId: string, name: string, address: string) => {
+export const updateCompany = async (companyId: number, name: string, address: string) => {
     try {
         await axios.put(`http://localhost:3500/company/${companyId}`, { name, address });
         console.log('Company updated successfully');
@@ -11,7 +11,7 @@ export const updateCompany = async (companyId: string, name: string, address: st
     }
 };
 
-export const getCompanyById = async (companyId: string) => {
+export const getCompanyById = async (companyId: number) => {
     try {
         const response = await axios.get(`http://localhost:3500/company/${companyId}`);
         return response.data;

@@ -1,7 +1,7 @@
 // src/pages/RegistrationPage.tsx
 import React from 'react';
-import RegistrationForm from '../components/RegistrationForm';
-import styles from '../styles/LoginPage.module.css';
+import RegistrationForm from '../../components/company/RegistrationForm';
+import styles from '../../styles/LoginPage.module.css';
 import {FormattedMessage} from "react-intl";
 
 const RegistrationPage: React.FC = () => (

@@ -1,7 +1,7 @@
 // src/pages/LoginPage.tsx
 import React from 'react';
-import LoginForm from '../components/LoginForm';
-import styles from '../styles/LoginPage.module.css';
+import LoginForm from '../../components/company/LoginForm';
+import styles from '../../styles/LoginPage.module.css';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 

@@ -2,8 +2,15 @@
     display: flex;
 }
 
-.mainСontent {
-    margin-left: 250px; /* This should match the width of your sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+.mainContent {
+    margin-left: 250px;
     padding: 20px;
     flex: 1;
 }
