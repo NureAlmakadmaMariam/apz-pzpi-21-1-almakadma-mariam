@@ -83,7 +83,7 @@
   "user.points": "Points:",
 
   "userReward.no": "No users's rewards found.",
-  "reward.redeemed": "Redeemed",
+  "reward.redeemed": "Was taken",
   "loginUser.header": "Login for employees and managers",
 
   "login.AsUser": "Login as employee or manager",
@@ -124,7 +124,9 @@
   "user.rewardP": "My rewards",
   "reward.pointsWasR": "Points was required:",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+
+  "redeem.button": "Collect the reward"
 
 }
 

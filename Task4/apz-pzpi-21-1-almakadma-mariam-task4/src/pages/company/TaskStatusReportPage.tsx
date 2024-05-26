@@ -1,19 +1,17 @@
 // src/pages/TaskStatusReportPage.tsx
-
 import React, { useContext } from 'react';
-import TaskStatusChart from '../components/TaskStatusChart';
-import Sidebar from '../components/Sidebar';
-import styles from "../styles/TaskStatusReportPage.module.css";
-import { useTaskStatusReport } from '../hooks/useTaskStatusReport';
+import TaskStatusChart from '../../components/company/TaskStatusChart';
+import Sidebar from '../../components/company/Sidebar';
+import styles from "../../styles/TaskStatusReportPage.module.css";
+import { useTaskStatusReport } from '../../hooks/useTaskStatusReport';
 import {FormattedMessage} from "react-intl";
-import { AuthContext } from '../context/AuthContext';
 
 const TaskStatusReportPage: React.FC = () => {
     const companyId = parseInt(localStorage.getItem('companyId') || '0', 10);
     const { data, loading, error } = useTaskStatusReport(companyId);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error loading data: {error.message}</p>;
+    if (loading) return <p><FormattedMessage id="loading.title" /></p>;
+    if (error) return <p><FormattedMessage id= "error.title"/></p>;
 
     return (
         <div>

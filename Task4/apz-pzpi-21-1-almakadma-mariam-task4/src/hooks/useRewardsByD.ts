@@ -36,6 +36,11 @@ export const useRewards = (departmentId: number | undefined) => {
         }
     };
 
+    // Adding refetch function
+    const refetch = async () => {
+        setLoading(true);
+        await fetchRewards();
+    };
     const redeemUserReward = async (usersRewardId: number) => {
         try {
             const result = await markRewardAsRedeemed(usersRewardId);
@@ -45,11 +50,7 @@ export const useRewards = (departmentId: number | undefined) => {
         }
     };
 
-    // Adding refetch function
-    const refetch = async () => {
-        setLoading(true);
-        await fetchRewards();
-    };
+
 
     return { rewards, loading, error, assignUserReward, redeemUserReward, refetch };
 };
