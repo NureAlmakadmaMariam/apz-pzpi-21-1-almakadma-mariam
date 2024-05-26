@@ -85,3 +85,14 @@ exports.getUsersAndRewardsByCompany = async (req, res) => {
     }
 };
 
+exports.getRewardsByUserId = async (req, res) => {
+    const userId = req.params.userId;
+
+    try {
+        const rewards = await UsersRewardService.getRewardsByUserId(userId);
+        res.status(200).json({ rewards });
+    } catch (error) {
+        console.error('Error fetching rewards by user ID:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};

@@ -8,7 +8,7 @@ import CompanyUsersPage from "../../pages/company/CompanyUsersPage";
 import DepartmentsPage from "../../pages/company/DepartmentsPage";
 import TaskStatusReportPage from "../../pages/company/TaskStatusReportPage";
 import RewardsPage from "../../pages/company/RewardsPage";
-
+import UserRewardsPage from "../../pages/user/UserRewardsPage";
 import UserLoginPage from "../../pages/user/UserLoginPage";
 import UserProfilePage from "../../pages/user/UserProfilePage";
 import UsersByDepartmentPage from "../../pages/user/UsersByDepartmentPage";
@@ -27,6 +27,7 @@ export const AppRouter: React.FC = () => {
 
                 <Route path="/user-profile" element={<UserProfilePage />} />
                 <Route path="/manager-department" element={<UsersByDepartmentPage />} />
+                <Route path="/user-reward" element={<UserRewardsPage />} />
             </Routes>
         </Router>
     );

@@ -42,3 +42,20 @@ exports.markRewardAsRedeemed = async (usersRewardId) => {
     }
 };
 
+exports.getRewardsByUserId = async (userId) => {
+    try {
+        const rewards = await UsersReward.findAll({
+            where: { user_id: userId },
+            include: [
+                {
+                    model: Reward,
+                    as: 'reward'
+                }
+            ]
+        });
+        return rewards;
+    } catch (error) {
+        console.error('Error fetching rewards by user ID:', error);
+        throw new Error('Error fetching rewards');
+    }
+};

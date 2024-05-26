@@ -120,7 +120,11 @@
   "points": "points",
   "reward.assignButton": "Assign Reward",
   "company.update":"Company updated successfully",
-  "company.FailedUpdate":"Failed to update company"
+  "company.FailedUpdate":"Failed to update company",
+  "user.rewardP": "My rewards",
+  "reward.pointsWasR": "Points was required:",
+  "yes": "Yes",
+  "no": "No"
 
 }
 

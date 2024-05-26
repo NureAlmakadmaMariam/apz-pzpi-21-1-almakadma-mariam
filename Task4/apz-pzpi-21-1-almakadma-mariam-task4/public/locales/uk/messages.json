@@ -123,5 +123,9 @@
   "points": "балів",
   "reward.assignButton": "Призначити нагороду",
   "company.update":"Компанія оновлена успішно",
-  "company.FailedUpdate":"Оновлення не пройшло"
+  "company.FailedUpdate":"Оновлення не пройшло",
+  "user.rewardP": "Мої нагороди",
+  "reward.pointsWasR": "Було потрібно балів:",
+  "yes": "Так",
+  "no": "Ні"
 }

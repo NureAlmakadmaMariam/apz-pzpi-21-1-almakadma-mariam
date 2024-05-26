@@ -23,7 +23,14 @@ const SidebarUser: React.FC = () => {
                             <FormattedMessage id="user.profile" />
                         </NavLink>
                     </li>
-
+                    <li>
+                        <NavLink
+                            to="/user-reward"
+                            className={({ isActive }) => (isActive ? 'active-link' : '')}
+                        >
+                            <FormattedMessage id="user.rewardP" />
+                        </NavLink>
+                    </li>
 
                     {isManager && (
                         <li>
