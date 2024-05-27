@@ -21,5 +21,7 @@ export const useLocaleMessages = (initialLocale: string) => {
         setLocale(newLocale);
     };
 
+
+
     return { locale, messages, changeLocale };
 };

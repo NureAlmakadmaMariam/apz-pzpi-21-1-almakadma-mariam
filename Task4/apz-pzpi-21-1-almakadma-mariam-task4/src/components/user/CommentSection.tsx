@@ -51,6 +51,7 @@ const CommentSection: React.FC<Props> = ({ taskId }) => {
         <div>
             <ul>
                 {comments[taskId]?.map((comment: Comment) => (
+
                     <li key={comment.comment_id}>
                         <p>{comment?.text ?? <FormattedMessage id="no.textA" />}</p>
                         <p>{comment?.user?.email ?? <FormattedMessage id="no.emailA" />}</p>

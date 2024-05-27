@@ -149,6 +149,9 @@
   "no.emailA": "No email available",
   "delete": "Delete",
   "submit": "Submit",
-  "add.comment": "Add a comment"
+  "add.comment": "Add a comment",
+  "comments.hide": "Hide Comments",
+  "comments.show": "Show Comments",
+  "tasks.byDepartment.title": "All tasks of the department"
 }
 

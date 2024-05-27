@@ -81,12 +81,18 @@ exports.updateTask = async (task_id, updateData) => {
 };
 
 exports.getAllTasksByDepartmentId = async (department_id) => {
-    return await Task.findAll({
-        include: [{
-            model: User,
-            where: { department_id },
-            attributes: [],
-        }],
-        order: [['created_at', 'DESC']],
-    });
+    try {
+        const tasks = await Task.findAll({
+            where: { '$taskOwner.department_id$': department_id },
+            include: {
+                model: User,
+                as: 'taskOwner',
+                attributes: ['first_name', 'last_name', 'department_id']
+            },
+            order: [['task_id', 'ASC']] // Сортування за task_id в зростаючому порядку
+        });
+        return tasks;
+    } catch (error) {
+        throw new Error('Error fetching tasks by department ID');
+    }
 };

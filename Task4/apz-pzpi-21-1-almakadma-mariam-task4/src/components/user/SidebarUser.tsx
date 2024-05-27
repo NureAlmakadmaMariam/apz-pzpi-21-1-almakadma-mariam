@@ -42,6 +42,7 @@ const SidebarUser: React.FC = () => {
 
 
                     {isManager && (
+                        <>
                         <li>
                             <NavLink
                                 to="/manager-department"
@@ -50,7 +51,18 @@ const SidebarUser: React.FC = () => {
                                 <FormattedMessage id="manager.section" />
                             </NavLink>
                         </li>
+
+                            <li>
+                                <NavLink
+                                    to="/manager-task"
+                                    className={({ isActive }) => (isActive ? 'active-link' : '')}
+                                >
+                                    <FormattedMessage id="tasks.byDepartment.title" />
+                                </NavLink>
+                            </li>
+                        </>
                     )}
+
 
 
                     <li>

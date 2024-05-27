@@ -151,5 +151,8 @@
   "no.emailA": "Немає електронної пошти",
   "delete": "Видалити",
   "submit": "Підтвердити",
-  "add.comment": "Додати коментар"
+  "add.comment": "Додати коментар",
+  "comments.hide": "Сховати коментарі",
+  "comments.show": "Показати коменатрі",
+  "tasks.byDepartment.title": "Всі завдання відділу"
 }

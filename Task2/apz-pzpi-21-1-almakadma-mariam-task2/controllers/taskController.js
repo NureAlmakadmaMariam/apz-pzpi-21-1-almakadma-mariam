@@ -81,12 +81,13 @@ exports.getAllTasksByUserId = async (req, res) => {
     }
 }
 
-exports.getAllTasksByDepartmentId = async (req, res) => {
+exports.getAllTasksByDepartment = async (req, res) => {
     try {
         const department_id = req.params.department_id;
         const tasks = await getAllTasksByDepartmentId(department_id);
         res.json(tasks);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };

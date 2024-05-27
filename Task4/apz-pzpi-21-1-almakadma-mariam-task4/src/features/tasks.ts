@@ -26,3 +26,12 @@ export const updateTask = async (task_id: number, updateData: Partial<Task>) => 
         throw new Error('Error update tasks');
     }
 };
+
+export const getAllTasksByDepartment = async (departmentId: number): Promise<Task[]> => {
+    try {
+        const response = await axios.get(`http://localhost:3500/task/departments/${departmentId}`);
+        return response.data;
+    } catch (error) {
+        throw new Error('Error fetching tasks by department');
+    }
+};
