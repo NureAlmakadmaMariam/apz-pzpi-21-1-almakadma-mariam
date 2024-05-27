@@ -1,19 +1,10 @@
-//commentController.js
-const Comment  = require('../models/commentModel');
-const Task = require('../models/taskModel');
-const User = require('../models/userModel');
+// commentController.js
+const { createComment, getCommentsByTaskId, getAllComments, deleteCommentById } = require('../services/commentService');
 
 exports.createComment = async (req, res) => {
     try {
         const { text, task_id, user_id } = req.body;
-
-        const newComment = await Comment.create({
-            text,
-            task_id,
-            user_id,
-            created_at: new Date(),
-        });
-
+        const newComment = await createComment(text, task_id, user_id);
         res.status(201).json({
             message: 'Comment created successfully',
             newComment,
@@ -27,23 +18,7 @@ exports.createComment = async (req, res) => {
 exports.getCommentsByTaskId = async (req, res) => {
     try {
         const { taskId } = req.params;
-
-        const comments = await Comment.findAll({
-            where: { task_id: taskId },
-            include: [
-                {
-                    model: Task,
-                    as: 'task',
-                    attributes: ['task_id', 'description'],
-                },
-                {
-                    model: User,
-                    as: 'user',
-                    attributes: ['first_name', 'last_name', 'email'],
-                },
-            ],
-        });
-
+        const comments = await getCommentsByTaskId(taskId);
         res.status(200).json({
             message: 'Comments retrieved successfully',
             comments,
@@ -54,16 +29,9 @@ exports.getCommentsByTaskId = async (req, res) => {
     }
 };
 
-
 exports.getAllComments = async (req, res) => {
     try {
-        const comments = await Comment.findAll({
-            include: [
-                { model: Task, as: 'task', attributes: ['task_id', 'description']},
-                { model: User, as: 'user', attributes: ['email'] },
-            ],
-        });
-
+        const comments = await getAllComments();
         res.json(comments);
     } catch (error) {
         console.error(error);
@@ -71,19 +39,10 @@ exports.getAllComments = async (req, res) => {
     }
 };
 
-
 exports.deleteCommentById = async (req, res) => {
     try {
         const commentId = req.params.commentId;
-
-        const comment = await Comment.findByPk(commentId);
-
-        if (!comment) {
-            return res.status(404).json({ error: 'Comment not found' });
-        }
-
-        await comment.destroy();
-
+        await deleteCommentById(commentId);
         res.json({ message: 'Comment deleted successfully' });
     } catch (error) {
         console.error(error);
