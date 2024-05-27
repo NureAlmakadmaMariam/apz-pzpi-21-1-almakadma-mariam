@@ -22,8 +22,9 @@ const CommentSection: React.FC<Props> = ({ taskId }) => {
                 setNewCommentText('');
             } catch (err) {
                 console.error('Failed to add comment:', err);
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
         }
     };
 
@@ -41,8 +42,8 @@ const CommentSection: React.FC<Props> = ({ taskId }) => {
             <ul>
                 {comments[taskId]?.map((comment: Comment) => (
                     <li key={comment.comment_id}>
-                        <p>{comment.text}</p>
-                        <p>{comment.user.email}</p>
+                        <p>{comment?.text ?? 'No text available'}</p>
+                        <p>{comment?.user?.email ?? 'No email available'}</p>
                     </li>
                 ))}
             </ul>
@@ -60,6 +61,9 @@ const CommentSection: React.FC<Props> = ({ taskId }) => {
 };
 
 export default CommentSection;
+
+
+
 
 
 

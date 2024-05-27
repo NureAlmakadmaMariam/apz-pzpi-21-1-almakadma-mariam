@@ -23,11 +23,9 @@ export const useComments = () => {
 
     const addComment = async (text: string, taskId: number, userId: number) => {
         try {
-            const newComment = await createComment(text, taskId, userId);
-            setComments(prevState => ({
-                ...prevState,
-                [taskId]: [...(prevState[taskId] || []), newComment],
-            }));
+            await createComment(text, taskId, userId);
+            // Після додавання коментаря, повторно отримуємо коментарі, щоб отримати повну інформацію
+            await fetchCommentsByTaskId(taskId);
         } catch (err) {
             console.error('Error creating comment:', err);
             setError('Failed to create comment');

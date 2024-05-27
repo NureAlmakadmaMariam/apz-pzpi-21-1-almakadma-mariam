@@ -4,8 +4,9 @@ import { ApiResponse } from '../interfaces/ApiResponse';
 
 export const createComment = async (text: string, task_id: number, user_id: number): Promise<Comment> => {
     try {
-        const response = await axios.post<ApiResponse<Comment>>('http://localhost:3500/comment', { text, task_id, user_id });
-        return response.data.data;
+        const response = await axios.post<{ message: string, newComment: Comment }>('http://localhost:3500/comment', { text, task_id, user_id });
+        console.log('Create comment response:', response.data); // Логування відповіді API
+        return response.data.newComment;
     } catch (error) {
         console.error('Error creating comment:', error);
         throw new Error('Failed to create comment');
