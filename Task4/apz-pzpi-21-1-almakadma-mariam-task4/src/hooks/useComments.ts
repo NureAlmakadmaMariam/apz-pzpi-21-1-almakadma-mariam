@@ -32,13 +32,15 @@ export const useComments = () => {
         }
     };
 
-    const removeComment = async (commentId: number) => {
+    const removeComment = async (commentId: number, taskId: number) => {
         try {
+            // Видалення коментаря
             await deleteCommentById(commentId);
-            // Логіка для видалення коментаря з локального стану
+            // Оновлення стану коментарів після видалення
+            await fetchCommentsByTaskId(taskId);
         } catch (err) {
-            console.error('Error deleting comment:', err);
-            setError('Failed to delete comment');
+            console.error('Error removing comment:', err);
+            setError('Failed to remove comment');
         }
     };
 

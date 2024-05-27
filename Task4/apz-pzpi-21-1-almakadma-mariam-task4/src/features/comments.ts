@@ -25,6 +25,10 @@ export const getCommentsByTaskId = async (taskId: number): Promise<Comment[]> =>
 };
 
 export const deleteCommentById = async (commentId: number): Promise<void> => {
-
-    await axios.delete(`http://localhost:3500/comment/${commentId}`);
+    try {
+        await axios.delete(`http://localhost:3500/comment/${commentId}`);
+    } catch (error) {
+        console.error('Error deleting comment:', error);
+        throw new Error('Failed to delete comment');
+    }
 };

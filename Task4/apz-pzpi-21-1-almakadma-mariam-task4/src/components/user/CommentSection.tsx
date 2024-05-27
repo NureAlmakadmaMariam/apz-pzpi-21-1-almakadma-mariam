@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useComments } from '../../hooks/useComments';
 import { Comment } from '../../interfaces/Comment';
+import {FormattedMessage, useIntl} from "react-intl";
 
 interface Props {
     taskId: number;
 }
 
 const CommentSection: React.FC<Props> = ({ taskId }) => {
-    const { comments, addComment, useFetchCommentsByTaskId, error } = useComments();
+    const { comments, addComment, removeComment, useFetchCommentsByTaskId, error } = useComments();
     const [newCommentText, setNewCommentText] = useState('');
     const [loading, setLoading] = useState(false);
+    const intl = useIntl();
 
     useFetchCommentsByTaskId(taskId);
 
@@ -28,22 +30,31 @@ const CommentSection: React.FC<Props> = ({ taskId }) => {
         }
     };
 
-    if (error) {
-        return <p>{error}</p>;
-    }
+    const handleRemoveComment = async (commentId: number) => {
+        setLoading(true);
+        try {
+            await removeComment(commentId, taskId);
+        } catch (err) {
+            console.error('Failed to remove comment:', err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (error) return <p><FormattedMessage id="error.title" /> {error}</p>;
 
     if (!comments[taskId]) {
-        return <p>Loading...</p>;
+        return<p><FormattedMessage id="loading.title" /></p>;
     }
 
     return (
         <div>
-            <h2>Comments</h2>
             <ul>
                 {comments[taskId]?.map((comment: Comment) => (
                     <li key={comment.comment_id}>
-                        <p>{comment?.text ?? 'No text available'}</p>
-                        <p>{comment?.user?.email ?? 'No email available'}</p>
+                        <p>{comment?.text ?? <FormattedMessage id="no.textA" />}</p>
+                        <p>{comment?.user?.email ?? <FormattedMessage id="no.emailA" />}</p>
+                        <button onClick={() => handleRemoveComment(comment.comment_id)}><FormattedMessage id="delete" /></button>
                     </li>
                 ))}
             </ul>
@@ -52,9 +63,9 @@ const CommentSection: React.FC<Props> = ({ taskId }) => {
                     type="text"
                     value={newCommentText}
                     onChange={(e) => setNewCommentText(e.target.value)}
-                    placeholder="Add a comment"
+                    placeholder={intl.formatMessage({ id: "add.comment" })}
                 />
-                <button type="submit" disabled={loading}>Submit</button>
+                <button type="submit" disabled={loading}><FormattedMessage id="submit" /></button>
             </form>
         </div>
     );

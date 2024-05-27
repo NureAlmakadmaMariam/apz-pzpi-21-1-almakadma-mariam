@@ -146,5 +146,10 @@
   "status.frozen": "Заморожено",
   "update.button": "Оновити",
   "cancel.button": "Закрити",
-  "edit.button": "Змінити"
+  "edit.button": "Змінити",
+  "no.textA": "Текст відсутній",
+  "no.emailA": "Немає електронної пошти",
+  "delete": "Видалити",
+  "submit": "Підтвердити",
+  "add.comment": "Додати коментар"
 }

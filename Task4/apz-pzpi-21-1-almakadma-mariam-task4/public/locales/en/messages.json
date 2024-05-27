@@ -144,6 +144,11 @@
   "status.frozen": "Frozen",
   "update.button": "Update",
   "cancel.button": "Cancel",
-  "edit.button": "Edit"
+  "edit.button": "Edit",
+  "no.textA": "No text available",
+  "no.emailA": "No email available",
+  "delete": "Delete",
+  "submit": "Submit",
+  "add.comment": "Add a comment"
 }
 
