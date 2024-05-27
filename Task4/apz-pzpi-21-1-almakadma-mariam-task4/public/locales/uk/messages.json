@@ -130,7 +130,7 @@
   "no": "Ні",
   "redeem.button": "Забрати нагороду",
   "user.taskP": "Назначені завдання",
-  "refresh.button": "Оновити сторінку",
+  "refresh.button": "Оновити список",
   "task.deadline": "Строк здачі:",
   "task.priority": "Пріоритет:",
   "task.status": "Статус:",
@@ -154,5 +154,6 @@
   "add.comment": "Додати коментар",
   "comments.hide": "Сховати коментарі",
   "comments.show": "Показати коменатрі",
-  "tasks.byDepartment.title": "Всі завдання відділу"
+  "tasks.byDepartment.title": "Всі завдання відділу",
+  "create.button": "Створити"
 }

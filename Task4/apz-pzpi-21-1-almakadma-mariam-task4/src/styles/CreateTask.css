@@ -1,0 +1,38 @@
+/* src/styles/CreateTask.css */
+.create-task-form {
+    margin: 0 auto; /* Adjust this value based on the width of your sidebar */
+    padding: 20px;
+    width: 500px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.create-task-form label {
+    display: block;
+
+    margin: 10px;
+}
+
+.create-task-form input,
+.create-task-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.create-task-form button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.create-task-form button:hover {
+    background-color: #0056b3;
+}

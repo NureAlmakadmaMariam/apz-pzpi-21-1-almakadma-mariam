@@ -128,7 +128,7 @@
 
   "redeem.button": "Collect the reward",
   "user.taskP": "Assigned tasks",
-  "refresh.button": "Refresh page",
+  "refresh.button": "Refresh list",
   "task.deadline": "Deadline:",
   "task.priority": "Priority:",
   "task.status": "Status:",
@@ -152,6 +152,7 @@
   "add.comment": "Add a comment",
   "comments.hide": "Hide Comments",
   "comments.show": "Show Comments",
-  "tasks.byDepartment.title": "All tasks of the department"
+  "tasks.byDepartment.title": "All tasks of the department",
+  "create.button": "Create"
 }
 

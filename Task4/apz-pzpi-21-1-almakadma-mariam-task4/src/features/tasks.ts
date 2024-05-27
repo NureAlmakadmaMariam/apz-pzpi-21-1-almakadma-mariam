@@ -35,3 +35,12 @@ export const getAllTasksByDepartment = async (departmentId: number): Promise<Tas
         throw new Error('Error fetching tasks by department');
     }
 };
+
+export const createTask = async (taskData: Partial<Task>): Promise<Task> => {
+    try {
+        const response = await axios.post('http://localhost:3500/task', taskData);
+        return response.data.newTask;
+    } catch (error) {
+        throw new Error('Error creating task');
+    }
+};
