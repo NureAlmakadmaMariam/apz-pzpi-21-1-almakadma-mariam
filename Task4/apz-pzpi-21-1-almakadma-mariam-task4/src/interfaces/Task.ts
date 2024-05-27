@@ -20,7 +20,7 @@ export interface Task {
     priority: 'low' | 'medium' | 'high';
     status: 'open' | 'closed' | 'in_progress' | 'frozen';
     user_id: number | null;
-    updated_at: string | null;
-    created_at: string | null;
+    updated_at: string;
+    created_at: string;
     executors: TaskExecutor[];
 }
