@@ -14,7 +14,7 @@ interface RewardAssignmentFormProps {
 const RewardAssignmentForm: React.FC<RewardAssignmentFormProps> = ({ onClose, user_id }) => {
     const { authState } = useAuth();
     const { department_id } = authState;
-    const [message, setMessage] = useState<string | null>(null); // Додано стан для повідомлень
+    const [message, setMessage] = useState<string | null>(null);
 
     const { rewards, loading, error, assignUserReward } = useRewards(department_id || undefined);
     const intl = useIntl();

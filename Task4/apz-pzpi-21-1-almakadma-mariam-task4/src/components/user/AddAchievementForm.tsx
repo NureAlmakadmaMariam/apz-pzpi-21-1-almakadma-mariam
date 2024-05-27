@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createAchievement } from '../../features/achievements';
 import { FormattedMessage } from 'react-intl';
-import styles from '../../styles/AddAchievementForm.module.css'; // Підключаємо файл стилів
+import styles from '../../styles/AddAchievementForm.module.css';
 
 interface AddAchievementFormProps {
     user_id: number;

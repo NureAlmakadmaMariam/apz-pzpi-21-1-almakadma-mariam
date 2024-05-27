@@ -1,7 +1,7 @@
 // src/components/UpdatePasswordForm.tsx
 import React, { useState } from 'react';
 import { useUpdatePassword } from '../../hooks/useUpdatePassword';
-import styles from '../../styles/UpdatePasswordForm.module.css'; // Імпортуємо CSS-модуль
+import styles from '../../styles/UpdatePasswordForm.module.css';
 import { FormattedMessage } from 'react-intl';
 
 interface UpdatePasswordFormProps {

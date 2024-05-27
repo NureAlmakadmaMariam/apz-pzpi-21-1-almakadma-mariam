@@ -160,6 +160,7 @@
   "userAs.assign": "Assign",
   "show.executors": "Show executors",
   "hide.executors": "Hide executors",
-  "task.executors": "Task executors"
+  "task.executors": "Task executors",
+  "dep.add": "Add Department"
 }
 

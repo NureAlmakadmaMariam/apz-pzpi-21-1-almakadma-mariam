@@ -19,11 +19,10 @@ const DepartmentsPage: React.FC = () => {
         // Оновлення списку відділів
     };
     const handleUpdateDepartment = (departmentId: number, formData: Partial<Department>) => {
-        // Реалізуйте оновлення окремого відділу на сервері за допомогою formData та departmentId
     };
 
     const handleCreateDepartment = () => {
-        setShowCreateForm(true); // Показати форму для створення відділу
+        setShowCreateForm(true);
     };
 
     return (
@@ -31,7 +30,7 @@ const DepartmentsPage: React.FC = () => {
             <Sidebar />
             <div className={styles.mainContent}>
                 <div>
-                    <button onClick={handleCreateDepartment}>Add Department</button>
+                    <button onClick={handleCreateDepartment}><FormattedMessage id="dep.add" /></button>
                     {showCreateForm && (
                         <CreateDepartmentForm
                             companyId={companyId}

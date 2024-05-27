@@ -13,7 +13,7 @@ const TaskExecutorsList: React.FC<Props> = ({ taskId }) => {
 
     useEffect(() => {
         fetchTaskExecutorsByTaskId(taskId);
-    }, [taskId]); // Викликаємо функцію fetchTaskExecutorsByTaskId при зміні taskId
+    }, [taskId]);
 
     if (loading) return <p>Loading task executors...</p>;
     if (error) return <p>Error: {error}</p>;

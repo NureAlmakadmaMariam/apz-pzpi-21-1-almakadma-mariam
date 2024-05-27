@@ -162,5 +162,6 @@
   "userAs.assign": "Призначити",
   "show.executors": "Показати виконавців",
   "hide.executors": "Сховати виконавців",
-  "task.executors": "Виконавці завдань"
+  "task.executors": "Виконавці завдань",
+  "dep.add": "Додати відділ"
 }
