@@ -1,8 +1,9 @@
 // src/components/TaskInfo.tsx
-import React from 'react';
+import React, { useState} from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Task } from '../../interfaces/Task';
 import CommentSection from './CommentSection';
+import TaskExecutorsList from './TaskExecutorsList';
 
 interface Props {
     task: Task;
@@ -16,6 +17,8 @@ interface Props {
 }
 
 const TaskInfo: React.FC<Props> = ({ task, editTaskId, taskUpdates, handleEditClick, handleUpdateClick, handleChange, toggleComments, commentState }) => {
+    const [showTaskExecutors, setShowTaskExecutors] = useState(false);
+
     return (
         <li key={task.task_id} className="user-task-item">
             <h3>{task.description}</h3>
@@ -58,6 +61,12 @@ const TaskInfo: React.FC<Props> = ({ task, editTaskId, taskUpdates, handleEditCl
             )}
             <p><FormattedMessage id="task.createdAt" />  {new Date(task.created_at).toLocaleDateString()}</p>
             <p><FormattedMessage id="task.updated" /> {new Date(task.updated_at).toLocaleDateString() || ''}</p>
+
+            <button onClick={() => setShowTaskExecutors(!showTaskExecutors)}>
+                {showTaskExecutors ? <FormattedMessage id="hide.executors" /> : <FormattedMessage id="show.executors" />}
+            </button>
+            {showTaskExecutors && <TaskExecutorsList taskId={task.task_id} />}
+
             <button onClick={() => toggleComments(task.task_id)}>
                 {commentState[task.task_id] ?  <FormattedMessage id="comments.hide" /> :  <FormattedMessage id="comments.show" />}
             </button>

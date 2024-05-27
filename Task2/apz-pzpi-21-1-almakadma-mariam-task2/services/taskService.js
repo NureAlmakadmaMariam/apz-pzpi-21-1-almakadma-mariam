@@ -89,7 +89,7 @@ exports.getAllTasksByDepartmentId = async (department_id) => {
                 as: 'taskOwner',
                 attributes: ['first_name', 'last_name', 'department_id']
             },
-            order: [['task_id', 'ASC']] // Сортування за task_id в зростаючому порядку
+            order: [['task_id', 'DESC']]
         });
         return tasks;
     } catch (error) {

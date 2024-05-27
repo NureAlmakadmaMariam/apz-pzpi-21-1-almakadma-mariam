@@ -153,6 +153,13 @@
   "comments.hide": "Hide Comments",
   "comments.show": "Show Comments",
   "tasks.byDepartment.title": "All tasks of the department",
-  "create.button": "Create"
+  "create.button": "Create",
+  "userAs.successfully": "User assigned successfully.",
+  "userAs.failed": "Failed to assign users to task.",
+  "userAs.select": "Select user to assign to the task:",
+  "userAs.assign": "Assign",
+  "show.executors": "Show executors",
+  "hide.executors": "Hide executors",
+  "task.executors": "Task executors"
 }
 

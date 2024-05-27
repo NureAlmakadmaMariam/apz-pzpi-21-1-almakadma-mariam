@@ -11,7 +11,21 @@ exports.getAllTaskExecutors = async () => {
 };
 
 exports.getTaskExecutorsByTaskId = async (task_id) => {
-    return await TaskExecutor.findAll({ where: { task_id } });
+    const taskExecutors = await TaskExecutor.findAll({
+        where: { task_id },
+        include: [
+            {
+                model: User,
+                attributes: ['first_name', 'last_name'],
+                as: 'executor'
+            }
+        ]
+    });
+
+    return taskExecutors.map(taskExecutor => ({
+        first_name: taskExecutor.executor.first_name,
+        last_name: taskExecutor.executor.last_name,
+    }));
 };
 
 exports.deleteTaskExecutor = async (task_id, executor_id) => {

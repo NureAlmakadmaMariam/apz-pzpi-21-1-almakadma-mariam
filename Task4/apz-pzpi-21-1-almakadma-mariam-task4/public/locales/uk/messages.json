@@ -155,5 +155,12 @@
   "comments.hide": "Сховати коментарі",
   "comments.show": "Показати коменатрі",
   "tasks.byDepartment.title": "Всі завдання відділу",
-  "create.button": "Створити"
+  "create.button": "Створити",
+  "userAs.successfully": "Користувача успішно призначено.",
+  "userAs.failed": "Не вдалося призначити користувача до завдання.",
+  "userAs.select": "Виберіть користувача для призначення завдання:",
+  "userAs.assign": "Призначити",
+  "show.executors": "Показати виконавців",
+  "hide.executors": "Сховати виконавців",
+  "task.executors": "Виконавці завдань"
 }

@@ -1,0 +1,32 @@
+/* src/components/user/AssignUsersToTask.css */
+
+.assign-users-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.assign-users-header {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.assign-users-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.assign-users-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.assign-users-button:hover {
+    background-color: #0056b3;
+}
