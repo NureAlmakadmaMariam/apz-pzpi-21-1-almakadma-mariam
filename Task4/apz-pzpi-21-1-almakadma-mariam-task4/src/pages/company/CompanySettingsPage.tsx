@@ -1,6 +1,7 @@
 // CompanySettingsPage.tsx
 import React from 'react';
 import CompanySettingsForm from '../../components/company/CompanySettingsForm';
+import WorkHoursSettingsForm from '../../components/company/WorkHoursSettingsForm';
 import { useAuth } from '../../hooks/useAuth';
 import { FormattedMessage } from "react-intl";
 
@@ -14,6 +15,7 @@ const CompanySettingsPage: React.FC = () => {
     return (
         <div>
             <CompanySettingsForm companyId={authState.companyId} />
+            <WorkHoursSettingsForm companyId={authState.companyId} />
         </div>
     );
 };
