@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PerformMentor</string>
+    <string name="login_success">Успішний вхід</string>
+    <string name="login_failed">Помилка входу</string>
+    <string name="error_occurred">Виникла помилка</string>
+    <string name="email_password_required">Введіть адресу електронної пошти та пароль</string>
+</resources>

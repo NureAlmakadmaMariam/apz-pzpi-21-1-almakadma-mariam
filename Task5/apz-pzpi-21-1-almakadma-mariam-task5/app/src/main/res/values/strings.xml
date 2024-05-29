@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PerformMentor</string>
+    <string name="login_success">Login successful</string>
+    <string name="login_failed">Login failed</string>
+    <string name="error_occurred">An error occurred</string>
+    <string name="email_password_required">Please enter email and password</string>
+</resources>
