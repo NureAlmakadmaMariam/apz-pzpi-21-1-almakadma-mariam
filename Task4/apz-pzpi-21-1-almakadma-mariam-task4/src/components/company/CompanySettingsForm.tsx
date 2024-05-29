@@ -99,7 +99,7 @@ const CompanySettingsForm: React.FC<Props> = ({ companyId }) => {
                         )}
                     </p>
                     <p><strong><FormattedMessage id="lR.email" />:</strong> {company.email}</p>
-                    <p><strong><FormattedMessage id="company.createdAt" />:</strong> {new Date(company.created_at).toLocaleString()}</p>
+                    <p><strong><FormattedMessage id="company.createdAt" />:</strong> {new Date(company.created_at).toLocaleDateString()}</p>
                     <p><strong><FormattedMessage id="company.status" />:</strong> {company.status?.name}</p>
                 </div>
                 {editableFields.name || editableFields.address ? (
@@ -122,7 +122,7 @@ import React, { useState } from 'react';
 import { Company } from '../../interfaces/Company';
 import { FormattedMessage } from 'react-intl';
 import Sidebar from './Sidebar';
-import styles from '../../styles/CompanySettingsForm.module.css';
+import styles from '../../styles/CompanySettingsForm.css';
 import { FaInfoCircle } from 'react-icons/fa';
 import { updateCompany } from '../../features/companySettings'
 import {useUser} from "../../hooks/useUser";

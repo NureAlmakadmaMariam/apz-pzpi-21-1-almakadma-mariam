@@ -21,5 +21,6 @@ export const useUpdatePassword = () => {
         }
     };
 
+
     return { updatePassword, loading, error, success };
 };

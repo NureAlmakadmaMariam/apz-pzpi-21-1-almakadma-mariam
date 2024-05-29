@@ -161,6 +161,26 @@
   "show.executors": "Show executors",
   "hide.executors": "Hide executors",
   "task.executors": "Task executors",
-  "dep.add": "Add Department"
+  "dep.add": "Add Department",
+
+  "workHoursSettings": "Work Hours Settings",
+  "loading": "Loading...",
+  "max_overtime_hours_per_day": "Max Overtime Hours per Day",
+  "overtime_notification_email": "Overtime Notification Email",
+  "work_days_per_month": "Work Days per Month",
+  "hours_per_day": "Hours per Day",
+  "update.button": "Update",
+  "create.button": "Create",
+
+  "department.createDepartment": "Create Department",
+  "department.createdSuccess": "Department created successfully.",
+  "department.createError": "Failed to create department.",
+  "department.namePlaceholder": "Department Name",
+  "department.descriptionPlaceholder": "Description",
+  "department.codePlaceholder": "Department Code",
+  "department.contactNamePlaceholder": "Contact Person Name",
+  "department.contactEmailPlaceholder": "Contact Person Email",
+  "department.contactPhonePlaceholder": "Contact Person Phone",
+  "department.createButton": "Create Department"
 }
 

@@ -4,7 +4,7 @@ export interface Company {
     name: string;
     email: string;
     address: string;
-    created_at: Date;
+    created_at: string;
     subscription: Subscription;
     status: Status;
 }

@@ -163,5 +163,24 @@
   "show.executors": "Показати виконавців",
   "hide.executors": "Сховати виконавців",
   "task.executors": "Виконавці завдань",
-  "dep.add": "Додати відділ"
+  "dep.add": "Додати відділ",
+  "workHoursSettings": "Налаштування робочого часу",
+  "loading": "Завантаження...",
+  "max_overtime_hours_per_day": "Максимальні години понаднормової роботи за день",
+  "overtime_notification_email": "Електронна пошта для сповіщення про понаднормові години",
+  "work_days_per_month": "Робочі дні на місяць",
+  "hours_per_day": "Години на день",
+  "update.button": "Оновити",
+  "create.button": "Створити",
+
+  "department.createDepartment": "Створити відділ",
+  "department.createdSuccess": "Відділ успішно створено.",
+  "department.createError": "Не вдалося створити відділ.",
+  "department.namePlaceholder": "Назва відділу",
+  "department.descriptionPlaceholder": "Опис",
+  "department.codePlaceholder": "Код відділу",
+  "department.contactNamePlaceholder": "Ім'я контактної особи",
+  "department.contactEmailPlaceholder": "Електронна пошта контактної особи",
+  "department.contactPhonePlaceholder": "Телефон контактної особи",
+  "department.createButton": "Створити відділ"
 }

@@ -23,5 +23,6 @@ export const useUser = (user_id: number) => {
         fetchUser();
     }, [user_id]);
 
+
     return { user, loading, error };
 };

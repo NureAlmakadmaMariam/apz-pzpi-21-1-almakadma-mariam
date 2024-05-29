@@ -29,3 +29,4 @@ export const useRewards = (companyId: number) => {
 
     return { rewards, loading, error, setRewards, refetch };
 };
+

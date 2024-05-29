@@ -3,7 +3,7 @@ import { NavLink} from 'react-router-dom';
 import '../../styles/Sidebar.css';
 import {FormattedMessage} from "react-intl";
 import {useAuth} from "../../hooks/useAuth";
-import LogoutButton from "../company/LogoutCompButton";
+import LogoutUserButton from "./LogoutUsetButton";
 
 
 const SidebarUser: React.FC = () => {
@@ -66,7 +66,7 @@ const SidebarUser: React.FC = () => {
 
 
                     <li>
-                        <LogoutButton />
+                        <LogoutUserButton />
                     </li>
 
                 </ul>

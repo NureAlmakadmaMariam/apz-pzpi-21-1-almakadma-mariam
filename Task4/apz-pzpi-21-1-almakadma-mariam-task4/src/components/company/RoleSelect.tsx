@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { FaSave } from 'react-icons/fa'; // Імпорт іконки FaSave
+import { FaSave } from 'react-icons/fa';
 import { FormattedMessage } from "react-intl";
-import styles from '../../styles/UserList.module.css'; // Імпорт стилів
+import styles from '../../styles/UserList.module.css';
 
 interface RoleSelectProps {
     value: string;

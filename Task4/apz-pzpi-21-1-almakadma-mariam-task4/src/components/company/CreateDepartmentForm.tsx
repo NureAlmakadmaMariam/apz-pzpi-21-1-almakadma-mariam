@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { createDepartment } from '../../features/departments';
 import { Department } from '../../interfaces/Department';
 import styles from '../../styles/CreateDepartmentForm.module.css';
+import {useIntl} from "react-intl";
+
 
 interface CreateDepartmentFormProps {
     companyId: number;
@@ -21,6 +23,7 @@ const CreateDepartmentForm: React.FC<CreateDepartmentFormProps> = ({ companyId, 
         created_at: new Date(),
         updated_at: new Date()
     };
+    const intl = useIntl();
 
     const [formData, setFormData] = useState<Omit<Department, 'department_id'>>(initialFormData);
 
@@ -49,15 +52,17 @@ const CreateDepartmentForm: React.FC<CreateDepartmentFormProps> = ({ companyId, 
 
     return (
         <form onSubmit={handleSubmit} className={styles.formContainer}>
-            <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Department Name" required className={styles.inputField} />
-            <input type="text" name="description" value={formData.description} onChange={handleInputChange} placeholder="Description" className={styles.inputField} />
-            <input type="text" name="department_code" value={formData.department_code} onChange={handleInputChange} placeholder="Department Code" className={styles.inputField} />
-            <input type="text" name="contact_person_name" value={formData.contact_person_name} onChange={handleInputChange} placeholder="Contact Person Name" className={styles.inputField} />
-            <input type="email" name="contact_person_email" value={formData.contact_person_email} onChange={handleInputChange} placeholder="Contact Person Email" className={styles.inputField} />
-            <input type="text" name="contact_person_phone" value={formData.contact_person_phone} onChange={handleInputChange} placeholder="Contact Person Phone" className={styles.inputField} />
-            <button type="submit" className={styles.submitButton}>Create Department</button>
+            <h2>{intl.formatMessage({ id: 'department.createDepartment' })}</h2>
+            <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder={intl.formatMessage({ id: 'department.namePlaceholder' })} required className={styles.inputField} />
+            <input type="text" name="description" value={formData.description} onChange={handleInputChange} placeholder={intl.formatMessage({ id: 'department.descriptionPlaceholder' })} className={styles.inputField} />
+            <input type="text" name="department_code" value={formData.department_code} onChange={handleInputChange} placeholder={intl.formatMessage({ id: 'department.codePlaceholder' })} className={styles.inputField} />
+            <input type="text" name="contact_person_name" value={formData.contact_person_name} onChange={handleInputChange} placeholder={intl.formatMessage({ id: 'department.contactNamePlaceholder' })} className={styles.inputField} />
+            <input type="email" name="contact_person_email" value={formData.contact_person_email} onChange={handleInputChange} placeholder={intl.formatMessage({ id: 'department.contactEmailPlaceholder' })} className={styles.inputField} />
+            <input type="text" name="contact_person_phone" value={formData.contact_person_phone} onChange={handleInputChange} placeholder={intl.formatMessage({ id: 'department.contactPhonePlaceholder' })} className={styles.inputField} />
+            <button type="submit" className={styles.submitButton}>{intl.formatMessage({ id: 'department.createButton' })}</button>
         </form>
     );
 };
+    export default CreateDepartmentForm;
 
-export default CreateDepartmentForm;
+
