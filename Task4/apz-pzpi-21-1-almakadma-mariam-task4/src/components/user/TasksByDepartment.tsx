@@ -62,7 +62,7 @@ const TasksByDepartment: React.FC<Props> = ({ departmentId }) => {
                             toggleComments={toggleComments}
                             commentState={commentState}
                         />
-                        <AssignUsersToTask departmentId={departmentId} taskId={task.task_id} /> {/* Render AssignUsersToTask component */}
+                        <AssignUsersToTask departmentId={departmentId} taskId={task.task_id} />
                     </div>
                 ))}
             </ul>
