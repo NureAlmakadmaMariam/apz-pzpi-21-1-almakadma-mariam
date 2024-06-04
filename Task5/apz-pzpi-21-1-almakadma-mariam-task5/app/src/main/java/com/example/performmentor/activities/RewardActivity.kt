@@ -141,17 +141,16 @@ class RewardActivity : BaseActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> {
-                    // Перехід до HomeActivity
-                    startActivity(Intent(this, HomeActivity::class.java))
-                    true
-                }
                 R.id.work_hours -> {
                     // Перехід до WorkHoursActivity
                     startActivity(Intent(this, WorkHoursActivity::class.java))
                     true
                 }
                 R.id.reward -> {
+                    true
+                }
+                R.id.logout -> {
+                    finishAffinity()
                     true
                 }
                 else -> false

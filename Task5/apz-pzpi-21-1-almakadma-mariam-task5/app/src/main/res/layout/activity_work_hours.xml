@@ -1,43 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnStartWork"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/start_work"
-        android:layout_marginBottom="16dp"
-        android:onClick="onStartWorkClicked"/>
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView">
 
-    <Button
-        android:id="@+id/btnStartBreak"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/start_break"
-        android:layout_below="@id/btnStartWork"
-        android:layout_marginBottom="16dp"
-        android:onClick="onStartBreakClicked"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnEndBreak"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/end_break"
-        android:layout_below="@id/btnStartBreak"
-        android:layout_marginBottom="16dp"
-        android:onClick="onEndBreakClicked"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
 
-    <Button
-        android:id="@+id/btnEndWork"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/end_work"
-        android:layout_below="@id/btnEndBreak"
-        android:onClick="onEndWorkClicked"/>
+                <Button
+                    android:id="@+id/btnStartWork"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_work"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="onStartWorkClicked"/>
+
+                <Button
+                    android:id="@+id/btnStartBreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_break"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="onStartBreakClicked"/>
+
+                <Button
+                    android:id="@+id/btnEndBreak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/end_break"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="onEndBreakClicked"/>
+
+                <Button
+                    android:id="@+id/btnEndWork"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/end_work"
+                    android:onClick="onEndWorkClicked"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewWorkHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -46,3 +69,4 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_navigation_menu" />
 </RelativeLayout>
+

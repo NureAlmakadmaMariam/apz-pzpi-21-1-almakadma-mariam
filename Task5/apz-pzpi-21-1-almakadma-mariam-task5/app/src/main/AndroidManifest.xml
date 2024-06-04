@@ -18,8 +18,7 @@
         android:networkSecurityConfig="@xml/network_security_config">
 
 
-        <activity android:name=".activities.HomeActivity"></activity>
-        <activity android:name=".activities.WorkHoursActivity"></activity>
+        <activity android:name=".activities.WorkHoursActivity" android:exported="true"  />
         <activity android:name=".activities.RewardActivity"
             android:exported="true" />
         <activity

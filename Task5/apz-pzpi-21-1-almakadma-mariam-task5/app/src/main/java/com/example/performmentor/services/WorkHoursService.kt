@@ -5,6 +5,7 @@ import com.example.performmentor.models.WorkHours
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
+import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface WorkHoursService {
@@ -20,6 +21,9 @@ interface WorkHoursService {
 
     @POST("workH/end")
     suspend fun endWork(@Body userId: UserIdRequest): Response<Void>
+
+    @GET("workH/user/{user_id}")
+    suspend fun getAllByUser(@Path("user_id") userId: Long): Response<List<WorkHours>>
 }
 
 data class UserIdRequest(
