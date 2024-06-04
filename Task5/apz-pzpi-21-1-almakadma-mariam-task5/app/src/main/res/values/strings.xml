@@ -17,4 +17,21 @@
     <string name="physical_reward">Physical reward</string>
     <string name="virtual_reward">Virtual reward</string>
 
+    <string name="home">Home</string>
+    <string name="rewards">Reward</string>
+    <string name="work_hours">Work hours</string>
+
+    <string name="work_started_successfully">Work started successfully</string>
+    <string name="failed_to_start_work">Failed to start work</string>
+    <string name="break_started_successfully">Break started successfully</string>
+    <string name="failed_to_start_break">Failed to start break</string>
+    <string name="break_ended_successfully">Break ended successfully</string>
+    <string name="failed_to_end_break">Failed to end break</string>
+    <string name="work_ended_successfully">Work ended successfully</string>
+    <string name="failed_to_end_work">Failed to end work</string>
+
+    <string name="start_work">Start work</string>
+    <string name="end_work">End work</string>
+    <string name="start_break">Start Break</string>
+    <string name="end_break">End Break</string>
 </resources>

@@ -1,9 +1,10 @@
+
+//
 //package com.example.performmentor.activities
-//import android.content.Intent
+//
 //import android.os.Bundle
 //import android.util.Log
 //import android.widget.Toast
-//import androidx.appcompat.app.AppCompatActivity
 //import androidx.recyclerview.widget.LinearLayoutManager
 //import androidx.recyclerview.widget.RecyclerView
 //import com.example.performmentor.R
@@ -18,7 +19,8 @@
 //import kotlinx.coroutines.launch
 //import kotlinx.coroutines.withContext
 //
-//class RewardActivity : AppCompatActivity() {
+//
+//class RewardActivity : BaseActivity() {
 //
 //    private val rewardService: RewardService by lazy {
 //        RetrofitInstance.retrofit.create(RewardService::class.java)
@@ -26,13 +28,17 @@
 //
 //    private lateinit var sessionManager: SessionManager
 //
+//
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_reward)
+//        layoutInflater.inflate(R.layout.activity_reward, findViewById(R.id.activity_content), true)
 //
 //        sessionManager = SessionManager(this)
+//
+//
 //        loadRewards()
 //    }
+//
 //
 //    private fun loadRewards() {
 //        CoroutineScope(Dispatchers.IO).launch {
@@ -49,7 +55,7 @@
 //                } ?: run {
 //                    Log.e("RewardActivity", "User ID not found in session")
 //                    withContext(Dispatchers.Main) {
-//                        Toast.makeText(this@RewardActivity,  R.string.user_id_not_found, Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(this@RewardActivity, R.string.user_id_not_found, Toast.LENGTH_SHORT).show()
 //                    }
 //                }
 //            } catch (e: Exception) {
@@ -65,7 +71,7 @@
 //        val layoutManager = LinearLayoutManager(this)
 //        val recyclerView = findViewById<RecyclerView>(R.id.rewardRecyclerView)
 //        recyclerView.layoutManager = layoutManager
-//        val adapter = RewardAdapter(rewards) { userReward ->
+//        val adapter = RewardAdapter(this, rewards) { userReward ->
 //            redeemReward(userReward)
 //        }
 //        recyclerView.adapter = adapter
@@ -84,15 +90,17 @@
 //            } catch (e: Exception) {
 //                Log.e("RewardActivity", "Failed to redeem reward", e)
 //                withContext(Dispatchers.Main) {
-//                    Toast.makeText(this@RewardActivity,  R.string.failed_to_redeem_reward, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@RewardActivity, R.string.failed_to_redeem_reward, Toast.LENGTH_SHORT).show()
 //                }
 //            }
 //        }
 //    }
 //}
 
+
 package com.example.performmentor.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -105,11 +113,11 @@ import com.example.performmentor.models.RewardResponse
 import com.example.performmentor.network.RetrofitInstance
 import com.example.performmentor.services.RewardService
 import com.example.performmentor.util.SessionManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
 
 class RewardActivity : BaseActivity() {
 
@@ -119,17 +127,37 @@ class RewardActivity : BaseActivity() {
 
     private lateinit var sessionManager: SessionManager
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         layoutInflater.inflate(R.layout.activity_reward, findViewById(R.id.activity_content), true)
 
         sessionManager = SessionManager(this)
 
-
+        setupBottomNavigationView()
         loadRewards()
     }
 
+    private fun setupBottomNavigationView() {
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    // Перехід до HomeActivity
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    true
+                }
+                R.id.work_hours -> {
+                    // Перехід до WorkHoursActivity
+                    startActivity(Intent(this, WorkHoursActivity::class.java))
+                    true
+                }
+                R.id.reward -> {
+                    true
+                }
+                else -> false
+            }
+        }
+    }
 
     private fun loadRewards() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -187,6 +215,4 @@ class RewardActivity : BaseActivity() {
         }
     }
 }
-
-
 

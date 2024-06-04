@@ -17,5 +17,21 @@
     <string name="physical_reward">Фізична винагорода</string>
     <string name="virtual_reward">Віртуальна винагорода</string>
 
+    <string name="home">Головна</string>
+    <string name="rewards">Нагорода</string>
+    <string name="work_hours">Години роботи</string>
 
+    <string name="work_started_successfully">Робота почалася успішно</string>
+    <string name="failed_to_start_work">Не вдалося розпочати роботу</string>
+    <string name="break_started_successfully">Перерва почалася успішно</string>
+    <string name="failed_to_start_break">Не вдалося розпочати перерву</string>
+    <string name="break_ended_successfully">Перерва завершилася успішно</string>
+    <string name="failed_to_end_break">Не вдалося завершити перерву</string>
+    <string name="work_ended_successfully">Робота завершилася успішно</string>
+    <string name="failed_to_end_work">Не вдалося завершити роботу</string>
+
+    <string name="start_work">Початок роботи</string>
+    <string name="end_work">Кінець роботи</string>
+    <string name="start_break">Початок перерви</string>
+    <string name="end_break">Кінець перерви</string>
 </resources>
