@@ -21,6 +21,8 @@ class LoginActivity : BaseActivity() {
     private lateinit var emailInput: EditText
     private lateinit var passwordInput: EditText
     private lateinit var loginBtn: Button
+    private lateinit var btnEnglish: Button
+    private lateinit var btnUkrainian: Button
     private lateinit var sessionManager: SessionManager
     private val authService: AuthService by lazy {
         RetrofitInstance.retrofit.create(AuthService::class.java)
@@ -35,6 +37,8 @@ class LoginActivity : BaseActivity() {
         emailInput = findViewById(R.id.email_input)
         passwordInput = findViewById(R.id.password_input)
         loginBtn = findViewById(R.id.login_btn)
+        btnEnglish = findViewById(R.id.btn_english)
+        btnUkrainian = findViewById(R.id.btn_ukrainian)
 
         loginBtn.setOnClickListener {
             val email = emailInput.text.toString().trim()
@@ -45,6 +49,14 @@ class LoginActivity : BaseActivity() {
             } else {
                 Toast.makeText(this, R.string.email_password_required, Toast.LENGTH_SHORT).show()
             }
+        }
+
+        btnEnglish.setOnClickListener {
+            updateLocale("en")
+        }
+
+        btnUkrainian.setOnClickListener {
+            updateLocale("uk")
         }
     }
 

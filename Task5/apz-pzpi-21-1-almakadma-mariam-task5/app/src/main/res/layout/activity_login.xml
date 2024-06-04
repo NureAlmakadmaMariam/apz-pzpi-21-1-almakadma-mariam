@@ -10,8 +10,8 @@
     android:padding="16dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="382dp"
+        android:layout_height="657dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -21,40 +21,64 @@
             android:src="@drawable/icon_account_circle" />
 
         <EditText
+            android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_corner"
             android:hint="@string/email_hint"
+            android:inputType="textEmailAddress"
+            android:padding="18dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="textEmailAddress"
-            android:id="@+id/email_input" />
+            android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/password_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_corner"
             android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:padding="18dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="textPassword"
-            android:id="@+id/password_input" />
+            android:textSize="20sp" />
 
         <Button
+            android:id="@+id/login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_button"
-            android:backgroundTint="@color/white"
-            android:textColor="#3B84F1"
-            android:padding="18dp"
             android:layout_marginTop="32dp"
-            android:textSize="20sp"
-            android:id="@+id/login_btn" />
+            android:backgroundTint="@color/white"
+            android:padding="18dp"
+            android:text="@string/login_button"
+            android:textColor="#3B84F1"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/language_buttons">
+
+        <Button
+            android:id="@+id/btn_english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EN" />
+
+        <Button
+            android:id="@+id/btn_ukrainian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UA"
+            android:layout_marginStart="16dp" />
     </LinearLayout>
 </RelativeLayout>
+
