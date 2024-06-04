@@ -1,5 +1,7 @@
 package com.example.performmentor.adapters
 
+import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,7 @@ import com.example.performmentor.R
 import com.example.performmentor.models.UserReward
 
 class RewardAdapter(
+    private val context: Context,
     private val rewards: List<UserReward>,
     private val onTakeRewardClick: (UserReward) -> Unit
 ) : RecyclerView.Adapter<RewardAdapter.RewardViewHolder>() {
@@ -34,8 +37,18 @@ class RewardAdapter(
         holder.titleTextView.text = reward.title
         holder.descriptionTextView.text = reward.description
         holder.rewardPointsRequired.text = reward.points_required.toString()
-        holder.rewardType.text = reward.type
-        holder.rewardRedeemed.text = if (currentReward.redeemed) "Was Taken" else "Was not taken"
+
+        holder.rewardType.text = when (reward.type) {
+            "physical" -> context.getString(R.string.physical_reward)
+            "virtual" -> context.getString(R.string.virtual_reward)
+            else -> reward.type
+        }
+        holder.rewardRedeemed.text = if (currentReward.redeemed) {
+            context.getString(R.string.was_taken)
+        } else {
+            context.getString(R.string.was_not_taken)
+        }
+
         holder.takeRewardButton.visibility = if (currentReward.redeemed) View.GONE else View.VISIBLE
         holder.takeRewardButton.setOnClickListener {
             onTakeRewardClick(currentReward)

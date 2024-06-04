@@ -53,7 +53,7 @@
         android:id="@+id/take_reward_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Take Reward"
+        android:text="@string/take_reward"
         android:layout_marginTop="8dp"/>
 
 

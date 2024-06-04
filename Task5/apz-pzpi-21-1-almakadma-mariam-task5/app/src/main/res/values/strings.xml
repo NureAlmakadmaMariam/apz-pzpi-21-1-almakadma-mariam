@@ -4,4 +4,17 @@
     <string name="login_failed">Login failed</string>
     <string name="error_occurred">An error occurred</string>
     <string name="email_password_required">Please enter email and password</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="user_id_not_found">User ID not found in session</string>
+    <string name="failed_to_load_rewards">Failed to load rewards</string>
+    <string name="reward_redeemed_successfully">Reward redeemed successfully!</string>
+    <string name="failed_to_redeem_reward">Failed to redeem reward</string>
+    <string name="take_reward">Take Reward</string>
+    <string name="was_taken">Was taken</string>
+    <string name="was_not_taken">Was not taken</string>
+    <string name="physical_reward">Physical reward</string>
+    <string name="virtual_reward">Virtual reward</string>
+
 </resources>

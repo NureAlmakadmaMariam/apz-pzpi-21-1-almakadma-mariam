@@ -1,11 +1,11 @@
 package com.example.performmentor.activities
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.performmentor.R
 import com.example.performmentor.models.LoginRequest
 import com.example.performmentor.models.User
@@ -16,7 +16,7 @@ import kotlinx.coroutines.*
 import retrofit2.HttpException
 import retrofit2.Response
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private lateinit var emailInput: EditText
     private lateinit var passwordInput: EditText
@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        layoutInflater.inflate(R.layout.activity_login, findViewById(R.id.activity_content), true)
 
         sessionManager = SessionManager(this)
 
@@ -43,9 +43,15 @@ class LoginActivity : AppCompatActivity() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 login(email, password)
             } else {
-                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.email_password_required, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun updateTexts() {
+        emailInput.hint = getString(R.string.email_hint)
+        passwordInput.hint = getString(R.string.password_hint)
+        loginBtn.text = getString(R.string.login_button)
     }
 
     private fun login(email: String, password: String) {
@@ -58,34 +64,33 @@ class LoginActivity : AppCompatActivity() {
                     user?.let {
                         sessionManager.saveUserId(it.userId)
                         runOnUiThread {
-                            Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginActivity, R.string.login_success, Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this@LoginActivity, RewardActivity::class.java))
                             finish()
                         }
                     } ?: run {
                         Log.e("LoginActivity", "User ID not found in the response")
                         runOnUiThread {
-                            Toast.makeText(this@LoginActivity, "An error occurred", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginActivity, R.string.error_occurred, Toast.LENGTH_SHORT).show()
                         }
                     }
                 } else {
                     Log.e("LoginActivity", "Login failed: ${response.message()}")
                     runOnUiThread {
-                        Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, R.string.login_failed, Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: HttpException) {
                 Log.e("LoginActivity", "HTTP Error: ${e.message()}")
                 runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, R.string.login_failed, Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Throwable) {
                 Log.e("LoginActivity", "Error: ${e.message}")
                 runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "An error occurred", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, R.string.error_occurred, Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 }
-

@@ -4,4 +4,18 @@
     <string name="login_failed">Помилка входу</string>
     <string name="error_occurred">Виникла помилка</string>
     <string name="email_password_required">Введіть адресу електронної пошти та пароль</string>
+    <string name="email_hint">Електронна пошта</string>
+    <string name="password_hint">Пароль</string>
+    <string name="login_button">Увійти</string>
+    <string name="user_id_not_found">Ідентифікатор користувача не знайдено в сеансі</string>
+    <string name="failed_to_load_rewards">Не вдалося завантажити винагороди</string>
+    <string name="reward_redeemed_successfully">Винагороду успішно отримано!</string>
+    <string name="failed_to_redeem_reward">Не вдалося отримати винагороду</string>
+    <string name="take_reward">Забрати винагороду</string>
+    <string name="was_taken">Нагороду забрали</string>
+    <string name="was_not_taken">Нагороду не забрали</string>
+    <string name="physical_reward">Фізична винагорода</string>
+    <string name="virtual_reward">Віртуальна винагорода</string>
+
+
 </resources>
