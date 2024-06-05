@@ -1,4 +1,4 @@
-package com.example.performmentor.activities
+package com.example.performmentor.util
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -22,6 +22,5 @@ open class BaseActivity : AppCompatActivity() {
         updateTexts()
     }
 
-    // Override this method in derived activities to update texts
     open fun updateTexts() {}
 }
