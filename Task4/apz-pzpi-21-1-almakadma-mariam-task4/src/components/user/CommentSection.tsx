@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { useComments } from '../../hooks/useComments';
 import { Comment } from '../../interfaces/Comment';
 import {FormattedMessage, useIntl} from "react-intl";
+import {useAuth} from "../../hooks/useAuth";
 
 interface Props {
     taskId: number;
 }
 
 const CommentSection: React.FC<Props> = ({ taskId }) => {
+    const { authState } = useAuth();
+    const userId= authState.user_id;
     const { comments, addComment, removeComment, useFetchCommentsByTaskId, error } = useComments();
     const [newCommentText, setNewCommentText] = useState('');
     const [loading, setLoading] = useState(false);
@@ -20,7 +23,10 @@ const CommentSection: React.FC<Props> = ({ taskId }) => {
         if (newCommentText.trim() !== '') {
             setLoading(true);
             try {
-                await addComment(newCommentText, taskId, 1);
+                if (userId === null || userId === undefined) {
+                    throw new Error('User ID is not available');
+                }
+                await addComment(newCommentText, taskId, userId);
                 setNewCommentText('');
             } catch (err) {
                 console.error('Failed to add comment:', err);
@@ -54,7 +60,7 @@ const CommentSection: React.FC<Props> = ({ taskId }) => {
 
                     <li key={comment.comment_id}>
                         <p>{comment?.text ?? <FormattedMessage id="no.textA" />}</p>
-                        <p>{comment?.user?.email ?? <FormattedMessage id="no.emailA" />}</p>
+                        <p>{comment.user.email ?? <FormattedMessage id="no.emailA" />}</p>
                         <button onClick={() => handleRemoveComment(comment.comment_id)}><FormattedMessage id="delete" /></button>
                     </li>
                 ))}

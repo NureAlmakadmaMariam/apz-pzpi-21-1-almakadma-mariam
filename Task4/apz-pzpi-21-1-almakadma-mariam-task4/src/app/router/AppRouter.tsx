@@ -1,6 +1,6 @@
 // src/app/router/AppRouter.tsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from '../../pages/company/LoginPage';
 import RegistrationPage from '../../pages/company/RegistrationPage';
 import CompanySettingsPage from "../../pages/company/CompanySettingsPage";
@@ -18,6 +18,7 @@ export const AppRouter: React.FC = () => {
     return (
         <Router>
             <Routes>
+                <Route path="/" element={<Navigate to="/login" replace />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/registration" element={<RegistrationPage />} />
                 <Route path="/company-settings" element={<CompanySettingsPage />} />
@@ -32,6 +33,7 @@ export const AppRouter: React.FC = () => {
                 <Route path="/user-reward" element={<UserRewardsPage />} />
                 <Route path="/user-task" element={<UserTasksPage />} />
                 <Route path="/manager-task" element={<TasksByDepartmentPage />} />
+
             </Routes>
         </Router>
     );
